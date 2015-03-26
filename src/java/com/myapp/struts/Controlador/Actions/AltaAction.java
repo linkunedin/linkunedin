@@ -22,7 +22,7 @@ public class AltaAction extends org.apache.struts.action.Action {
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
     private static final String ERROR = "error";
-    private static final String otro = "error";
+   
     /**
      * This is the action called from the Struts framework.
      *
