@@ -40,7 +40,7 @@ public class AltaAction extends org.apache.struts.action.Action {
         AltaForm altaform = (AltaForm) form;
         
         // comprobar si existe usuario
-        
+        // esto es un cambio de prueba
         // crear usuario si no existe
         
         // si ok devolver a la pagina principal
