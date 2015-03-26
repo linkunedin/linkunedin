@@ -50,5 +50,8 @@ public class AltaAction extends org.apache.struts.action.Action {
         // si no ok devolver a la misma pagina de alta
         else
             return mapping.findForward(ERROR);
+        
+        // prueba cambio
+        // asdsad asd
     }
 }
