@@ -23,5 +23,6 @@
         <h3><bean:message key="welcome.heading"/></h3>
         <p><bean:message key="welcome.message"/></p>
         <p>Esto lo agregó Juancho pa probar</p>
+        <p>Desde netbeans</p>
     </body>
 </html:html>
