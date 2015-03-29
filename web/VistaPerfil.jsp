@@ -1,7 +1,7 @@
 <%-- 
-    Document   : prueba2
-    Created on : 26-mar-2015, 21:40:25
-    Author     : Administrador
+    Document   : VistaPerfil
+    Created on : 29-mar-2015, 11:57:26
+    Author     : david
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
