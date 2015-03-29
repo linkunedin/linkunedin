@@ -24,5 +24,6 @@
         <p><bean:message key="welcome.message"/></p>
         <p>Esto lo agregó Juancho pa probar</p>
         <p>Desde netbeans </p>
+        <p>Otra prueba de juancho</p>
     </body>
 </html:html>
