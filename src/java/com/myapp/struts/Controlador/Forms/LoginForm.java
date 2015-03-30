@@ -18,7 +18,7 @@ import org.apache.struts.action.ActionMessage;
  */
 public class LoginForm extends org.apache.struts.action.ActionForm {
     
-    private String user, pwd;
+    private String user, password;
 
     public String getUser() {
         return user;
@@ -28,12 +28,12 @@ public class LoginForm extends org.apache.struts.action.ActionForm {
         this.user = user;
     }
 
-    public String getPwd() {
-        return pwd;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
+    public void setPassword(String password) {
+        this.password = password;
     }
     
     
@@ -55,10 +55,14 @@ public class LoginForm extends org.apache.struts.action.ActionForm {
      */
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
-        /*if (getName() == null || getName().length() < 1) {
-            errors.add("name", new ActionMessage("error.name.required"));
-            // TODO: add 'error.name.required' key to your resources
-        }*/
+        
+        if (getUser() == null || getUser().length() < 1) {
+            errors.add("user", new ActionMessage("error.user.required"));
+        }
+        if (getPassword() == null || getPassword().length() < 1) {
+            errors.add("password", new ActionMessage("error.password.required"));
+        }
+
         return errors;
     }
 }

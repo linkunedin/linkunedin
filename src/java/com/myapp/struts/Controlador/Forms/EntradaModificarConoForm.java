@@ -5,10 +5,23 @@
  */
 package com.myapp.struts.Controlador.Forms;
 
+import javax.servlet.http.HttpServletRequest;
+import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionMapping;
+
 /**
  *
  * @author david
  */
-public class EntradaModificarConoForm {
+public class EntradaModificarConoForm extends org.apache.struts.action.ActionForm{
+  
     
+    
+    
+    
+        public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
+        ActionErrors errors = new ActionErrors();
+        
+        return errors;
+    }
 }

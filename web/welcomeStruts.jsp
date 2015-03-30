@@ -33,33 +33,33 @@
             </div>
         </logic:notPresent>
         
-        
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="row">
-                    <div class="col-lg-6">
-                         <p class="rojo negrita">Desde netbeans </p>
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <p class="rojo negrita">Desde netbeans </p>
+                        </div>
+                        <div class="col-lg-6">
+                            <p id="p1">Desde netbeans </p>
+                        </div>
                     </div>
-                    <div class="col-lg-6">
-                         <p id="p1">Desde netbeans </p>
-                    </div>
+                    <h3><bean:message key="welcome.heading"/></h3>
+                    <p><bean:message key="welcome.message"/></p>
+                    <p class="negrita">Esto lo agregó Juancho pa probar</p>
+                    <p class="negrita">Desde netbeans </p>
+                    <p class="negrita">Otra prueba de juancho</p>
                 </div>
-                <h3><bean:message key="welcome.heading"/></h3>
-                <p><bean:message key="welcome.message"/></p>
-                <p class="negrita">Esto lo agregó Juancho pa probar</p>
-                <p class="negrita">Desde netbeans </p>
-                <p class="negrita">Otra prueba de juancho</p>
-            </div>
                 <div class="col-lg-3">
                     <h2>2da columna</h2>
                 </div>
                 <div class="col-lg-3">
                     <h2>3ra columna</h2>
                 </div>
-            <div class="col-lg-3">
+                <div class="col-lg-3">
                     <h2>3ra columna</h2>
                 </div>
-        </div>
+            </div>
         </div>
         
     </body>

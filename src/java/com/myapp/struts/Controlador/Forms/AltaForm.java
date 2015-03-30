@@ -80,6 +80,25 @@ public class AltaForm extends org.apache.struts.action.ActionForm {
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
         
+        if (getNombre() == null || getNombre().length() < 1) {
+            errors.add("name", new ActionMessage("error.name.required"));
+        }
+        if (getEmail() == null || getEmail().length() < 1) {
+            errors.add("email", new ActionMessage("error.email.required"));
+        }
+
+        if (getPassword() == null || getPassword().length() < 1) {
+            errors.add("password", new ActionMessage("error.password.required"));
+        }
+
+        if (getApellidos() == null || getApellidos().length() < 1) {
+            errors.add("apellidos", new ActionMessage("error.apellidos.required"));
+        }
+
+        if (getNomusuario()== null || getNomusuario().length() < 1) {
+            errors.add("nomusuario", new ActionMessage("error.nomusuario.required"));
+        }
+
         return errors;
     }
 }

@@ -8,29 +8,14 @@ package com.myapp.struts.Controlador.Forms;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
 
 /**
  *
  * @author david
  */
-public class BajaForm {
+public class BajaForm extends org.apache.struts.action.ActionForm {
     private String nombre, apellidos, nomusuario, password, email, rutafoto;
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
 
     public String getNomusuario() {
         return nomusuario;
@@ -48,23 +33,6 @@ public class BajaForm {
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getRutafoto() {
-        return rutafoto;
-    }
-
-    public void setRutafoto(String rutafoto) {
-        this.rutafoto = rutafoto;
-    }
-    
-    
 
     /**
      * This is the action called from the Struts framework.
@@ -75,7 +43,15 @@ public class BajaForm {
      */
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
-        
+
+        if (getPassword() == null || getPassword().length() < 1) {
+            errors.add("password", new ActionMessage("error.password.required"));
+        }
+
+        if (getNomusuario() == null || getNomusuario().length() < 1) {
+            errors.add("nomusuario", new ActionMessage("error.nomusuario.required"));
+        }
+
         return errors;
     }
 }   

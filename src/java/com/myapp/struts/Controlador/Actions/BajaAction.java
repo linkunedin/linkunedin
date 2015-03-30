@@ -9,7 +9,7 @@ package com.myapp.struts.Controlador.Actions;
  *
  * @author david
  */
-import com.myapp.struts.Controlador.Forms.AltaForm;
+import com.myapp.struts.Controlador.Forms.BajaForm;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
@@ -40,7 +40,7 @@ public class BajaAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        AltaForm altaform = (AltaForm) form; 
+        BajaForm bajaform = (BajaForm) form;
         
         // comprobar si existe usuario
         // esto es un cambio de prueba

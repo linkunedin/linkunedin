@@ -79,6 +79,27 @@ public class ExperienciaForm extends org.apache.struts.action.ActionForm {
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
         
+                
+        if (getEmpresa() == null || getEmpresa().length() < 1) {
+            errors.add("empresa", new ActionMessage("error.empresa.required"));
+        }
+        if (getPuesto() == null || getPuesto().length() < 1) {
+            errors.add("puesto", new ActionMessage("error.puesto.required"));
+        }
+
+        if (getDescripcion() == null || getDescripcion().length() < 1) {
+            errors.add("descripcion", new ActionMessage("error.descripcion.required"));
+        }
+
+        if (getFechainicio() == null || getFechainicio().length() < 1) {
+            errors.add("fechainicio", new ActionMessage("error.fechainicio.required"));
+        }
+
+        if (getFechafin()== null || getFechafin().length() < 1) {
+            errors.add("fechafin", new ActionMessage("error.fechafin.required"));
+        }
+
+        
         return errors;
     }
 }

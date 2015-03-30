@@ -55,6 +55,15 @@ public class FuncionalidadForm extends org.apache.struts.action.ActionForm {
      */
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
+                
+        if (getEstado() == null || getEstado().length() < 1) {
+            errors.add("estado", new ActionMessage("error.estado.required"));
+        }
+        if (getFuncionalidad() == null || getFuncionalidad().length() < 1) {
+            errors.add("titulo", new ActionMessage("error.titulo.required"));
+        }
+
+
         
         return errors;
     }
