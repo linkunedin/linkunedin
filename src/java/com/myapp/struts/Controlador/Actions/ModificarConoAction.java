@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package com.myapp.struts.Controlador.Actions;
 
+import com.myapp.struts.Controlador.Forms.EntradaModificarConoForm;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
@@ -13,17 +15,17 @@ import org.apache.struts.action.ActionMapping;
 
 /**
  *
- * @author david
+ * @author Administrador
  */
+public class ModificarConoAction extends org.apache.struts.action.Action {
 
-public class ModificarConoAction extends org.apache.struts.action.Action{
- 
     private static final String SUCCESS = "success";
     private static final String ERROR = "error";
 
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+        EntradaModificarConoForm formu = (EntradaModificarConoForm) form;
         // si ok devolver a la pagina principal
         if (true) {
             return mapping.findForward(SUCCESS);
@@ -32,5 +34,4 @@ public class ModificarConoAction extends org.apache.struts.action.Action{
             return mapping.findForward(ERROR);
         }
     }
-    
 }

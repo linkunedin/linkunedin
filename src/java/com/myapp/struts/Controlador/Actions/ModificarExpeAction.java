@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package com.myapp.struts.Controlador.Actions;
 
+import com.myapp.struts.Controlador.Forms.ExperienciaForm;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
@@ -13,7 +15,7 @@ import org.apache.struts.action.ActionMapping;
 
 /**
  *
- * @author david
+ * @author Administrador
  */
 public class ModificarExpeAction extends org.apache.struts.action.Action {
 
@@ -23,6 +25,7 @@ public class ModificarExpeAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+        ExperienciaForm formu = (ExperienciaForm) form;
         // si ok devolver a la pagina principal
         if (true) {
             return mapping.findForward(SUCCESS);

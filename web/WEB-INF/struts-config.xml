@@ -7,8 +7,10 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="ModificarExpe" type="com.myapp.struts.Controlador.Forms.ModificarExpe"/>
         <form-bean name="EntradaModificarPerfilForm" type="com.myapp.struts.Controlador.Forms.EntradaModificarPerfilForm"/>
         <form-bean name="FuncionalidadForm" type="com.myapp.struts.Controlador.Forms.FuncionalidadForm"/>
+        <form-bean name="EntradaModificarConoForm" type="com.myapp.struts.Controlador.Forms.EntradaModificarConoForm"/>
         <form-bean name="ConocimientoForm" type="com.myapp.struts.Controlador.Forms.ConocimientoForm"/>
         <form-bean name="ExperienciaForm" type="com.myapp.struts.Controlador.Forms.ExperienciaForm"/>
         <form-bean name="AltaForm" type="com.myapp.struts.Controlador.Forms.AltaForm"/>
@@ -28,6 +30,9 @@
     </global-forwards>
 
     <action-mappings>
+        <action input="/" name="EntradaModificarPerfilForm" path="/modificarCono" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarConoAction"/>
+        <action input="/" name="FuncionalidadForm" path="/modificarFunc" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarFuncAction"/>
+        <action input="/" name="ModificarExpe" path="/modificarExpe" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarExpeAction"/>
         <action input="/" name="EntradaModificarPerfilForm" path="/modificarperfil" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarPerfilAction"/>
         <action input="/" name="AltaForm" path="/alta" scope="request" type="com.myapp.struts.Controlador.Actions.AltaAction"/>
         <action input="/" name="CreateUserForm" path="/createuser" scope="request" type="com.myapp.struts.Controlador.Actions.CreateUser" validate="false"/>
