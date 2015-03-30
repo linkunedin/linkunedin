@@ -1,3 +1,3 @@
 # linkunedin
 Práctica de Tecnologias Web - Linkunedin
-Que dios nos ayude.
+- Fail, try again, fail better
