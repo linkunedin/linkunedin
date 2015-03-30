@@ -13,15 +13,15 @@
         <html:base/>
         
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="http://localhost:8080/PracticaPruebastweb/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://localhost:8084/PracticaPruebastweb/bootstrap/css/bootstrap.min.css">
 
         <!-- Optional theme -->
-        <link rel="stylesheet" href="http://localhost:8080/PracticaPruebastweb/bootstrap/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="http://localhost:8084/PracticaPruebastweb/bootstrap/css/bootstrap-theme.min.css">
 
         <!-- Latest compiled and minified JavaScript -->
-        <script src="http://localhost:8080/PracticaPruebastweb/bootstrap/js/bootstrap.min.js"></script>
+        <script src="http://localhost:8084/PracticaPruebastweb/bootstrap/js/bootstrap.min.js"></script>
         
-        <link rel="stylesheet" href="http://localhost:8080/PracticaPruebastweb/css/style.css">
+        <link rel="stylesheet" href="http://localhost:8084/PracticaPruebastweb/css/style.css">
 
     </head>
     <body style="background-color: white">
