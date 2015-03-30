@@ -7,6 +7,8 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="PerfilCompletoForm" type="com.myapp.struts.Controlador.Forms.PerfilCompletoForm"/>
+        <form-bean name="BusquedaForm" type="com.myapp.struts.Controlador.Forms.BusquedaForm"/>
         <form-bean name="ModificarExpe" type="com.myapp.struts.Controlador.Forms.ModificarExpe"/>
         <form-bean name="EntradaModificarPerfilForm" type="com.myapp.struts.Controlador.Forms.EntradaModificarPerfilForm"/>
         <form-bean name="FuncionalidadForm" type="com.myapp.struts.Controlador.Forms.FuncionalidadForm"/>
@@ -18,6 +20,7 @@
         <form-bean name="CreateProfileForm" type="com.myapp.struts.Controlador.Forms.CreateProfileForm"/>
         <form-bean name="CreateUserForm" type="com.myapp.struts.Controlador.Forms.CreateUserForm"/>
         <form-bean name="Login" type="com.myapp.struts.Controlador.Actions.Login"/>
+        <form-bean name="EducacionForm" type="com.myapp.struts.Controlador.Actions.EducacionForm"/>
     
     </form-beans>
     
@@ -30,6 +33,10 @@
     </global-forwards>
 
     <action-mappings>
+        <action input="/" name="ConocimientoForm" path="/anadirConocimiento" scope="request" type="com.myapp.struts.Controlador.Actions.AnadirConocimientoAction"/>
+        <action input="/" name="ExperienciaForm" path="/anadirExpe" scope="request" type="com.myapp.struts.Controlador.Actions.AnadirExpeAction"/>
+        <action input="/" name="EducacionForm" path="/anadirEducacion" scope="request" type="com.myapp.struts.Controlador.Actions.AnadirEducacionAction"/>
+        <action input="/" name="EducacionForm" path="/modificarEducacion" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarEducacionAction"/>
         <action input="/" name="EntradaModificarPerfilForm" path="/modificarCono" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarConoAction"/>
         <action input="/" name="FuncionalidadForm" path="/modificarFunc" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarFuncAction"/>
         <action input="/" name="ModificarExpe" path="/modificarExpe" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarExpeAction"/>
