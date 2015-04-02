@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package persistencia.scripts;
+package com.myapp.struts.pruebas;
 
 import java.util.List;
 import java.util.logging.Level;
