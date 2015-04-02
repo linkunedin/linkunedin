@@ -13,7 +13,7 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
 /**
- *
+ * prueba de cambio
  * @author Administrador
  */
 public class BusquedaForm extends org.apache.struts.action.ActionForm {
