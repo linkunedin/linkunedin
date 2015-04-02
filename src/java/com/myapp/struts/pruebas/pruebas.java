@@ -22,7 +22,7 @@ import com.myapp.struts.persistencia.entidades.Usuarios;
  */
 public class pruebas {
     public static void main(String[] args){
-        EntityManagerFactory em = Persistence.createEntityManagerFactory("PracticaPruebastwebPUHsql");
+        EntityManagerFactory em = Persistence.createEntityManagerFactory("PracticaPruebastwebPUHsql3");
         
         UsuariosJpaController ujc = new UsuariosJpaController(em);
         
