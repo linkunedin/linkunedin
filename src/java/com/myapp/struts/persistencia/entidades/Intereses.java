@@ -126,7 +126,9 @@ public class Intereses implements Serializable {
 
     @Override
     public String toString() {
-        return "com.myapp.struts.persistencia.entidades.Intereses[ id=" + id + " ]";
+        return "Intereses{" + "id=" + id + ", titulo=" + titulo + ", descripcion=" + descripcion + ", valido=" + valido + ", usuariosCollection=" + usuariosCollection + '}';
     }
+
+    
     
 }

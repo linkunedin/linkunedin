@@ -169,7 +169,9 @@ public class Educacion implements Serializable {
 
     @Override
     public String toString() {
-        return "com.myapp.struts.persistencia.entidades.Educacion[ id=" + id + " ]";
+        return "Educacion{" + "id=" + id + ", centroEstudios=" + centroEstudios + ", titulacion=" + titulacion + ", actividades=" + actividades + ", descripcion=" + descripcion + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", valido=" + valido + ", usuarioId=" + usuarioId + '}';
     }
+
+    
     
 }

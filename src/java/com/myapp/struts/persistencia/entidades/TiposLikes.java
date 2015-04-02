@@ -73,7 +73,9 @@ public class TiposLikes implements Serializable {
 
     @Override
     public String toString() {
-        return "com.myapp.struts.persistencia.entidades.TiposLikes[ idtiposLikes=" + idtiposLikes + " ]";
+        return "TiposLikes{" + "idtiposLikes=" + idtiposLikes + '}';
     }
+
+    
     
 }

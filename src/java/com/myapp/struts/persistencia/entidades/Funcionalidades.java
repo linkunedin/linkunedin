@@ -81,7 +81,9 @@ public class Funcionalidades implements Serializable {
 
     @Override
     public String toString() {
-        return "com.myapp.struts.persistencia.entidades.Funcionalidades[ funcionalidad=" + funcionalidad + " ]";
+        return "Funcionalidades{" + "funcionalidad=" + funcionalidad + ", activo=" + activo + '}';
     }
+
+    
     
 }

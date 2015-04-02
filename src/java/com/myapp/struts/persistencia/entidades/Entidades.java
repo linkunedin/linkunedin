@@ -103,7 +103,9 @@ public class Entidades implements Serializable {
 
     @Override
     public String toString() {
-        return "com.myapp.struts.persistencia.entidades.Entidades[ id=" + id + " ]";
+        return "Entidades{" + "id=" + id + ", nombre=" + nombre + ", usuariosCollection=" + usuariosCollection + '}';
     }
+
+    
     
 }

@@ -210,7 +210,9 @@ public class Usuarios implements Serializable {
 
     @Override
     public String toString() {
-        return "com.myapp.struts.persistencia.entidades.Usuarios[ id=" + id + " ]";
+        return "Usuarios{" + "id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", nombreUsuario=" + nombreUsuario + ", password=" + password + ", admin=" + admin + ", email=" + email + ", valido=" + valido + ", perfil=" + perfil + ", interesesCollection=" + interesesCollection + ", entidadesCollection=" + entidadesCollection + ", educacionCollection=" + educacionCollection + ", experienciasCollection=" + experienciasCollection + '}';
     }
+
+    
     
 }

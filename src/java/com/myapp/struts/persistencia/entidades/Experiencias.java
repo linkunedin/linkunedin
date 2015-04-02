@@ -169,7 +169,9 @@ public class Experiencias implements Serializable {
 
     @Override
     public String toString() {
-        return "com.myapp.struts.persistencia.entidades.Experiencias[ id=" + id + " ]";
+        return "Experiencias{" + "id=" + id + ", empresa=" + empresa + ", puesto=" + puesto + ", actividades=" + actividades + ", descripcion=" + descripcion + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", valido=" + valido + ", usuarioId=" + usuarioId + '}';
     }
+
+    
     
 }
