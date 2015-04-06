@@ -52,7 +52,7 @@ public class Usuarios implements Serializable {
     private String nombre;
     @Column(name = "apellidos", length = 45)
     private String apellidos;
-    @Column(name = "nombre_usuario", length = 45)
+    @Column(name = "nombre_usuario", length = 45, unique=true)
     private String nombreUsuario;
     @Column(name = "password", length = 45)
     private String password;
