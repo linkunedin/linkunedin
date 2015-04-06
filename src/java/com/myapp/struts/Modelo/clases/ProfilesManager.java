@@ -29,7 +29,7 @@ public class ProfilesManager implements ProfilesManagerIF {
     
     // faltarian interesesjpacontroller y tiposlikes?
     
-    public ProfilesManager getInstance(){
+    public static ProfilesManager getInstance(){
         if (ProfilesManager.instance == null){
             ProfilesManager.instance = new ProfilesManager();
             

@@ -32,11 +32,13 @@ public class pruebas {
         usu.setNombre("sadasd");
         usu.setNombreUsuario("javi");
         usu.setPerfil("asndjasdnjasnd");
+        usu.setPassword("qwert");
         
         try {
             ujc.create(usu);
         } catch (Exception ex) {
             Logger.getLogger(pruebas.class.getName()).log(Level.SEVERE, null, ex);
+            LoginManager lm = LoginManager.getInstance();
         }
         
         List<Usuarios> lista = ujc.findUsuariosEntities();

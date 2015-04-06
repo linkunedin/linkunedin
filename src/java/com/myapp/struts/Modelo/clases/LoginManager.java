@@ -27,7 +27,7 @@ public class LoginManager implements LoginManagerIF{
         
     }
     
-    public LoginManager getInstance(){
+    public static LoginManager getInstance(){
         if (LoginManager.instance == null)
             LoginManager.instance = new LoginManager();
         return LoginManager.instance;
