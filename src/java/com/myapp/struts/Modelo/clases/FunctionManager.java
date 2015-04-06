@@ -9,12 +9,29 @@ package com.myapp.struts.Modelo.clases;
 import com.myapp.struts.Modelo.exeptions.AlreadyDisabledException;
 import com.myapp.struts.Modelo.exeptions.AlreadyEnabledException;
 import com.myapp.struts.Modelo.interfaces.FunctionManagerIF;
+import com.myapp.struts.persistencia.controladores.FuncionalidadesJpaController;
+import javax.persistence.Persistence;
 
 /**
  *
  * @author Administrador
  */
 public class FunctionManager implements FunctionManagerIF{
+    
+    private static FunctionManager instance;
+    
+    private FuncionalidadesJpaController fjc;
+    
+    public static FunctionManager getInstance(){
+        if (FunctionManager.instance == null)
+            FunctionManager.instance = new FunctionManager();
+        return FunctionManager.instance;
+    }
+    
+    
+    private FunctionManager(){
+        fjc = new FuncionalidadesJpaController(Persistence.createEntityManagerFactory("PracticaPruebastwebPUHsql3"));
+    }
 
     @Override
     public void activar(int funid) throws AlreadyEnabledException {

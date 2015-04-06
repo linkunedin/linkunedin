@@ -10,12 +10,29 @@ import com.myapp.struts.Modelo.exeptions.NotEnoughPrivilegesException;
 import com.myapp.struts.Modelo.exeptions.UserAlreadyExistsException;
 import com.myapp.struts.Modelo.exeptions.UserNotExistsException;
 import com.myapp.struts.Modelo.interfaces.AccountManagerIF;
+import com.myapp.struts.persistencia.controladores.UsuariosJpaController;
+import javax.persistence.Persistence;
 
 /**
  *
  * @author Administrador
  */
 public class AccountManager implements AccountManagerIF{
+    
+    private static AccountManager instance;
+    
+    private UsuariosJpaController ujc;
+    
+    private AccountManager(){
+        ujc = new UsuariosJpaController(Persistence.createEntityManagerFactory("PracticaPruebastwebPUHsql3"));
+    }
+    
+    public AccountManager getInstance(){
+        if (AccountManager.instance == null){
+            AccountManager.instance = new AccountManager();
+        }
+        return AccountManager.instance;
+    }
 
     @Override
     public void alta(Object usuario) throws UserAlreadyExistsException {

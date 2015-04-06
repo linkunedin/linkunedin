@@ -9,10 +9,14 @@ package com.myapp.struts.Modelo.clases;
 import com.myapp.struts.Modelo.interfaces.UserSessionIF;
 
 /**
- *
+ * cada sesion de usuario deberia identificarse mediante un objeto de esta clase
+ * esta clase deberia proporcionar un hash en funcion del momento de logueo 
+ * y de las caracteristicas de usuario.
  * @author Administrador
  */
 public class UserSession implements UserSessionIF{
+    
+    
 
     @Override
     public void setUser(Object user) {
