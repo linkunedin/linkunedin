@@ -15,7 +15,7 @@ import java.util.List;
  *
  * @author Administrador
  */
-public interface ProfilesManager {
+public interface ProfilesManagerIF {
     
     public void createProfile(Object user, Object profile) throws ProfileAlreadyExistsException;
     public void modifyProfile(Object modifier, Object profile) throws ProfileNotExistsException;
