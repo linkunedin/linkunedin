@@ -44,7 +44,7 @@
         <action input="/" name="AltaForm" path="/alta" scope="request" type="com.myapp.struts.Controlador.Actions.AltaAction"/>
         <action input="/" name="CreateUserForm" path="/createuser" scope="request" type="com.myapp.struts.Controlador.Actions.CreateUser" validate="false"/>
         <action path="/logout" type="com.myapp.struts.Controlador.Actions.LogoutAction"/>
-        <action input="/" name="Login" path="/login" scope="request" type="com.myapp.struts.Controlador.Actions.Login"/>
+        <action input="/" name="LoginForm" path="/login" scope="request" type="com.myapp.struts.Controlador.Actions.LoginAction"/>
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
     </action-mappings>
     
