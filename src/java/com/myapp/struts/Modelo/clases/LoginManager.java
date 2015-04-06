@@ -9,6 +9,8 @@ package com.myapp.struts.Modelo.clases;
 import com.myapp.struts.Modelo.interfaces.LoginManagerIF;
 import com.myapp.struts.Modelo.interfaces.UserSessionIF;
 import com.myapp.struts.persistencia.controladores.UsuariosJpaController;
+import com.myapp.struts.persistencia.entidades.Usuarios;
+import java.util.List;
 import javax.persistence.Persistence;
 
 /**
@@ -33,11 +35,22 @@ public class LoginManager implements LoginManagerIF{
 
     @Override
     public UserSessionIF login(String user, String pwd) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Usuarios> usuarios = ujc.findUsuarioByUserPwd(user, pwd);
+        if (usuarios.size() == 0){
+            // no existe ningun usuario con ese nombre de usuario y password
+            return null; 
+        }
+        else{
+            // construimos un usersession
+            UserSession us = new UserSession();
+            us.setUser(usuarios.get(0));
+            return us;
+        }
     }
 
     @Override
     public boolean logout() {
+        //esta funcion aqui no tiene mucho sentido. habra que valorar si la quitamos
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
