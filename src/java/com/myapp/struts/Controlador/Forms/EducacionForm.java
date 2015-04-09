@@ -20,42 +20,82 @@ public class EducacionForm extends org.apache.struts.action.ActionForm {
     
     private String centro, titulo, /*act,*/ descripcion, fechafin, fechainicio;
 
+    /**
+     *
+     * @return
+     */
     public String getCentro() {
         return centro;
     }
 
+    /**
+     *
+     * @param centro
+     */
     public void setCentro(String centro) {
         this.centro = centro;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getTitulo() {
         return titulo;
     }
 
+    /**
+     *
+     * @param titulo
+     */
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDescripcion() {
         return descripcion;
     }
 
+    /**
+     *
+     * @param descripcion
+     */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getFechafin() {
         return fechafin;
     }
 
+    /**
+     *
+     * @param fechafin
+     */
     public void setFechafin(String fechafin) {
         this.fechafin = fechafin;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getFechainicio() {
         return fechainicio;
     }
 
+    /**
+     *
+     * @param fechainicio
+     */
     public void setFechainicio(String fechainicio) {
         this.fechainicio = fechainicio;
     }

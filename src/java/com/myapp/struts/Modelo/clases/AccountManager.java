@@ -27,6 +27,10 @@ public class AccountManager implements AccountManagerIF{
         ujc = new UsuariosJpaController(Persistence.createEntityManagerFactory("PracticaPruebastwebPUHsql3"));
     }
     
+    /**
+     *
+     * @return
+     */
     public static AccountManager getInstance(){
         if (AccountManager.instance == null){
             AccountManager.instance = new AccountManager();

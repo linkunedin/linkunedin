@@ -12,6 +12,10 @@ package com.myapp.struts.Modelo.interfaces;
  */
 public interface UserSessionIF {
     
+    /**
+     *
+     * @param user
+     */
     public void setUser(Object user);
     /**
      * concatena el usuario, la fecha de logeo y saca un hash usando sha256, se buscara en la sesion

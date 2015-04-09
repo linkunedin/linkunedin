@@ -56,50 +56,97 @@ public class Intereses implements Serializable {
     @ManyToMany
     private Collection<Usuarios> usuariosCollection;
 
+    /**
+     *
+     */
     public Intereses() {
     }
 
+    /**
+     *
+     * @param id
+     */
     public Intereses(Integer id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Integer id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getTitulo() {
         return titulo;
     }
 
+    /**
+     *
+     * @param titulo
+     */
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDescripcion() {
         return descripcion;
     }
 
+    /**
+     *
+     * @param descripcion
+     */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
+    /**
+     *
+     * @return
+     */
     public Short getValido() {
         return valido;
     }
 
+    /**
+     *
+     * @param valido
+     */
     public void setValido(Short valido) {
         this.valido = valido;
     }
 
+    /**
+     *
+     * @return
+     */
     @XmlTransient
     public Collection<Usuarios> getUsuariosCollection() {
         return usuariosCollection;
     }
 
+    /**
+     *
+     * @param usuariosCollection
+     */
     public void setUsuariosCollection(Collection<Usuarios> usuariosCollection) {
         this.usuariosCollection = usuariosCollection;
     }

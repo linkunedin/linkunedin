@@ -36,17 +36,32 @@ public class TiposLikes implements Serializable {
     @Column(name = "idtipos_likes", nullable = false)
     private Integer idtiposLikes;
 
+    /**
+     *
+     */
     public TiposLikes() {
     }
 
+    /**
+     *
+     * @param idtiposLikes
+     */
     public TiposLikes(Integer idtiposLikes) {
         this.idtiposLikes = idtiposLikes;
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getIdtiposLikes() {
         return idtiposLikes;
     }
 
+    /**
+     *
+     * @param idtiposLikes
+     */
     public void setIdtiposLikes(Integer idtiposLikes) {
         this.idtiposLikes = idtiposLikes;
     }

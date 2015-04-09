@@ -36,25 +36,48 @@ public class Funcionalidades implements Serializable {
     @Column(name = "activo")
     private Short activo;
 
+    /**
+     *
+     */
     public Funcionalidades() {
     }
 
+    /**
+     *
+     * @param funcionalidad
+     */
     public Funcionalidades(String funcionalidad) {
         this.funcionalidad = funcionalidad;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getFuncionalidad() {
         return funcionalidad;
     }
 
+    /**
+     *
+     * @param funcionalidad
+     */
     public void setFuncionalidad(String funcionalidad) {
         this.funcionalidad = funcionalidad;
     }
 
+    /**
+     *
+     * @return
+     */
     public Short getActivo() {
         return activo;
     }
 
+    /**
+     *
+     * @param activo
+     */
     public void setActivo(Short activo) {
         this.activo = activo;
     }

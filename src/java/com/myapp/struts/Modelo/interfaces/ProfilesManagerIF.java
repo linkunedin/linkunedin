@@ -17,9 +17,42 @@ import java.util.List;
  */
 public interface ProfilesManagerIF {
     
+    /**
+     *
+     * @param user
+     * @param profile
+     * @throws ProfileAlreadyExistsException
+     */
     public void createProfile(Object user, Object profile) throws ProfileAlreadyExistsException;
+
+    /**
+     *
+     * @param modifier
+     * @param profile
+     * @throws ProfileNotExistsException
+     */
     public void modifyProfile(Object modifier, Object profile) throws ProfileNotExistsException;
+
+    /**
+     *
+     * @param modifier
+     * @param profile
+     * @throws ProfileNotExistsException
+     * @throws NotEnoughPrivilegesException
+     */
     public void deleteProfile(Object modifier, Object profile) throws ProfileNotExistsException, NotEnoughPrivilegesException;
+
+    /**
+     *
+     * @param profileid
+     * @return
+     */
     public Object getProfile(int profileid);
+
+    /**
+     *
+     * @param criteria
+     * @return
+     */
     public List<Object> getProfiles(List<CriteriaIF> criteria);
 }

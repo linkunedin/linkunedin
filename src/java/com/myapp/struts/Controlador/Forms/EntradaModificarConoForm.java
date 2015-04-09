@@ -15,11 +15,13 @@ import org.apache.struts.action.ActionMapping;
  */
 public class EntradaModificarConoForm extends org.apache.struts.action.ActionForm{
   
-    
-    
-    
-    
-        public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
+    /**
+     *
+     * @param mapping
+     * @param request
+     * @return
+     */
+    public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
         
         return errors;

@@ -27,12 +27,22 @@ public class LoginManager implements LoginManagerIF{
         
     }
     
+    /**
+     *
+     * @return
+     */
     public static LoginManager getInstance(){
         if (LoginManager.instance == null)
             LoginManager.instance = new LoginManager();
         return LoginManager.instance;
     }
 
+    /**
+     *
+     * @param user
+     * @param pwd
+     * @return
+     */
     @Override
     public UserSessionIF login(String user, String pwd) {
         List<Usuarios> usuarios = ujc.findUsuarioByUserPwd(user, pwd);
@@ -48,6 +58,10 @@ public class LoginManager implements LoginManagerIF{
         }
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public boolean logout() {
         //esta funcion aqui no tiene mucho sentido. habra que valorar si la quitamos

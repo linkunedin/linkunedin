@@ -20,50 +20,98 @@ public class AltaForm extends org.apache.struts.action.ActionForm {
     
     private String nombre, apellidos, nomusuario, password, email, rutafoto;
 
+    /**
+     *
+     * @return
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     *
+     * @param nombre
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getApellidos() {
         return apellidos;
     }
 
+    /**
+     *
+     * @param apellidos
+     */
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNomusuario() {
         return nomusuario;
     }
 
+    /**
+     *
+     * @param nomusuario
+     */
     public void setNomusuario(String nomusuario) {
         this.nomusuario = nomusuario;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     *
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     *
+     * @param email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getRutafoto() {
         return rutafoto;
     }
 
+    /**
+     *
+     * @param rutafoto
+     */
     public void setRutafoto(String rutafoto) {
         this.rutafoto = rutafoto;
     }

@@ -24,15 +24,27 @@ import javax.persistence.EntityManagerFactory;
  */
 public class ExperienciasJpaController implements Serializable {
 
+    /**
+     *
+     * @param emf
+     */
     public ExperienciasJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
 
+    /**
+     *
+     * @return
+     */
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
+    /**
+     *
+     * @param experiencias
+     */
     public void create(Experiencias experiencias) {
         EntityManager em = null;
         try {
@@ -56,6 +68,12 @@ public class ExperienciasJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param experiencias
+     * @throws NonexistentEntityException
+     * @throws Exception
+     */
     public void edit(Experiencias experiencias) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
@@ -94,6 +112,11 @@ public class ExperienciasJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @throws NonexistentEntityException
+     */
     public void destroy(Integer id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
@@ -120,10 +143,20 @@ public class ExperienciasJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Experiencias> findExperienciasEntities() {
         return findExperienciasEntities(true, -1, -1);
     }
 
+    /**
+     *
+     * @param maxResults
+     * @param firstResult
+     * @return
+     */
     public List<Experiencias> findExperienciasEntities(int maxResults, int firstResult) {
         return findExperienciasEntities(false, maxResults, firstResult);
     }
@@ -144,6 +177,11 @@ public class ExperienciasJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Experiencias findExperiencias(Integer id) {
         EntityManager em = getEntityManager();
         try {
@@ -153,6 +191,10 @@ public class ExperienciasJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public int getExperienciasCount() {
         EntityManager em = getEntityManager();
         try {

@@ -20,6 +20,9 @@ public class BusquedaForm extends org.apache.struts.action.ActionForm {
     
     private String titulacion, experiencia, localizacion, conocimientos;
     
+    /**
+     *
+     */
     public BusquedaForm(){
         super();
     }

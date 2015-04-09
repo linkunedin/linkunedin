@@ -29,15 +29,27 @@ import javax.persistence.EntityManagerFactory;
  */
 public class UsuariosJpaController implements Serializable {
 
+    /**
+     *
+     * @param emf
+     */
     public UsuariosJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
 
+    /**
+     *
+     * @return
+     */
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
+    /**
+     *
+     * @param usuarios
+     */
     public void create(Usuarios usuarios) {
         if (usuarios.getInteresesCollection() == null) {
             usuarios.setInteresesCollection(new ArrayList<Intereses>());
@@ -114,6 +126,12 @@ public class UsuariosJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param usuarios
+     * @throws NonexistentEntityException
+     * @throws Exception
+     */
     public void edit(Usuarios usuarios) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
@@ -232,6 +250,11 @@ public class UsuariosJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @throws NonexistentEntityException
+     */
     public void destroy(Integer id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
@@ -273,10 +296,20 @@ public class UsuariosJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Usuarios> findUsuariosEntities() {
         return findUsuariosEntities(true, -1, -1);
     }
 
+    /**
+     *
+     * @param maxResults
+     * @param firstResult
+     * @return
+     */
     public List<Usuarios> findUsuariosEntities(int maxResults, int firstResult) {
         return findUsuariosEntities(false, maxResults, firstResult);
     }
@@ -297,6 +330,11 @@ public class UsuariosJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Usuarios findUsuarios(Integer id) {
         EntityManager em = getEntityManager();
         try {
@@ -306,6 +344,10 @@ public class UsuariosJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public int getUsuariosCount() {
         EntityManager em = getEntityManager();
         try {
@@ -319,11 +361,22 @@ public class UsuariosJpaController implements Serializable {
         }
     }
     
+    /**
+     *
+     * @param namequery
+     * @return
+     */
     public Query query(String namequery){
         EntityManager em = getEntityManager();
         return em.createNamedQuery(namequery, Usuarios.class);
     }
     
+    /**
+     *
+     * @param user
+     * @param pwd
+     * @return
+     */
     public List<Usuarios> findUsuarioByUserPwd(String user, String pwd){
         Query q = query("Usuarios.findByUserPwd");
         q.setParameter("nombre", user).setParameter("password", pwd);

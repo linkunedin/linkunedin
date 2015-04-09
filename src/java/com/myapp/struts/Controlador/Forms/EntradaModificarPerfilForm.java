@@ -20,10 +20,18 @@ public class EntradaModificarPerfilForm extends org.apache.struts.action.ActionF
     
     private String usuarioid;
 
+    /**
+     *
+     * @return
+     */
     public String getUsuarioid() {
         return usuarioid;
     }
 
+    /**
+     *
+     * @param usuarioid
+     */
     public void setUsuarioid(String usuarioid) {
         this.usuarioid = usuarioid;
     }

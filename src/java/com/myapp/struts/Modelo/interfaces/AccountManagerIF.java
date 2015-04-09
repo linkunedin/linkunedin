@@ -34,7 +34,7 @@ public interface AccountManagerIF {
      * @param usuario usuario que va a ser modificado
      * @param modifier usuario que modifica
      * @throws NotEnoughPrivilegesException 
-     * @throws com.myapp.struts.Modelo.UserNotExistsException 
+     * @throws com.myapp.struts.Modelo.exeptions.UserNotExistsException 
      */
     public void modify(Object usuario, Object modifier) throws NotEnoughPrivilegesException, UserNotExistsException;
 }

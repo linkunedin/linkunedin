@@ -17,18 +17,34 @@ import org.apache.struts.action.ActionMessage;
 public class BajaForm extends org.apache.struts.action.ActionForm {
     private String nombre, apellidos, nomusuario, password, email, rutafoto;
 
+    /**
+     *
+     * @return
+     */
     public String getNomusuario() {
         return nomusuario;
     }
 
+    /**
+     *
+     * @param nomusuario
+     */
     public void setNomusuario(String nomusuario) {
         this.nomusuario = nomusuario;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     *
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }

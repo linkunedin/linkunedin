@@ -22,6 +22,15 @@ public class ModificarFuncAction extends org.apache.struts.action.Action {
     private static final String SUCCESS = "success";
     private static final String ERROR = "error";
 
+    /**
+     *
+     * @param mapping
+     * @param form
+     * @param request
+     * @param response
+     * @return
+     * @throws Exception
+     */
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {

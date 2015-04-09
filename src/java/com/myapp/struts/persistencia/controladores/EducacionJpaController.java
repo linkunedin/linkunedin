@@ -24,15 +24,27 @@ import javax.persistence.EntityManagerFactory;
  */
 public class EducacionJpaController implements Serializable {
 
+    /**
+     *
+     * @param emf
+     */
     public EducacionJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
 
+    /**
+     *
+     * @return
+     */
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
+    /**
+     *
+     * @param educacion
+     */
     public void create(Educacion educacion) {
         EntityManager em = null;
         try {
@@ -56,6 +68,12 @@ public class EducacionJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param educacion
+     * @throws NonexistentEntityException
+     * @throws Exception
+     */
     public void edit(Educacion educacion) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
@@ -94,6 +112,11 @@ public class EducacionJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @throws NonexistentEntityException
+     */
     public void destroy(Integer id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
@@ -120,10 +143,20 @@ public class EducacionJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Educacion> findEducacionEntities() {
         return findEducacionEntities(true, -1, -1);
     }
 
+    /**
+     *
+     * @param maxResults
+     * @param firstResult
+     * @return
+     */
     public List<Educacion> findEducacionEntities(int maxResults, int firstResult) {
         return findEducacionEntities(false, maxResults, firstResult);
     }
@@ -144,6 +177,11 @@ public class EducacionJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Educacion findEducacion(Integer id) {
         EntityManager em = getEntityManager();
         try {
@@ -153,6 +191,10 @@ public class EducacionJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public int getEducacionCount() {
         EntityManager em = getEntityManager();
         try {

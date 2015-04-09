@@ -20,42 +20,82 @@ public class ExperienciaForm extends org.apache.struts.action.ActionForm {
     
     private String empresa, puesto, /*actividades, */descripcion, fechainicio, fechafin;
 
+    /**
+     *
+     * @return
+     */
     public String getEmpresa() {
         return empresa;
     }
 
+    /**
+     *
+     * @param empresa
+     */
     public void setEmpresa(String empresa) {
         this.empresa = empresa;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPuesto() {
         return puesto;
     }
 
+    /**
+     *
+     * @param puesto
+     */
     public void setPuesto(String puesto) {
         this.puesto = puesto;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDescripcion() {
         return descripcion;
     }
 
+    /**
+     *
+     * @param descripcion
+     */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getFechainicio() {
         return fechainicio;
     }
 
+    /**
+     *
+     * @param fechainicio
+     */
     public void setFechainicio(String fechainicio) {
         this.fechainicio = fechainicio;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getFechafin() {
         return fechafin;
     }
 
+    /**
+     *
+     * @param fechafin
+     */
     public void setFechafin(String fechafin) {
         this.fechafin = fechafin;
     }

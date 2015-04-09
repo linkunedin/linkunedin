@@ -23,6 +23,11 @@ import javax.persistence.Persistence;
  * @author Administrador
  */
 public class pruebas {
+
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args){
         EntityManagerFactory em = Persistence.createEntityManagerFactory("PracticaPruebastwebPUHsql3");
         

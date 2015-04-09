@@ -26,15 +26,27 @@ import javax.persistence.EntityManagerFactory;
  */
 public class InteresesJpaController implements Serializable {
 
+    /**
+     *
+     * @param emf
+     */
     public InteresesJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
 
+    /**
+     *
+     * @return
+     */
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
+    /**
+     *
+     * @param intereses
+     */
     public void create(Intereses intereses) {
         if (intereses.getUsuariosCollection() == null) {
             intereses.setUsuariosCollection(new ArrayList<Usuarios>());
@@ -62,6 +74,12 @@ public class InteresesJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param intereses
+     * @throws NonexistentEntityException
+     * @throws Exception
+     */
     public void edit(Intereses intereses) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
@@ -107,6 +125,11 @@ public class InteresesJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @throws NonexistentEntityException
+     */
     public void destroy(Integer id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
@@ -133,10 +156,20 @@ public class InteresesJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Intereses> findInteresesEntities() {
         return findInteresesEntities(true, -1, -1);
     }
 
+    /**
+     *
+     * @param maxResults
+     * @param firstResult
+     * @return
+     */
     public List<Intereses> findInteresesEntities(int maxResults, int firstResult) {
         return findInteresesEntities(false, maxResults, firstResult);
     }
@@ -157,6 +190,11 @@ public class InteresesJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Intereses findIntereses(Integer id) {
         EntityManager em = getEntityManager();
         try {
@@ -166,6 +204,10 @@ public class InteresesJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public int getInteresesCount() {
         EntityManager em = getEntityManager();
         try {

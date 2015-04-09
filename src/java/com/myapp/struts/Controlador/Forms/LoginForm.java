@@ -20,18 +20,34 @@ public class LoginForm extends org.apache.struts.action.ActionForm {
     
     private String user, password;
 
+    /**
+     *
+     * @return
+     */
     public String getUser() {
         return user;
     }
 
+    /**
+     *
+     * @param user
+     */
     public void setUser(String user) {
         this.user = user;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     *
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }

@@ -74,117 +74,228 @@ public class Usuarios implements Serializable {
     @OneToMany(mappedBy = "usuarioId")
     private Collection<Experiencias> experienciasCollection;
 
+    /**
+     *
+     */
     public Usuarios() {
     }
 
+    /**
+     *
+     * @param id
+     */
     public Usuarios(Integer id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Integer id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     *
+     * @param nombre
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getApellidos() {
         return apellidos;
     }
 
+    /**
+     *
+     * @param apellidos
+     */
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNombreUsuario() {
         return nombreUsuario;
     }
 
+    /**
+     *
+     * @param nombreUsuario
+     */
     public void setNombreUsuario(String nombreUsuario) {
         this.nombreUsuario = nombreUsuario;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     *
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
 
+    /**
+     *
+     * @return
+     */
     public Short getAdmin() {
         return admin;
     }
 
+    /**
+     *
+     * @param admin
+     */
     public void setAdmin(Short admin) {
         this.admin = admin;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     *
+     * @param email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    /**
+     *
+     * @return
+     */
     public Short getValido() {
         return valido;
     }
 
+    /**
+     *
+     * @param valido
+     */
     public void setValido(Short valido) {
         this.valido = valido;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPerfil() {
         return perfil;
     }
 
+    /**
+     *
+     * @param perfil
+     */
     public void setPerfil(String perfil) {
         this.perfil = perfil;
     }
 
+    /**
+     *
+     * @return
+     */
     @XmlTransient
     public Collection<Intereses> getInteresesCollection() {
         return interesesCollection;
     }
 
+    /**
+     *
+     * @param interesesCollection
+     */
     public void setInteresesCollection(Collection<Intereses> interesesCollection) {
         this.interesesCollection = interesesCollection;
     }
 
+    /**
+     *
+     * @return
+     */
     @XmlTransient
     public Collection<Entidades> getEntidadesCollection() {
         return entidadesCollection;
     }
 
+    /**
+     *
+     * @param entidadesCollection
+     */
     public void setEntidadesCollection(Collection<Entidades> entidadesCollection) {
         this.entidadesCollection = entidadesCollection;
     }
 
+    /**
+     *
+     * @return
+     */
     @XmlTransient
     public Collection<Educacion> getEducacionCollection() {
         return educacionCollection;
     }
 
+    /**
+     *
+     * @param educacionCollection
+     */
     public void setEducacionCollection(Collection<Educacion> educacionCollection) {
         this.educacionCollection = educacionCollection;
     }
 
+    /**
+     *
+     * @return
+     */
     @XmlTransient
     public Collection<Experiencias> getExperienciasCollection() {
         return experienciasCollection;
     }
 
+    /**
+     *
+     * @param experienciasCollection
+     */
     public void setExperienciasCollection(Collection<Experiencias> experienciasCollection) {
         this.experienciasCollection = experienciasCollection;
     }

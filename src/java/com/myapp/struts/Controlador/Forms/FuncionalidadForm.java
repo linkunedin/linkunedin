@@ -20,18 +20,34 @@ public class FuncionalidadForm extends org.apache.struts.action.ActionForm {
     
     private String funcionalidad, estado;
 
+    /**
+     *
+     * @return
+     */
     public String getFuncionalidad() {
         return funcionalidad;
     }
 
+    /**
+     *
+     * @param funcionalidad
+     */
     public void setFuncionalidad(String funcionalidad) {
         this.funcionalidad = funcionalidad;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getEstado() {
         return estado;
     }
 
+    /**
+     *
+     * @param estado
+     */
     public void setEstado(String estado) {
         this.estado = estado;
     }

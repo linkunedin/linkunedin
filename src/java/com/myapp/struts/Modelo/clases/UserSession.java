@@ -26,10 +26,17 @@ public class UserSession implements UserSessionIF{
     private Usuarios usuario;
     private Date fechalogueo;
     
+    /**
+     *
+     */
     public UserSession(){
         this.fechalogueo = new Date();
     }
 
+    /**
+     *
+     * @param user
+     */
     @Override
     public void setUser(Object user) {
         // si el logueo ha tenido exito guardamos el objeto del usuario en la sesion

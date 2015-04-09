@@ -24,15 +24,29 @@ import javax.persistence.criteria.Root;
  */
 public class FuncionalidadesJpaController implements Serializable {
 
+    /**
+     *
+     * @param emf
+     */
     public FuncionalidadesJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
 
+    /**
+     *
+     * @return
+     */
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
+    /**
+     *
+     * @param funcionalidades
+     * @throws PreexistingEntityException
+     * @throws Exception
+     */
     public void create(Funcionalidades funcionalidades) throws PreexistingEntityException, Exception {
         EntityManager em = null;
         try {
@@ -52,6 +66,12 @@ public class FuncionalidadesJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param funcionalidades
+     * @throws NonexistentEntityException
+     * @throws Exception
+     */
     public void edit(Funcionalidades funcionalidades) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
@@ -75,6 +95,11 @@ public class FuncionalidadesJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @throws NonexistentEntityException
+     */
     public void destroy(String id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
@@ -96,10 +121,20 @@ public class FuncionalidadesJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Funcionalidades> findFuncionalidadesEntities() {
         return findFuncionalidadesEntities(true, -1, -1);
     }
 
+    /**
+     *
+     * @param maxResults
+     * @param firstResult
+     * @return
+     */
     public List<Funcionalidades> findFuncionalidadesEntities(int maxResults, int firstResult) {
         return findFuncionalidadesEntities(false, maxResults, firstResult);
     }
@@ -120,6 +155,11 @@ public class FuncionalidadesJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Funcionalidades findFuncionalidades(String id) {
         EntityManager em = getEntityManager();
         try {
@@ -129,6 +169,10 @@ public class FuncionalidadesJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public int getFuncionalidadesCount() {
         EntityManager em = getEntityManager();
         try {

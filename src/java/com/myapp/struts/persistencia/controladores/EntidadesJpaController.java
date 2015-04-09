@@ -26,15 +26,27 @@ import javax.persistence.EntityManagerFactory;
  */
 public class EntidadesJpaController implements Serializable {
 
+    /**
+     *
+     * @param emf
+     */
     public EntidadesJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
 
+    /**
+     *
+     * @return
+     */
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
+    /**
+     *
+     * @param entidades
+     */
     public void create(Entidades entidades) {
         if (entidades.getUsuariosCollection() == null) {
             entidades.setUsuariosCollection(new ArrayList<Usuarios>());
@@ -62,6 +74,12 @@ public class EntidadesJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param entidades
+     * @throws NonexistentEntityException
+     * @throws Exception
+     */
     public void edit(Entidades entidades) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
@@ -107,6 +125,11 @@ public class EntidadesJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @throws NonexistentEntityException
+     */
     public void destroy(Integer id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
@@ -133,10 +156,20 @@ public class EntidadesJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Entidades> findEntidadesEntities() {
         return findEntidadesEntities(true, -1, -1);
     }
 
+    /**
+     *
+     * @param maxResults
+     * @param firstResult
+     * @return
+     */
     public List<Entidades> findEntidadesEntities(int maxResults, int firstResult) {
         return findEntidadesEntities(false, maxResults, firstResult);
     }
@@ -157,6 +190,11 @@ public class EntidadesJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Entidades findEntidades(Integer id) {
         EntityManager em = getEntityManager();
         try {
@@ -166,6 +204,10 @@ public class EntidadesJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public int getEntidadesCount() {
         EntityManager em = getEntityManager();
         try {

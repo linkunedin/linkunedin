@@ -22,6 +22,10 @@ public class FunctionManager implements FunctionManagerIF{
     
     private FuncionalidadesJpaController fjc;
     
+    /**
+     *
+     * @return
+     */
     public static FunctionManager getInstance(){
         if (FunctionManager.instance == null)
             FunctionManager.instance = new FunctionManager();

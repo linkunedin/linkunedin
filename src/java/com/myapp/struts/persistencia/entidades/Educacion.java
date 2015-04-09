@@ -68,81 +68,160 @@ public class Educacion implements Serializable {
     @ManyToOne
     private Usuarios usuarioId;
 
+    /**
+     *
+     */
     public Educacion() {
     }
 
+    /**
+     *
+     * @param id
+     */
     public Educacion(Integer id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Integer id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCentroEstudios() {
         return centroEstudios;
     }
 
+    /**
+     *
+     * @param centroEstudios
+     */
     public void setCentroEstudios(String centroEstudios) {
         this.centroEstudios = centroEstudios;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getTitulacion() {
         return titulacion;
     }
 
+    /**
+     *
+     * @param titulacion
+     */
     public void setTitulacion(String titulacion) {
         this.titulacion = titulacion;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getActividades() {
         return actividades;
     }
 
+    /**
+     *
+     * @param actividades
+     */
     public void setActividades(String actividades) {
         this.actividades = actividades;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDescripcion() {
         return descripcion;
     }
 
+    /**
+     *
+     * @param descripcion
+     */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getFechaInicio() {
         return fechaInicio;
     }
 
+    /**
+     *
+     * @param fechaInicio
+     */
     public void setFechaInicio(Date fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getFechaFin() {
         return fechaFin;
     }
 
+    /**
+     *
+     * @param fechaFin
+     */
     public void setFechaFin(Date fechaFin) {
         this.fechaFin = fechaFin;
     }
 
+    /**
+     *
+     * @return
+     */
     public Short getValido() {
         return valido;
     }
 
+    /**
+     *
+     * @param valido
+     */
     public void setValido(Short valido) {
         this.valido = valido;
     }
 
+    /**
+     *
+     * @return
+     */
     public Usuarios getUsuarioId() {
         return usuarioId;
     }
 
+    /**
+     *
+     * @param usuarioId
+     */
     public void setUsuarioId(Usuarios usuarioId) {
         this.usuarioId = usuarioId;
     }

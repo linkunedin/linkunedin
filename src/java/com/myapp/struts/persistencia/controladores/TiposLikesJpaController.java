@@ -23,15 +23,27 @@ import javax.persistence.criteria.Root;
  */
 public class TiposLikesJpaController implements Serializable {
 
+    /**
+     *
+     * @param emf
+     */
     public TiposLikesJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
 
+    /**
+     *
+     * @return
+     */
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
+    /**
+     *
+     * @param tiposLikes
+     */
     public void create(TiposLikes tiposLikes) {
         EntityManager em = null;
         try {
@@ -46,6 +58,12 @@ public class TiposLikesJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param tiposLikes
+     * @throws NonexistentEntityException
+     * @throws Exception
+     */
     public void edit(TiposLikes tiposLikes) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
@@ -69,6 +87,11 @@ public class TiposLikesJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @throws NonexistentEntityException
+     */
     public void destroy(Integer id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
@@ -90,10 +113,20 @@ public class TiposLikesJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public List<TiposLikes> findTiposLikesEntities() {
         return findTiposLikesEntities(true, -1, -1);
     }
 
+    /**
+     *
+     * @param maxResults
+     * @param firstResult
+     * @return
+     */
     public List<TiposLikes> findTiposLikesEntities(int maxResults, int firstResult) {
         return findTiposLikesEntities(false, maxResults, firstResult);
     }
@@ -114,6 +147,11 @@ public class TiposLikesJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public TiposLikes findTiposLikes(Integer id) {
         EntityManager em = getEntityManager();
         try {
@@ -123,6 +161,10 @@ public class TiposLikesJpaController implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public int getTiposLikesCount() {
         EntityManager em = getEntityManager();
         try {

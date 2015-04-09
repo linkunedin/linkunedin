@@ -29,6 +29,11 @@ public class ProfilesManager implements ProfilesManagerIF {
     
     // faltarian interesesjpacontroller y tiposlikes?
     
+    /**
+     *
+     * @return
+     */
+        
     public static ProfilesManager getInstance(){
         if (ProfilesManager.instance == null){
             ProfilesManager.instance = new ProfilesManager();
@@ -47,26 +52,56 @@ public class ProfilesManager implements ProfilesManagerIF {
     
 
     // esta funcion no tiene mucho sentido 
-    @Override
+
+    /**
+     *
+     * @param user
+     * @param profile
+     * @throws ProfileAlreadyExistsException
+     */
+        @Override
     public void createProfile(Object user, Object profile) throws ProfileAlreadyExistsException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     *
+     * @param modifier
+     * @param profile
+     * @throws ProfileNotExistsException
+     */
     @Override
     public void modifyProfile(Object modifier, Object profile) throws ProfileNotExistsException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     *
+     * @param modifier
+     * @param profile
+     * @throws ProfileNotExistsException
+     * @throws NotEnoughPrivilegesException
+     */
     @Override
     public void deleteProfile(Object modifier, Object profile) throws ProfileNotExistsException, NotEnoughPrivilegesException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     *
+     * @param profileid
+     * @return
+     */
     @Override
     public Object getProfile(int profileid) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     *
+     * @param criteria
+     * @return
+     */
     @Override
     public List<Object> getProfiles(List<CriteriaIF> criteria) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

@@ -49,34 +49,65 @@ public class Entidades implements Serializable {
     @ManyToMany
     private Collection<Usuarios> usuariosCollection;
 
+    /**
+     *
+     */
     public Entidades() {
     }
 
+    /**
+     *
+     * @param id
+     */
     public Entidades(Integer id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(Integer id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     *
+     * @param nombre
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     *
+     * @return
+     */
     @XmlTransient
     public Collection<Usuarios> getUsuariosCollection() {
         return usuariosCollection;
     }
 
+    /**
+     *
+     * @param usuariosCollection
+     */
     public void setUsuariosCollection(Collection<Usuarios> usuariosCollection) {
         this.usuariosCollection = usuariosCollection;
     }

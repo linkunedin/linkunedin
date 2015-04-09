@@ -11,6 +11,18 @@ package com.myapp.struts.Modelo.interfaces;
  * @author Administrador
  */
 public interface LoginManagerIF {
+
+    /**
+     *
+     * @param user
+     * @param pwd
+     * @return
+     */
     public UserSessionIF login(String user, String pwd);
+
+    /**
+     *
+     * @return
+     */
     public boolean logout();
 }
