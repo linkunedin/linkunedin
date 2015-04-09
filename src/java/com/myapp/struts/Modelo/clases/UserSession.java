@@ -38,11 +38,18 @@ public class UserSession implements UserSessionIF{
      * @param user
      */
     @Override
-    public void setUser(Object user) {
+    public void setUser(Usuarios user) {
         // si el logueo ha tenido exito guardamos el objeto del usuario en la sesion
-        this.usuario = (Usuarios) user;
+        this.usuario = user;
         
     }
+
+    @Override
+    public Usuarios getUser() {
+        return this.usuario;
+    }
+    
+    
 
     @Override
     public String getHashSessionDigest() {

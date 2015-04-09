@@ -6,6 +6,8 @@
 
 package com.myapp.struts.Modelo.interfaces;
 
+import com.myapp.struts.persistencia.entidades.Usuarios;
+
 /**
  *
  * @author Administrador
@@ -16,7 +18,10 @@ public interface UserSessionIF {
      *
      * @param user
      */
-    public void setUser(Object user);
+    public void setUser(Usuarios user);
+    
+    public Usuarios getUser();
+    
     /**
      * concatena el usuario, la fecha de logeo y saca un hash usando sha256, se buscara en la sesion
      * este bean para comprobar si esta logeado
