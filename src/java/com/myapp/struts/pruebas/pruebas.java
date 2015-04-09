@@ -6,6 +6,10 @@
 
 package com.myapp.struts.pruebas;
 
+import com.myapp.struts.Modelo.clases.LoginManager;
+import com.myapp.struts.Modelo.clases.UserSession;
+import com.myapp.struts.persistencia.controladores.UsuariosJpaController;
+import com.myapp.struts.persistencia.entidades.Usuarios;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,8 +17,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import com.myapp.struts.persistencia.controladores.UsuariosJpaController;
-import com.myapp.struts.persistencia.entidades.Usuarios;
 
 /**
  *
@@ -36,15 +38,14 @@ public class pruebas {
         
         try {
             ujc.create(usu);
+            LoginManager lm = LoginManager.getInstance();
+            UserSession us = (UserSession) lm.login("javi", "qwert");
+            System.out.println(us.getHashSessionDigest());
         } catch (Exception ex) {
             Logger.getLogger(pruebas.class.getName()).log(Level.SEVERE, null, ex);
-            LoginManager lm = LoginManager.getInstance();
+            
         }
         
-        List<Usuarios> lista = ujc.findUsuariosEntities();
         
-        for(Usuarios us: lista){
-            System.out.println(us.toString());
-        }
     }
 }

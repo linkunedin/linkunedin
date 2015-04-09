@@ -8,6 +8,7 @@ package com.myapp.struts.Modelo.clases;
 
 import com.myapp.struts.Modelo.interfaces.UserSessionIF;
 import com.myapp.struts.persistencia.entidades.Usuarios;
+import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
@@ -32,7 +33,7 @@ public class UserSession implements UserSessionIF{
     @Override
     public void setUser(Object user) {
         // si el logueo ha tenido exito guardamos el objeto del usuario en la sesion
-        this.usuario = (Usuarios) usuario;
+        this.usuario = (Usuarios) user;
         
     }
 
@@ -40,9 +41,10 @@ public class UserSession implements UserSessionIF{
     public String getHashSessionDigest() {
         try {
             MessageDigest md = MessageDigest.getInstance("md5");
-            byte[] bytehash = md.digest((fechalogueo.toString() + usuario.hashCode()).getBytes());
-            String hash = new String(bytehash);
-            return hash;
+            md.update(("" + this.usuario.getId() + fechalogueo.toString()).getBytes());
+            BigInteger bi = new BigInteger(1, md.digest());
+            String cadena = bi.toString(16);
+            return cadena;
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(UserSession.class.getName()).log(Level.SEVERE, null, ex);
             return "";
