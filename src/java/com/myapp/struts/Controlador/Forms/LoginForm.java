@@ -18,7 +18,7 @@ import org.apache.struts.action.ActionMessage;
  */
 public class LoginForm extends org.apache.struts.action.ActionForm {
     
-    private String user, password;
+    private String user, password,error;
 
     /**
      *
@@ -43,7 +43,6 @@ public class LoginForm extends org.apache.struts.action.ActionForm {
     public String getPassword() {
         return password;
     }
-
     /**
      *
      * @param password
@@ -52,8 +51,13 @@ public class LoginForm extends org.apache.struts.action.ActionForm {
         this.password = password;
     }
     
-    
+    public String getError(){
+        return error;
+    }
 
+    public void setError(String error){
+        this.error = error;
+    }
     /**
      *
      */

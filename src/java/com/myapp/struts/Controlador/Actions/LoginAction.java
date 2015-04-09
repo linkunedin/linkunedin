@@ -7,8 +7,11 @@
 package com.myapp.struts.Controlador.Actions;
 
 import com.myapp.struts.Controlador.Forms.LoginForm;
+import com.myapp.struts.Modelo.clases.LoginManager;
+import com.myapp.struts.Modelo.clases.UserSession;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -34,10 +37,17 @@ public class LoginAction extends org.apache.struts.action.Action {
      * @return
      */
     @Override
+    
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         LoginForm lf = (LoginForm) form;
+        
+        LoginManager lm = LoginManager.getInstance();
+        UserSession us = (UserSession) lm.login(lf.getUser(), lf.getPassword());
+       
+        request.getSession().setAttribute("objsesion", us);
+        
         
         // si pasa el test habra que generar un 'certificado' para guardar en la sesion
         // y en una cookie y guardarlo en la variable 'usersession'

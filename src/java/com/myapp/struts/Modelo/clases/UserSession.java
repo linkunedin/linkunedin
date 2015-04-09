@@ -23,7 +23,7 @@ import java.util.logging.Logger;
  */
 public class UserSession implements UserSessionIF{
     
-    private Usuarios usuario;
+    private Usuarios user;
     private Date fechalogueo;
     
     /**
@@ -40,13 +40,13 @@ public class UserSession implements UserSessionIF{
     @Override
     public void setUser(Usuarios user) {
         // si el logueo ha tenido exito guardamos el objeto del usuario en la sesion
-        this.usuario = user;
+        this.user = user;
         
     }
 
     @Override
     public Usuarios getUser() {
-        return this.usuario;
+        return this.user;
     }
     
     
@@ -55,7 +55,7 @@ public class UserSession implements UserSessionIF{
     public String getHashSessionDigest() {
         try {
             MessageDigest md = MessageDigest.getInstance("md5");
-            md.update(("" + this.usuario.getId() + fechalogueo.toString()).getBytes());
+            md.update(("" + this.user.getId() + fechalogueo.toString()).getBytes());
             BigInteger bi = new BigInteger(1, md.digest());
             String cadena = bi.toString(16);
             return cadena;

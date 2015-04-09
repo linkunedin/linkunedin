@@ -19,7 +19,7 @@
         <form-bean name="ModifyProfile" type="com.myapp.struts.Controlador.Forms.ModifyProfile"/>
         <form-bean name="CreateProfileForm" type="com.myapp.struts.Controlador.Forms.CreateProfileForm"/>
         <form-bean name="CreateUserForm" type="com.myapp.struts.Controlador.Forms.CreateUserForm"/>
-        <form-bean name="Login" type="com.myapp.struts.Controlador.Actions.Login"/>
+        <form-bean name="LoginForm" type="com.myapp.struts.Controlador.Forms.LoginForm"/>
         <form-bean name="EducacionForm" type="com.myapp.struts.Controlador.Actions.EducacionForm"/>
     
     </form-beans>
@@ -44,7 +44,10 @@
         <action input="/" name="AltaForm" path="/alta" scope="request" type="com.myapp.struts.Controlador.Actions.AltaAction"/>
         <action input="/" name="CreateUserForm" path="/createuser" scope="request" type="com.myapp.struts.Controlador.Actions.CreateUser" validate="false"/>
         <action path="/logout" type="com.myapp.struts.Controlador.Actions.LogoutAction"/>
-        <action input="/" name="LoginForm" path="/login" scope="request" type="com.myapp.struts.Controlador.Actions.LoginAction"/>
+        <action input="/" name="LoginForm" path="/login" scope="request" type="com.myapp.struts.Controlador.Actions.LoginAction">
+            <forward name="success" path="/success.jsp"/>
+            <forward name="failure" path="/login.jsp"/>
+        </action>
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
     </action-mappings>
     
