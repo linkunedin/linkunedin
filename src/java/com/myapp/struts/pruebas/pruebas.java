@@ -8,6 +8,7 @@ package com.myapp.struts.pruebas;
 
 import com.myapp.struts.Modelo.clases.LoginManager;
 import com.myapp.struts.Modelo.clases.UserSession;
+import com.myapp.struts.configuration.Configuration;
 import com.myapp.struts.persistencia.controladores.UsuariosJpaController;
 import com.myapp.struts.persistencia.entidades.Usuarios;
 import java.util.List;
@@ -29,7 +30,7 @@ public class pruebas {
      * @param args
      */
     public static void main(String[] args){
-        EntityManagerFactory em = Persistence.createEntityManagerFactory("PracticaPruebastwebPUHsql3");
+        EntityManagerFactory em = Persistence.createEntityManagerFactory(Configuration.getPu());
         
         UsuariosJpaController ujc = new UsuariosJpaController(em);
         

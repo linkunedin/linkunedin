@@ -11,8 +11,9 @@ import com.myapp.struts.Modelo.exeptions.ProfileAlreadyExistsException;
 import com.myapp.struts.Modelo.exeptions.ProfileNotExistsException;
 import com.myapp.struts.Modelo.interfaces.CriteriaIF;
 import com.myapp.struts.Modelo.interfaces.ProfilesManagerIF;
-import java.util.List;
+import com.myapp.struts.configuration.Configuration;
 import com.myapp.struts.persistencia.controladores.*;
+import java.util.List;
 import javax.persistence.Persistence;
 
 /**
@@ -43,10 +44,10 @@ public class ProfilesManager implements ProfilesManagerIF {
     }
     
     private ProfilesManager(){
-        ujc = new UsuariosJpaController(Persistence.createEntityManagerFactory("PracticaPruebastwebPUHsql3"));
-        ejc = new ExperienciasJpaController(Persistence.createEntityManagerFactory("PracticaPruebastwebPUHsql3"));
-        ijc = new InteresesJpaController(Persistence.createEntityManagerFactory("PracticaPruebastwebPUHsql3"));
-        edujc = new EducacionJpaController(Persistence.createEntityManagerFactory("PracticaPruebastwebPUHsql3"));
+        ujc = new UsuariosJpaController(Persistence.createEntityManagerFactory(Configuration.getPu()));
+        ejc = new ExperienciasJpaController(Persistence.createEntityManagerFactory(Configuration.getPu()));
+        ijc = new InteresesJpaController(Persistence.createEntityManagerFactory(Configuration.getPu()));
+        edujc = new EducacionJpaController(Persistence.createEntityManagerFactory(Configuration.getPu()));
         
     }
     

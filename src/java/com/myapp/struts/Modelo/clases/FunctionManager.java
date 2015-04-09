@@ -9,7 +9,12 @@ package com.myapp.struts.Modelo.clases;
 import com.myapp.struts.Modelo.exeptions.AlreadyDisabledException;
 import com.myapp.struts.Modelo.exeptions.AlreadyEnabledException;
 import com.myapp.struts.Modelo.interfaces.FunctionManagerIF;
+import com.myapp.struts.configuration.Configuration;
 import com.myapp.struts.persistencia.controladores.FuncionalidadesJpaController;
+import com.myapp.struts.persistencia.entidades.Funcionalidades;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.Persistence;
 
 /**
@@ -34,17 +39,48 @@ public class FunctionManager implements FunctionManagerIF{
     
     
     private FunctionManager(){
-        fjc = new FuncionalidadesJpaController(Persistence.createEntityManagerFactory("PracticaPruebastwebPUHsql3"));
+        fjc = new FuncionalidadesJpaController(Persistence.createEntityManagerFactory(Configuration.getPu()));
     }
 
     @Override
     public void activar(int funid) throws AlreadyEnabledException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Integer fid = funid;
+        Funcionalidades fun = fjc.findFuncionalidades(fid.toString());
+        if (fun == null){
+            return;
+        }
+        
+        if (fun.getActivo() == 0)
+            throw new AlreadyEnabledException();
+        
+        fun.setActivo((short) 1);
+        try {
+            fjc.edit(fun);
+        } catch (Exception ex) {
+            Logger.getLogger(FunctionManager.class.getName()).log(Level.SEVERE, null, ex);
+            return;
+        }
+        
     }
 
     @Override
     public void desactivar(int funid) throws AlreadyDisabledException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Integer fid = funid;
+        Funcionalidades fun = fjc.findFuncionalidades(fid.toString());
+        if (fun == null){
+            return;
+        }
+        
+        if (fun.getActivo() == 1)
+            throw new AlreadyDisabledException();
+        
+        fun.setActivo((short) 0);
+        try {
+            fjc.edit(fun);
+        } catch (Exception ex) {
+            Logger.getLogger(FunctionManager.class.getName()).log(Level.SEVERE, null, ex);
+            return;
+        }
     }
     
 }

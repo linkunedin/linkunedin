@@ -10,6 +10,7 @@ import com.myapp.struts.Modelo.exeptions.NotEnoughPrivilegesException;
 import com.myapp.struts.Modelo.exeptions.UserAlreadyExistsException;
 import com.myapp.struts.Modelo.exeptions.UserNotExistsException;
 import com.myapp.struts.Modelo.interfaces.AccountManagerIF;
+import com.myapp.struts.configuration.Configuration;
 import com.myapp.struts.persistencia.controladores.UsuariosJpaController;
 import javax.persistence.Persistence;
 
@@ -24,7 +25,7 @@ public class AccountManager implements AccountManagerIF{
     private UsuariosJpaController ujc;
     
     private AccountManager(){
-        ujc = new UsuariosJpaController(Persistence.createEntityManagerFactory("PracticaPruebastwebPUHsql3"));
+        ujc = new UsuariosJpaController(Persistence.createEntityManagerFactory(Configuration.getPu()));
     }
     
     /**

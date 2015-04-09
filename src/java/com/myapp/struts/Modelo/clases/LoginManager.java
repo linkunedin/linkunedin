@@ -8,6 +8,7 @@ package com.myapp.struts.Modelo.clases;
 
 import com.myapp.struts.Modelo.interfaces.LoginManagerIF;
 import com.myapp.struts.Modelo.interfaces.UserSessionIF;
+import com.myapp.struts.configuration.Configuration;
 import com.myapp.struts.persistencia.controladores.UsuariosJpaController;
 import com.myapp.struts.persistencia.entidades.Usuarios;
 import java.util.List;
@@ -23,7 +24,7 @@ public class LoginManager implements LoginManagerIF{
     private static LoginManager instance;
     
     private LoginManager(){
-        ujc = new UsuariosJpaController(Persistence.createEntityManagerFactory("PracticaPruebastwebPUHsql3"));
+        ujc = new UsuariosJpaController(Persistence.createEntityManagerFactory(Configuration.getPu()));
         
     }
     
