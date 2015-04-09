@@ -62,6 +62,8 @@ public class Usuarios implements Serializable {
     private String email;
     @Column(name = "valido")
     private Short valido;
+    @Column(name = "rutafoto", length = 255)
+    private String rutafoto;
     @Lob
     @Column(name = "perfil", length = 65535)
     private String perfil;
@@ -320,11 +322,19 @@ public class Usuarios implements Serializable {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "Usuarios{" + "id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", nombreUsuario=" + nombreUsuario + ", password=" + password + ", admin=" + admin + ", email=" + email + ", valido=" + valido + ", perfil=" + perfil + ", interesesCollection=" + interesesCollection + ", entidadesCollection=" + entidadesCollection + ", educacionCollection=" + educacionCollection + ", experienciasCollection=" + experienciasCollection + '}';
+    public String getRutafoto() {
+        return rutafoto;
     }
 
+    public void setRutafoto(String rutafoto) {
+        this.rutafoto = rutafoto;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuarios{" + "id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", nombreUsuario=" + nombreUsuario + ", password=" + password + ", admin=" + admin + ", email=" + email + ", valido=" + valido + ", rutafoto=" + rutafoto + ", perfil=" + perfil + ", interesesCollection=" + interesesCollection + ", entidadesCollection=" + entidadesCollection + ", educacionCollection=" + educacionCollection + ", experienciasCollection=" + experienciasCollection + '}';
+    }
+    
     
     
 }

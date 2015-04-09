@@ -18,7 +18,7 @@ import org.apache.struts.action.ActionMessage;
  */
 public class AltaForm extends org.apache.struts.action.ActionForm {
     
-    private String nombre, apellidos, nomusuario, password, email, rutafoto;
+    private String nombre, apellidos, nomusuario, password, email, rutafoto, perfil;
 
     /**
      *
@@ -115,6 +115,16 @@ public class AltaForm extends org.apache.struts.action.ActionForm {
     public void setRutafoto(String rutafoto) {
         this.rutafoto = rutafoto;
     }
+
+    public String getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(String perfil) {
+        this.perfil = perfil;
+    }
+    
+    
     
     
 

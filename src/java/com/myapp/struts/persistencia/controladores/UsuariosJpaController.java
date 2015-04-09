@@ -383,4 +383,10 @@ public class UsuariosJpaController implements Serializable {
         return q.getResultList();
     }
     
+    public List<Usuarios> findUsuarioByNombreUsuario(String user){
+        Query q = query("Usuarios.findByNombreUsuario");
+        q.setParameter("nombreUsuario", user);
+        return q.getResultList();
+    }
+    
 }

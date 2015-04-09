@@ -41,12 +41,15 @@ public class pruebas {
         usu.setNombreUsuario("javi");
         usu.setPerfil("asndjasdnjasnd");
         usu.setPassword("qwert");
+        usu.setRutafoto("asdas/dasdas/dad");
+        
         
         try {
             ujc.create(usu);
             LoginManager lm = LoginManager.getInstance();
             UserSession us = (UserSession) lm.login("javi", "qwert");
             System.out.println(us.getHashSessionDigest());
+            System.out.println(us.getUser().toString());
         } catch (Exception ex) {
             Logger.getLogger(pruebas.class.getName()).log(Level.SEVERE, null, ex);
             
