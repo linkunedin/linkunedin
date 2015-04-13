@@ -11,6 +11,7 @@ import com.myapp.struts.Modelo.clases.UserSession;
 import com.myapp.struts.configuration.Configuration;
 import com.myapp.struts.persistencia.controladores.UsuariosJpaController;
 import com.myapp.struts.persistencia.entidades.Usuarios;
+import com.myapp.struts.pruebas.integracion.AccountManagerTest;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -54,6 +55,10 @@ public class pruebas {
             Logger.getLogger(pruebas.class.getName()).log(Level.SEVERE, null, ex);
             
         }
+        
+        AccountManagerTest test = new AccountManagerTest();
+        test.testAltaBaja();
+        test.testModificar();
         
         
     }

@@ -111,4 +111,18 @@ public class AccountManager implements AccountManagerIF{
         }
     }
     
+    public void setAdmin(String user) throws UserNotExistsException{
+        List<Usuarios> lista = ujc.findUsuarioByNombreUsuario(user);
+        if (lista.size() == 0)   // no existe
+            throw new UserNotExistsException();
+        
+        Usuarios usu = lista.get(0);
+        usu.setAdmin((short)1);
+        try {
+            ujc.edit(usu);
+        } catch (Exception ex) {
+            Logger.getLogger(AccountManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 }

@@ -13,6 +13,7 @@ import com.myapp.struts.Modelo.interfaces.CriteriaIF;
 import com.myapp.struts.Modelo.interfaces.ProfilesManagerIF;
 import com.myapp.struts.configuration.Configuration;
 import com.myapp.struts.persistencia.controladores.*;
+import com.myapp.struts.persistencia.entidades.Usuarios;
 import java.util.List;
 import javax.persistence.Persistence;
 
@@ -95,6 +96,10 @@ public class ProfilesManager implements ProfilesManagerIF {
      */
     @Override
     public Object getProfile(int profileid) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public Usuarios getProfile(String username){
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
