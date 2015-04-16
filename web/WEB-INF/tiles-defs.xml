@@ -38,5 +38,11 @@
 
     <definition name="${YOUR_DEFINITION_HERE}">
     </definition>
+   
+     <definition name="layout" path="/layout.jsp">
+        
+        <put name="body"   value="/index.jsp" />
+        
+    </definition>
 
 </tiles-definitions>
