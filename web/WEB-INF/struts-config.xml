@@ -51,8 +51,15 @@
         
         <action input="/" name="PerfilCompletoForm" path="/ListarUsuarios" scope="session" type="com.myapp.struts.Controlador.Actions.ListarUsuariosAction">
             <forward name="success" path="/listarUsuarios.jsp"/>
-        </action>  
-          
+        </action>
+        
+        <action input="/" name="CreateUserForm" path="/registrarUsuario" scope="session" type="com.myapp.struts.Controlador.Actions.RegistrarUsuariosAction"> 
+            <forward name="success" path="/formRegistro.jsp"/>
+            <forward name="failure" path="/login.jsp"/>
+        </action>     
+       
+        
+        <action input="/" name="PerfilCompletoForm" path="/registrarUsuario" scope="session" type="com.myapp.struts.Controlador.Actions.RegistrarUsuarioAction"/>  
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
     </action-mappings>
     
