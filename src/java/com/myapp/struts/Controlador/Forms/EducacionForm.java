@@ -18,7 +18,7 @@ import org.apache.struts.action.ActionMessage;
  */
 public class EducacionForm extends org.apache.struts.action.ActionForm {
     
-    private String centro, titulo, /*act,*/ descripcion, fechafin, fechainicio;
+    private String centro, titulo, /*act,*/ descripcion, fechafin, fechainicio, username;
 
     /**
      *
@@ -99,6 +99,16 @@ public class EducacionForm extends org.apache.struts.action.ActionForm {
     public void setFechainicio(String fechainicio) {
         this.fechainicio = fechainicio;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    
+    
     
     
 

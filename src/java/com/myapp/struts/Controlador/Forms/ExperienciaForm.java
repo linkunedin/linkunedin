@@ -18,7 +18,7 @@ import org.apache.struts.action.ActionMessage;
  */
 public class ExperienciaForm extends org.apache.struts.action.ActionForm {
     
-    private String empresa, puesto, /*actividades, */descripcion, fechainicio, fechafin;
+    private String empresa, puesto, /*actividades, */descripcion, fechainicio, fechafin, username;
 
     /**
      *
@@ -100,6 +100,14 @@ public class ExperienciaForm extends org.apache.struts.action.ActionForm {
         this.fechafin = fechafin;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
 
     /**
      *
@@ -108,6 +116,8 @@ public class ExperienciaForm extends org.apache.struts.action.ActionForm {
         super();
         // TODO Auto-generated constructor stub
     }
+    
+    
 
     /**
      * This is the action called from the Struts framework.

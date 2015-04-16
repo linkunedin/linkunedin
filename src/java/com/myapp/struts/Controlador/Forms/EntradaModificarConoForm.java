@@ -16,7 +16,7 @@ import org.apache.struts.action.ActionMapping;
 public class EntradaModificarConoForm extends org.apache.struts.action.ActionForm{
   
     
-    private String titulo, descripcion;
+    private String titulo, descripcion, username;
 
     public String getTitulo() {
         return titulo;
@@ -32,6 +32,14 @@ public class EntradaModificarConoForm extends org.apache.struts.action.ActionFor
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
     
     
