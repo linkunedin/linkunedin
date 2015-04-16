@@ -18,7 +18,15 @@ import org.apache.struts.action.ActionMessage;
  */
 public class EducacionForm extends org.apache.struts.action.ActionForm {
     
-    private String centro, titulo, /*act,*/ descripcion, fechafin, fechainicio, username;
+    private String centro, titulo, /*act,*/ descripcion, fechafin, fechainicio, username, id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     /**
      *
