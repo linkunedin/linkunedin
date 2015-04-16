@@ -18,7 +18,15 @@ import org.apache.struts.action.ActionMessage;
  */
 public class ExperienciaForm extends org.apache.struts.action.ActionForm {
     
-    private String empresa, puesto, /*actividades, */descripcion, fechainicio, fechafin, username;
+    private String empresa, puesto, /*actividades, */descripcion, fechainicio, fechafin, username, idexp;
+
+    public String getIdexp() {
+        return idexp;
+    }
+
+    public void setIdexp(String idexp) {
+        this.idexp = idexp;
+    }
 
     /**
      *

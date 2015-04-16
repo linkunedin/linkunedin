@@ -14,6 +14,7 @@ import com.myapp.struts.Modelo.interfaces.CriteriaIF;
 import com.myapp.struts.Modelo.interfaces.ProfilesManagerIF;
 import com.myapp.struts.configuration.Configuration;
 import com.myapp.struts.persistencia.controladores.*;
+import com.myapp.struts.persistencia.controladores.exceptions.NonexistentEntityException;
 import com.myapp.struts.persistencia.entidades.Educacion;
 import com.myapp.struts.persistencia.entidades.Experiencias;
 import com.myapp.struts.persistencia.entidades.Intereses;
@@ -24,7 +25,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.Persistence;
-
+import com.myapp.struts.persistencia.controladores.exceptions.*;
 /**
  *
  * @author Administrador
@@ -299,19 +300,108 @@ public class ProfilesManager implements ProfilesManagerIF {
         }    
     }
     
-    public void delExperience(Object modifier, ExperienciaForm formu){
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void delExperience(Object modifier, ExperienciaForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException, NonexistentEntityException{
+        canModify(modifier, formu.getUsername());
+        Usuarios usu = getProfile(formu.getUsername());
+        String user = (String) modifier;
+        
+        ejc.destroy(Integer.parseInt(formu.getIdexp()));
+        
     }
     
-    public void delEducation(Object modifier, EducacionForm formu){
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void delEducation(Object modifier, EducacionForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException, NonexistentEntityException{
+        canModify(modifier, formu.getUsername());
+        Usuarios usu = getProfile(formu.getUsername());
+        String user = (String) modifier;
+        
+        edujc.destroy(Integer.parseInt(formu.getId()));
     }
     
-    public void delKnowledge(Object modifier, EntradaModificarConoForm formu){
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void delKnowledge(Object modifier, EntradaModificarConoForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException, NonexistentEntityException{
+        canModify(modifier, formu.getUsername());
+        Usuarios usu = getProfile(formu.getUsername());
+        String user = (String) modifier;
+        
+        ijc.destroy(Integer.parseInt(formu.getId()));
     }
     
     // faltarian metodos para modificar
     
+    
+    public void modifyExperience(Object modifier, ExperienciaForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException{
+        canModify(modifier, formu.getUsername());
+        
+        Usuarios usu = getProfile(formu.getUsername());
+        
+        
+        String user = (String) modifier;
+        Experiencias exp = ejc.findExperiencias(Integer.parseInt(formu.getIdexp()));
+        // TODO: arreglar eso
+        //exp.setActividades(formu.get);    // no tiene actividades
+        exp.setDescripcion(formu.getDescripcion());
+        exp.setEmpresa(formu.getEmpresa());
+        exp.setFechaFin(new Date(formu.getFechafin()));
+        exp.setFechaInicio(new Date(formu.getFechainicio()));
+        exp.setPuesto(formu.getPuesto());
+        //exp.setUsuarioId(usu);      // ¿?¿?¿?¿?
+        //exp.setValido((short)1);
+        try {
+            ejc.edit(exp);
+        } catch (Exception ex) {
+            Logger.getLogger(ProfilesManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void modifyEducation(Object modifier, EducacionForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException{
+        canModify(modifier, formu.getUsername());
+        
+        Usuarios usu = getProfile(formu.getUsername());
+        
+        String user = (String) modifier;
+        Educacion edu = edujc.findEducacion(Integer.parseInt(formu.getId()));
+        // TODO: arreglar eso
+        //edu.setActividades(formu.get);    // formulario no tiene campo actividades
+        edu.setCentroEstudios(formu.getCentro());
+        edu.setDescripcion(formu.getDescripcion());
+        edu.setFechaFin(new Date(formu.getFechafin()));
+        edu.setFechaInicio(new Date(formu.getFechainicio()));
+        edu.setTitulacion(formu.getTitulo());
+        //edu.setUsuarioId(usu);
+        //edu.setValido((short)1);
+        
+        try {
+            edujc.edit(edu);
+        } catch (Exception ex) {
+            Logger.getLogger(ProfilesManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void modifyKnowledge(Object modifier, EntradaModificarConoForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException, NonexistentEntityException{
+        canModify(modifier, formu.getUsername());
+        
+        
+        Usuarios usu = getProfile(formu.getUsername());
+        String user = (String) modifier;
+        
+        // se trata de una relacion M:N. primero comprobar si existe.
+        // si no existe lanzar error
+        List<Intereses> lint = ijc.fingInteresesByTitulo(formu.getTitulo());
+        
+        if (lint.size() == 0){
+            // no existe el interes -> crearlo
+            throw new NonexistentEntityException("Specified knowledge does not exist");
+        }
+        else{
+            // existe -> añadirle el usuario y guardar
+            Intereses inter = lint.get(0);
+            inter.setDescripcion(formu.getDescripcion());
+            inter.setTitulo(formu.getTitulo());
+            try {
+                ijc.edit(inter);
+            } catch (Exception ex) {
+                Logger.getLogger(ProfilesManager.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
     
 }
