@@ -31,7 +31,7 @@ public interface ProfilesManagerIF {
      * @param profile
      * @throws ProfileNotExistsException
      */
-    public void modifyProfile(Object modifier, Object profile) throws ProfileNotExistsException;
+    public void modifyProfile(Object modifier, Object profile) throws ProfileNotExistsException, NotEnoughPrivilegesException ;
 
     /**
      *

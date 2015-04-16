@@ -75,6 +75,9 @@ public class Usuarios implements Serializable {
     private Collection<Educacion> educacionCollection;
     @OneToMany(mappedBy = "usuarioId")
     private Collection<Experiencias> experienciasCollection;
+    
+    @Column(name = "pdf", length = 255)
+    private String pdf;
 
     /**
      *
@@ -330,10 +333,19 @@ public class Usuarios implements Serializable {
         this.rutafoto = rutafoto;
     }
 
+    public String getPdf() {
+        return pdf;
+    }
+
+    public void setPdf(String pdf) {
+        this.pdf = pdf;
+    }
+
     @Override
     public String toString() {
-        return "Usuarios{" + "id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", nombreUsuario=" + nombreUsuario + ", password=" + password + ", admin=" + admin + ", email=" + email + ", valido=" + valido + ", rutafoto=" + rutafoto + ", perfil=" + perfil + ", interesesCollection=" + interesesCollection + ", entidadesCollection=" + entidadesCollection + ", educacionCollection=" + educacionCollection + ", experienciasCollection=" + experienciasCollection + '}';
+        return "Usuarios{" + "id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", nombreUsuario=" + nombreUsuario + ", password=" + password + ", admin=" + admin + ", email=" + email + ", valido=" + valido + ", rutafoto=" + rutafoto + ", perfil=" + perfil + ", interesesCollection=" + interesesCollection + ", entidadesCollection=" + entidadesCollection + ", educacionCollection=" + educacionCollection + ", experienciasCollection=" + experienciasCollection + ", pdf=" + pdf + '}';
     }
+    
     
     
     

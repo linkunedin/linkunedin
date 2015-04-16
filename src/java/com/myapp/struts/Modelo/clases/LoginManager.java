@@ -29,8 +29,8 @@ public class LoginManager implements LoginManagerIF{
     }
     
     /**
-     *
-     * @return
+     * 
+     * @return LoginManager instance
      */
     public static LoginManager getInstance(){
         if (LoginManager.instance == null)
@@ -39,10 +39,12 @@ public class LoginManager implements LoginManagerIF{
     }
 
     /**
-     *
+     * busca si existe un usuario con el login y la contrasena indicados,
+     * si existe genera un objeto UserSession y lo devuelve. 
+     * Si no existe devuelve NULL
      * @param user
      * @param pwd
-     * @return
+     * @return UserSession
      */
     @Override
     public UserSessionIF login(String user, String pwd) {

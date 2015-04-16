@@ -10,11 +10,32 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
 
 /**
- *
+ * se corresponderia con la entidad intereses
  * @author david
  */
 public class EntradaModificarConoForm extends org.apache.struts.action.ActionForm{
   
+    
+    private String titulo, descripcion;
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+    
+    
+    
     /**
      *
      * @param mapping
