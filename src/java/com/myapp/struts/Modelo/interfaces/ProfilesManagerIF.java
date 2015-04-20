@@ -6,9 +6,11 @@
 
 package com.myapp.struts.Modelo.interfaces;
 
+import com.myapp.struts.Controlador.Forms.BusquedaForm;
 import com.myapp.struts.Modelo.exeptions.ProfileNotExistsException;
 import com.myapp.struts.Modelo.exeptions.ProfileAlreadyExistsException;
 import com.myapp.struts.Modelo.exeptions.NotEnoughPrivilegesException;
+import com.myapp.struts.persistencia.entidades.Usuarios;
 import java.util.List;
 
 /**
@@ -54,5 +56,5 @@ public interface ProfilesManagerIF {
      * @param criteria
      * @return
      */
-    public List<Object> getProfiles(List<CriteriaIF> criteria);
+    public List<Usuarios> getProfiles(BusquedaForm formu);
 }

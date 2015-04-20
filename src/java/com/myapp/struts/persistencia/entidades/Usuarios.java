@@ -6,6 +6,7 @@
 
 package com.myapp.struts.persistencia.entidades;
 
+import java.sql.Date;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
@@ -40,7 +41,10 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Usuarios.findByUserPwd", query = "SELECT u FROM Usuarios u WHERE u.nombreUsuario = :nombre and u.password = :password"),
     @NamedQuery(name = "Usuarios.findByAdmin", query = "SELECT u FROM Usuarios u WHERE u.admin = :admin"),
     @NamedQuery(name = "Usuarios.findByEmail", query = "SELECT u FROM Usuarios u WHERE u.email = :email"),
-    @NamedQuery(name = "Usuarios.findByValido", query = "SELECT u FROM Usuarios u WHERE u.valido = :valido")})
+    @NamedQuery(name = "Usuarios.findByValido", query = "SELECT u FROM Usuarios u WHERE u.valido = :valido"),
+    @NamedQuery(name = "Usuarios.findByFechaNac", query = "SELECT u FROM Usuarios u WHERE u.fechaNac = :fechaNac"),
+    @NamedQuery(name = "Usuarios.findByInteres", query = "SELECT u FROM Usuarios u JOIN u.interesesCollection i WHERE i.titulo = :interes "),
+    @NamedQuery(name = "Usuarios.findByLocation", query = "SELECT u FROM Usuarios u WHERE u.location = :location")})
 public class Usuarios implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -64,6 +68,10 @@ public class Usuarios implements Serializable {
     private Short valido;
     @Column(name = "rutafoto", length = 255)
     private String rutafoto;
+    @Column(name = "location", length = 45)
+    private String location;
+    @Column(name = "fechaNac")
+    private java.sql.Date fechaNac;
     @Lob
     @Column(name = "perfil", length = 65535)
     private String perfil;
@@ -237,6 +245,23 @@ public class Usuarios implements Serializable {
         this.perfil = perfil;
     }
 
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public Date getFechaNac() {
+        return fechaNac;
+    }
+
+    public void setFechaNac(Date fechaNac) {
+        this.fechaNac = fechaNac;
+    }
+
+    
     /**
      *
      * @return

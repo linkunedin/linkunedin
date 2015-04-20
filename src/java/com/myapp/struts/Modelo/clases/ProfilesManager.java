@@ -181,8 +181,42 @@ public class ProfilesManager implements ProfilesManagerIF {
      * @return
      */
     @Override
-    public List<Object> getProfiles(List<CriteriaIF> criteria) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Usuarios> getProfiles(BusquedaForm formu) {
+     ArrayList <Usuarios> aus = new ArrayList();
+     List<Usuarios> lus = ujc.findUsuarioByLocation(formu.getLocation());
+     
+     if (!(formu.getLocation().equals(""))){
+        lus = ujc.findUsuarioByLocation(formu.getLocation());
+        aus.addAll(lus);
+     }
+     
+     if (!(formu.getConocimientos().equals(""))){
+        lus = ujc.findUsuarioByConocimientos(formu.getConocimientos());
+        aus.addAll(lus);        
+     }
+     
+     if (!(formu.getExperiencia().equals(""))){
+        lus = ujc.findUsuarioByExperiencia(formu.getExperiencia());
+        aus.addAll(lus);
+     }
+     
+     if (!(formu.getTitulacion().equals(""))){
+        //lus = ujc.f(formu.getExperiencia());
+        aus.addAll(lus);
+     }
+
+     if (!(formu.getFechaNac().equals(""))){
+        lus = ujc.findUsuarioByFechaNac(formu.getFechaNac());
+        aus.addAll(lus);
+     }
+     
+     
+    /* List<Usuarios> lus = ujc.findUsuarioByLocation(formu.getLocation());
+        if (lus.size() == 0)
+            return null;
+      */  
+        return aus;   
+     //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
