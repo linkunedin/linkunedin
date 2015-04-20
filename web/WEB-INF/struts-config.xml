@@ -42,7 +42,9 @@
         <action input="/" name="ModificarExpe" path="/modificarExpe" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarExpeAction"/>
         <action input="/" name="EntradaModificarPerfilForm" path="/modificarperfil" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarPerfilAction"/>
         <action input="/" name="AltaForm" path="/alta" scope="request" type="com.myapp.struts.Controlador.Actions.AltaAction"/>
-        <action input="/" name="CreateUserForm" path="/createuser" scope="request" type="com.myapp.struts.Controlador.Actions.CreateUser" validate="false"/>
+        <action input="/" name="BajaForm" path="/baja" type="com.myapp.struts.Controlador.Actions.BajaAction"/>
+        
+        
         <action path="/logout" type="com.myapp.struts.Controlador.Actions.LogoutAction"/>
         <action input="/" name="LoginForm" path="/login" scope="request" type="com.myapp.struts.Controlador.Actions.LoginAction">
             <forward name="success" path="/success.jsp"/>
@@ -53,13 +55,7 @@
             <forward name="success" path="/listarUsuarios.jsp"/>
         </action>
         
-        <action input="/" name="CreateUserForm" path="/registrarUsuario" scope="session" type="com.myapp.struts.Controlador.Actions.RegistrarUsuariosAction"> 
-            <forward name="success" path="/formRegistro.jsp"/>
-            <forward name="failure" path="/login.jsp"/>
-        </action>     
-       
         
-        <action input="/" name="PerfilCompletoForm" path="/registrarUsuario" scope="session" type="com.myapp.struts.Controlador.Actions.RegistrarUsuarioAction"/>  
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
     </action-mappings>
     

@@ -33,7 +33,7 @@ public class ListarUsuariosAction extends org.apache.struts.action.Action {
         System.out.println("entra");
         UsuariosJpaController usuariosJpa = new UsuariosJpaController(Persistence.createEntityManagerFactory(Configuration.getPu()));
         List<Usuarios> listaUsuarios = usuariosJpa.findUsuariosEntities();
-        request.setAttribute("listaUsuarios",listaUsuarios);
+        request.getSession().setAttribute("listaUsuarios",listaUsuarios);
         return mapping.findForward(SUCCESS);
     }
 }
