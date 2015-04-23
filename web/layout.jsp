@@ -12,10 +12,10 @@
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 
-        <!-- Optional theme -->
+        <!— Optional theme —>
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
 
-        <!-- Latest compiled and minified JavaScript -->
+        <!— Latest compiled and minified JavaScript —>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/jquery.min.js"></script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
         <title>JSP Page</title>
@@ -42,8 +42,10 @@
                 </div-->
                 <div class="col-md-3">
                     <ul class="nav nav-pills nav-stacked">
-                        <li class="active"><a href="#">Home</a></li>
+                        <li class="active"><a href="login.do">Home</a></li>
                         <li><a href="login.do">Login</a></li>
+                        <li><a href="modificarPerfil.jsp">Modificar perfil</a></li>
+                        <li><a href="logout.do">Logout</a></li>
                         <li><a href="ListarUsuarios.do">Listar usuarios</a></li>
                         <li><a href="formRegistro.jsp">Alta de usuario</a></li>
                     </ul>

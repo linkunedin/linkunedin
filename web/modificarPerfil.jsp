@@ -10,6 +10,6 @@
 
 <tiles:insert page="/layout.jsp" flush="true">
    
-    <tiles:put name="body" value="/successBody.jsp" />
+    <tiles:put name="body" value="/modificarPerfilBody.jsp" />
     
 </tiles:insert>

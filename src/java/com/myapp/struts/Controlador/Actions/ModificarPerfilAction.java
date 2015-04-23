@@ -7,6 +7,9 @@
 package com.myapp.struts.Controlador.Actions;
 
 import com.myapp.struts.Controlador.Forms.EntradaModificarPerfilForm;
+import com.myapp.struts.Modelo.clases.LoginManager;
+import com.myapp.struts.Modelo.clases.UserSession;
+import com.myapp.struts.persistencia.entidades.Usuarios;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
@@ -39,10 +42,16 @@ public class ModificarPerfilAction extends org.apache.struts.action.Action {
         
         EntradaModificarPerfilForm empf = (EntradaModificarPerfilForm) form;
         
+        try{
+           UserSession us = (UserSession)  request.getSession().getAttribute("objsesion");
+           Usuarios usuario = us.getUser();
+           
+        }
+        catch(Exception e){}
         // comprobar logeo
 
         // comprobar si existe el id de usuario
-        
+      
         // si no existe devolver mensaje de error indicando que no existe
         
         // si el usuario indicado no es el mismo que el logeado comprobamos si es admin

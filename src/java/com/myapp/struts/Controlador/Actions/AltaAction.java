@@ -8,6 +8,8 @@ package com.myapp.struts.Controlador.Actions;
 
 import com.myapp.struts.Controlador.Forms.AltaForm;
 import com.myapp.struts.Modelo.clases.AccountManager;
+import com.myapp.struts.Modelo.clases.LoginManager;
+import com.myapp.struts.Modelo.clases.UserSession;
 import com.myapp.struts.Modelo.exeptions.UserAlreadyExistsException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -40,16 +42,27 @@ public class AltaAction extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         AltaForm altaform = (AltaForm) form; 
-        
+        UserSession us;
         // comprobar si existe usuario
         AccountManager am = AccountManager.getInstance();
+        LoginManager lm = LoginManager.getInstance();
         try{
             am.alta(form);
+            
+            us = (UserSession) lm.login(altaform.getNomusuario(),altaform.getPassword());
+            
+            
         }catch(UserAlreadyExistsException ex){
             altaform.setError("Error : el usuario ya existe");
             return mapping.findForward(ERROR);
         }
         
+        if (us == null){
+            System.out.println("Error al logear el nuevo alta");
+            return mapping.findForward(ERROR);
+        }else{
+           request.getSession().setAttribute("objsesion", us);
+        }
         
         
         // esto es un cambio de prueba

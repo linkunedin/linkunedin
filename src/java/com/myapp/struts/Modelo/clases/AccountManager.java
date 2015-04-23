@@ -7,7 +7,7 @@
 package com.myapp.struts.Modelo.clases;
 
 import com.myapp.struts.Controlador.Forms.AltaForm;
-import com.myapp.struts.Controlador.Forms.PerfilCompletoForm;
+import com.myapp.struts.Controlador.Forms.EntradaModificarPerfilForm;
 import com.myapp.struts.Modelo.exeptions.NotEnoughPrivilegesException;
 import com.myapp.struts.Modelo.exeptions.UserAlreadyExistsException;
 import com.myapp.struts.Modelo.exeptions.UserNotExistsException;

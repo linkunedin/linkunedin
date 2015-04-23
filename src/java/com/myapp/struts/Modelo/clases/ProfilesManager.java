@@ -78,18 +78,18 @@ public class ProfilesManager implements ProfilesManagerIF {
     /**
      *
      * @param modifier  este parametro hay que pillarlo de la sesion (Usuarios)
-     * @param profile PerfilCompletoForm
+     * @param profile EntradaModificarPerfilForm
      * @throws ProfileNotExistsException
      */
     @Override
     public void modifyProfile(Object modifier, Object profile) throws ProfileNotExistsException, NotEnoughPrivilegesException {
         
         // si usuario nulo o no hay privilegios lanzara excepcion
-        canModify(modifier, ((PerfilCompletoForm)profile).getNomusuario());
+        canModify(modifier, ((EntradaModificarPerfilForm)profile).getNomusuario());
         // si pasamos de aqui es porque podemos proceder a modificar
         
         String userm = (String) modifier;
-        PerfilCompletoForm formu = (PerfilCompletoForm) profile;
+        EntradaModificarPerfilForm formu = (EntradaModificarPerfilForm) profile;
         
         // primero comprobamos que el usuario tiene permisos (es admin)
         // o bien es el mismo usuario
@@ -122,7 +122,7 @@ public class ProfilesManager implements ProfilesManagerIF {
     public void deleteProfile(Object modifier, Object profile) throws ProfileNotExistsException, NotEnoughPrivilegesException {
         
         // si usuario nulo o no hay privilegios lanzara excepcion
-        canModify(modifier, ((PerfilCompletoForm)profile).getNomusuario());
+        canModify(modifier, ((EntradaModificarPerfilForm)profile).getNomusuario());
         // si pasamos de aqui es porque podemos proceder a modificar
         
         Usuarios us = (Usuarios) modifier;
@@ -230,7 +230,7 @@ public class ProfilesManager implements ProfilesManagerIF {
      */
     public boolean canModify(Object modifier, Object profile) throws ProfileNotExistsException, NotEnoughPrivilegesException {
         String userm = (String) modifier;
-        //PerfilCompletoForm formu = (PerfilCompletoForm) profile;
+        //PerfilCompletoForm formu = (EntradaModificarPerfilForm) profile;
         String name = (String) profile;
         
         // primero comprobamos que el usuario tiene permisos (es admin)
