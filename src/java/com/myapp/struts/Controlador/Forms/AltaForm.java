@@ -18,7 +18,7 @@ import org.apache.struts.action.ActionMessage;
  */
 public class AltaForm extends org.apache.struts.action.ActionForm {
     
-    private String nombre, apellidos, nomusuario, password, email, rutafoto, perfil;
+    private String nombre, apellidos, nomusuario, password, email, rutafoto, perfil, error;
 
     /**
      *
@@ -123,6 +123,14 @@ public class AltaForm extends org.apache.struts.action.ActionForm {
     public void setPerfil(String perfil) {
         this.perfil = perfil;
     }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
     
     
     
@@ -139,22 +147,22 @@ public class AltaForm extends org.apache.struts.action.ActionForm {
         ActionErrors errors = new ActionErrors();
         
         if (getNombre() == null || getNombre().length() < 1) {
-            errors.add("name", new ActionMessage("error.name.required"));
+            errors.add("name", new ActionMessage("errors.name.required"));
         }
         if (getEmail() == null || getEmail().length() < 1) {
-            errors.add("email", new ActionMessage("error.email.required"));
+            errors.add("email", new ActionMessage("errors.email.required"));
         }
 
         if (getPassword() == null || getPassword().length() < 1) {
-            errors.add("password", new ActionMessage("error.password.required"));
+            errors.add("password", new ActionMessage("errors.password.required"));
         }
 
         if (getApellidos() == null || getApellidos().length() < 1) {
-            errors.add("apellidos", new ActionMessage("error.apellidos.required"));
+            errors.add("apellidos", new ActionMessage("errors.apellidos.required"));
         }
 
         if (getNomusuario()== null || getNomusuario().length() < 1) {
-            errors.add("nomusuario", new ActionMessage("error.nomusuario.required"));
+            errors.add("nomusuario", new ActionMessage("errors.nomusuario.required"));
         }
 
         return errors;

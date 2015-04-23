@@ -7,6 +7,8 @@
 package com.myapp.struts.Controlador.Actions;
 
 import com.myapp.struts.Controlador.Forms.AltaForm;
+import com.myapp.struts.Modelo.clases.AccountManager;
+import com.myapp.struts.Modelo.exeptions.UserAlreadyExistsException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
@@ -40,16 +42,21 @@ public class AltaAction extends org.apache.struts.action.Action {
         AltaForm altaform = (AltaForm) form; 
         
         // comprobar si existe usuario
+        AccountManager am = AccountManager.getInstance();
+        try{
+            am.alta(form);
+        }catch(UserAlreadyExistsException ex){
+            altaform.setError("Error : el usuario ya existe");
+            return mapping.findForward(ERROR);
+        }
+        
+        
+        
         // esto es un cambio de prueba
         // crear usuario si no existe
         
         // si ok devolver a la pagina principal
-        if (true)
-            return mapping.findForward(SUCCESS);
-        
-        // si no ok devolver a la misma pagina de alta
-        else
-            return mapping.findForward(ERROR);
+        return mapping.findForward(SUCCESS);
         
         // prueba cambio
         // asdsad asd

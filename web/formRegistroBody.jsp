@@ -4,16 +4,19 @@
 
         
 <div class="row">
-    <div class="col-lg-3 col-lg-offset-3">
         <h1>Registro Usuarios</h1>
-            <html:form action="/login">
+        <span class="text-danger">
+        <html:errors/>
+        </span>
+        <html:messages id="mensajes"/>
+            <html:form action="/alta" styleClass="form-inline">
             <div class="form-group">
                 <label>Nombre</label>
                 <html:text property="nombre" styleClass="form-control"/>
             </div>
             <div class="form-group">
-                <label>Apellido</label>
-                <html:text property="apellido" styleClass="form-control"/>
+                <label>Apellidos</label>
+                <html:text property="apellidos" styleClass="form-control"/>
             </div>
             <div class="form-group">
                 <label>Password</label>
@@ -25,18 +28,15 @@
             </div>
             <div class="form-group">
                 <label>Nombre Usuario</label>
-                <html:text property="nombreUsuario" styleClass="form-control"/>
+                <html:text property="nomusuario" styleClass="form-control"/>
             </div>
             <div class="form-group">
                 <label>Foto</label>
-                <html:text property="foto" styleClass="form-control"/>
+                <html:text property="rutafoto" styleClass="form-control"/>
             </div>
-            <html:submit value="Login" />
-            <bean:write name="LoginForm" property="error" filter="false"/>
-
-
-
+            <br/>
+            <button type="submit" class="btn btn-primary">Registrar</button>
+            <bean:write name="AltaForm" property="error" filter="false"/>
         </html:form>
-    </div>
 </div>
 
