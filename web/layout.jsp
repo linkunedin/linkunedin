@@ -24,14 +24,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    
+
                     <div class="page-header ">
                         <h1> Practica TW <small>1.0</small></h1>
-                      </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-3">
+                <!--div class="col-lg-3">
                     <ul>
                         <li><a href="login.do"> Home</a> </li>
                         
@@ -39,12 +39,20 @@
                         
                     </ul>
                     
+                </div-->
+                <div class="col-md-3">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="login.do">Login</a></li>
+                        <li><a href="ListarUsuarios.do">Listar usuarios</a></li>
+                        <li><a href="formRegistro.jsp">Alta de usuario</a></li>
+                    </ul>
                 </div>
                 <div class="col-lg-9">
                     <tiles:insert attribute="body" />
                 </div>
             </div>
-            
+
         </div>
     </body>
 </html>
