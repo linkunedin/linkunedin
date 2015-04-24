@@ -50,11 +50,11 @@
         
         <action path="/logout" type="com.myapp.struts.Controlador.Actions.LogoutAction" >
             <forward name="success" path="/logout.jsp"/>
-            <forward name="failure" path="/login.jsp"/>
+            <forward name="error" path="/login.jsp"/>
         </action>>  
         <action input="/" name="LoginForm" path="/login" scope="request" type="com.myapp.struts.Controlador.Actions.LoginAction">
             <forward name="success" path="/success.jsp"/>
-            <forward name="failure" path="/login.jsp"/>
+            <forward name="error" path="/login.jsp"/>
         </action>
         
         <action input="/" name="PerfilCompletoForm" path="/ListarUsuarios" scope="session" type="com.myapp.struts.Controlador.Actions.ListarUsuariosAction">

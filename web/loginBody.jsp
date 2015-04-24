@@ -10,14 +10,14 @@
         
         <div class="row">
             <div class="col-lg-3 col-lg-offset-3">
-                <h1>Login Form</h1>
+                <h1>Login de usuario</h1>
                     <html:form action="/login">
                     <div class="form-group">
-                        <label>Enter your user name</label>
+                        <label>Introduzca su nombre de usuario</label>
                         <html:text property="user" styleClass="form-control"/>
                     </div>
                     <div class="form-group">
-                        <label>Enter your password</label>
+                        <label>Introduzca su contraseña</label>
                         <html:text property="password" styleClass="form-control"/>
                     </div>
                     <html:submit value="Login" />

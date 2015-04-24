@@ -44,10 +44,11 @@
                     <ul class="nav nav-pills nav-stacked">
                         <li class="active"><a href="login.do">Home</a></li>
                         <li><a href="login.do">Login</a></li>
-                        <li><a href="modificarPerfil.jsp">Modificar perfil</a></li>
-                        <li><a href="logout.do">Logout</a></li>
-                        <li><a href="ListarUsuarios.do">Listar usuarios</a></li>
                         <li><a href="formRegistro.jsp">Alta de usuario</a></li>
+                        <li><a href="modificarPerfil.jsp">Modificar perfil</a></li>
+                        <li><a href="ListarUsuarios.do">Listar usuarios</a></li>
+                        <li><a href="logout.do">Logout</a></li>
+                        
                     </ul>
                 </div>
                 <div class="col-lg-9">
