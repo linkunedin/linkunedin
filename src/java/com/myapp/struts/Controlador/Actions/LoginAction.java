@@ -48,29 +48,13 @@ public class LoginAction extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         LoginForm lf = (LoginForm) form;
-        boolean encontrado;
-        Usuarios userLista;
-        
-        int indiceLista = 0;
-        encontrado = false;
-        
+             
 
         UsuariosJpaController usuariosJpa = new UsuariosJpaController(Persistence.createEntityManagerFactory(Configuration.getPu()));
-        List<Usuarios> listaUsuarios = usuariosJpa.findUsuariosEntities();
-        
-        while ((indiceLista < listaUsuarios.size())&&!(encontrado)){
-            userLista = listaUsuarios.get(indiceLista);
-            System.out.println(lf.getUser());
-            System.out.println(userLista.getNombreUsuario());
-            System.out.println(lf.getPassword());
-            System.out.println(userLista.getPassword());
-            if ( userLista.getNombreUsuario().equals (lf.getUser())&&((userLista.getPassword()).equals (lf.getPassword()))){
-               encontrado=true;
-               System.out.println("Encontrado usr");
-            }
-            indiceLista++;
-        }
-        if(encontrado){
+        List<Usuarios> listaUsuarios = usuariosJpa.findUsuarioByUserPwd(lf.getUser(), lf.getPassword());
+       
+
+        if(listaUsuarios.size()>0){ //Hemos encontrado al usuario que se quiere logar
         LoginManager lm = LoginManager.getInstance();
         UserSession us = (UserSession) lm.login(lf.getUser(), lf.getPassword());       
         request.getSession().setAttribute("objsesion", us);
