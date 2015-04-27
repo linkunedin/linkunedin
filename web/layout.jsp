@@ -22,7 +22,7 @@
         <script type="text/javascript">
             $(function(){
                 $(".form-group").css("margin", "3px");
-            })();
+            });
         </script>
         
         <title>JSP Page</title>

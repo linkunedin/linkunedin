@@ -35,7 +35,7 @@
             });
         });
         
-    })();
+    });
 </script>
 
 <h1>Formulario de modificaci&oacute;n de perfil</h1>
