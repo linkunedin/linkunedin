@@ -12,7 +12,7 @@ package com.myapp.struts.configuration;
  */
 public class Configuration {
     
-    private static String PersistenceUnit = "PracticaPruebastwebPUMySQL";
+    private static String PersistenceUnit = "PracticaPruebastwebPUHsql";
     
     public static String getPu(){
         return PersistenceUnit;
