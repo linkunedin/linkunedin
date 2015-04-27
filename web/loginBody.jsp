@@ -23,7 +23,7 @@
                 </div>
                 <div class="form-group">
                     <label>Introduzca su contraseña</label>
-                    <html:text property="password" styleClass="form-control"/>
+                    <html:password property="password" styleClass="form-control"/>
                 </div>
                 <bean:write name="LoginForm" property="error" filter="false"/>
             </div>

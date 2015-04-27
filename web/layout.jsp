@@ -19,6 +19,12 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="/linkunedin3/bootstrap/js/jquery.min.js"></script>
         <script src="/linkunedin3/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                $(".form-group").css("margin", "3px");
+            })();
+        </script>
+        
         <title>JSP Page</title>
     </head>
     <body>
