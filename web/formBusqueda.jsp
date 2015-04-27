@@ -4,7 +4,7 @@
 
 <tiles:insert page="/layout.jsp" flush="true">
    
-    <tiles:put name="formBusqueda" value="/formBusquedaBody.jsp" />
+    <tiles:put name="body" value="/formBusquedaBody.jsp" />
     
 </tiles:insert>
 

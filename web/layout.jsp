@@ -50,7 +50,7 @@
                         <li><a href="modificarPerfil.jsp">Modificar perfil</a></li>
                         <li><a href="ListarUsuarios.do">Listar usuarios</a></li>
                         <li><a href="logout.do">Logout</a></li>
-                        <li><a href="formBusqueda.do">Buscar</a></li>
+                        <li><a href="formBusqueda.jsp">Buscar</a></li>
                     </ul>
                     
                    
