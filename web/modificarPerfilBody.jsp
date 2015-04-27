@@ -21,11 +21,18 @@
         });
         
         $("#enviartitulacion").click(function(evento){
-            
+            $.post("logout.do").done(function(response,jqXHR){
+                console.log(response);
+            });
         });
         
         $("#enviarcono").click(function(evento){
-            
+            // prueba de envio por ajax
+            $.post("login.do", 
+                data={"user":"ola", "password":"kase"}  // los datos que se envian
+            ).done(function(response, jqXHR){   // response es lo que responde el servidor
+                console.log(response);
+            });
         });
         
     })();
