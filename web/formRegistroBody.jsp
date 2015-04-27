@@ -11,7 +11,7 @@
     <html:messages id="mensajes"/>
     <div class="panel panel-primary">
         <div class="panel-heading">Registro Usuarios</div>
-        <div class="panel-body">Panel Content
+        <div class="panel-body">
 
             <html:form action="/alta" styleClass="form-inline">
                 <div class="form-group">

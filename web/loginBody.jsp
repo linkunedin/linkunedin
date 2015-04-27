@@ -9,11 +9,14 @@
 
 
 <div class="row">
-    <% if (request.getSession().getAttribute("objsesion") == null){ %>
+    <% if (request.getSession().getAttribute("objsesion") == null) { %>
     <html:form action="/login">
         <div class="panel panel-primary">
             <div class="panel-heading">Login de usuario</div>
             <div class="panel-body">
+                <span class="text-danger">
+                    <html:errors/>
+                </span>
                 <div class="form-group">
                     <label>Introduzca su nombre de usuario</label>
                     <html:text property="user" styleClass="form-control"/>
@@ -29,9 +32,9 @@
             </div>
         </div>
     </html:form>
-    <% }else{ %>
+    <% } else { %>
     <h1> mierda pa tu boca que ya estas logeado </h1>
-    <% } %> 
+    <% }%> 
 </div>
 
 

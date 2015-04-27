@@ -38,7 +38,9 @@ public class InsertarUsuarios extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        AltaForm altaform = (AltaForm) form; 
+        AltaForm altaform = new AltaForm(); 
+        altaform.setNomusuario("ola");
+        altaform.setPassword("kase");
         AccountManager am = AccountManager.getInstance();
         am.alta(altaform);
         return mapping.findForward(SUCCESS);
