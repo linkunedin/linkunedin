@@ -4,6 +4,7 @@
     Author     : juan
 --%>
 <%@taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -40,7 +41,8 @@
                     </ul>
                     
                 </div-->
-                <div class="col-md-3">
+                <div class="col-lg-3">
+                    
                     <ul class="nav nav-pills nav-stacked">
                         <li class="active"><a href="login.do">Home</a></li>
                         <li><a href="login.do">Login</a></li>
@@ -48,8 +50,11 @@
                         <li><a href="modificarPerfil.jsp">Modificar perfil</a></li>
                         <li><a href="ListarUsuarios.do">Listar usuarios</a></li>
                         <li><a href="logout.do">Logout</a></li>
-                        
+                        <li><a href="formBusqueda.jsp">Buscar</a></li>
                     </ul>
+                    
+                   
+                   
                 </div>
                 <div class="col-lg-9">
                     <tiles:insert attribute="body" />
