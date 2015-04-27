@@ -48,9 +48,17 @@ public class LoginAction extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         LoginForm lf = (LoginForm) form;
+        
+        LoginManager lm = LoginManager.getInstance();
+        UserSession us = (UserSession) lm.login(lf.getUser(), lf.getPassword());
+        
+        if (us == null)
+            return mapping.findForward(ERROR);
+        
+        return mapping.findForward(SUCCESS);
              
 
-        UsuariosJpaController usuariosJpa = new UsuariosJpaController(Persistence.createEntityManagerFactory(Configuration.getPu()));
+        /*UsuariosJpaController usuariosJpa = new UsuariosJpaController(Persistence.createEntityManagerFactory(Configuration.getPu()));
         List<Usuarios> listaUsuarios = usuariosJpa.findUsuarioByUserPwd(lf.getUser(), lf.getPassword());
        
 
@@ -68,6 +76,6 @@ public class LoginAction extends org.apache.struts.action.Action {
         }else{
             System.out.println("Usuario no encontrado");
             return mapping.findForward(ERROR);
-        }
+        }*/
     }
 }

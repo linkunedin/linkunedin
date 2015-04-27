@@ -7,26 +7,31 @@
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-        
-        <div class="row">
-            <div class="col-lg-3 col-lg-offset-3">
-                <h1>Login de usuario</h1>
-                    <html:form action="/login">
-                    <div class="form-group">
-                        <label>Introduzca su nombre de usuario</label>
-                        <html:text property="user" styleClass="form-control"/>
-                    </div>
-                    <div class="form-group">
-                        <label>Introduzca su contraseña</label>
-                        <html:text property="password" styleClass="form-control"/>
-                    </div>
-                    <html:submit value="Login" />
-                    <bean:write name="LoginForm" property="error" filter="false"/>
 
-
-
-                </html:form>
+<div class="row">
+    <% if (request.getSession().getAttribute("objsesion") == null){ %>
+    <html:form action="/login">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Login de usuario</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label>Introduzca su nombre de usuario</label>
+                    <html:text property="user" styleClass="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label>Introduzca su contraseña</label>
+                    <html:text property="password" styleClass="form-control"/>
+                </div>
+                <bean:write name="LoginForm" property="error" filter="false"/>
+            </div>
+            <div class="panel-footer">
+                <html:submit value="Login" styleClass="btn btn-primary" />
             </div>
         </div>
-        
-    
+    </html:form>
+    <% }else{ %>
+    <h1> mierda pa tu boca que ya estas logeado </h1>
+    <% } %> 
+</div>
+
+
