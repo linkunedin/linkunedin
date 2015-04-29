@@ -58,7 +58,11 @@
                         <li><a href="logout.do">Logout</a></li>
                         <li><a href="formBusqueda.jsp">Buscar</a></li>
                     </ul>
-                    
+                    <ul class="nav nav-pills nav-stacked">
+                        
+                        <li><a href="insertarusuarios.do">Insertar usuarios</a></li>
+                        
+                    </ul>
                    
                    
                 </div>

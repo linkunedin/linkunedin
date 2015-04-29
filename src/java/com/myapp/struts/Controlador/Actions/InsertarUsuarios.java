@@ -7,6 +7,7 @@
 package com.myapp.struts.Controlador.Actions;
 
 import com.myapp.struts.Controlador.Forms.AltaForm;
+import com.myapp.struts.Controlador.Forms.EntradaModificarConoForm;
 import com.myapp.struts.Modelo.clases.AccountManager;
 import com.myapp.struts.Modelo.clases.LoginManager;
 import javax.servlet.http.HttpServletRequest;
@@ -39,10 +40,27 @@ public class InsertarUsuarios extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         AltaForm altaform = new AltaForm(); 
-        altaform.setNomusuario("ola");
-        altaform.setPassword("kase");
+        altaform.setNombre("david");
+        altaform.setNomusuario("david");
+        altaform.setPassword("david");
         AccountManager am = AccountManager.getInstance();
         am.alta(altaform);
+        altaform = new AltaForm();
+        altaform.setNombre("juan");
+        altaform.setNomusuario("juan");
+        altaform.setPassword("juan");
+        //AccountManager am = AccountManager.getInstance();
+        am.alta(altaform);
+        altaform = new AltaForm();
+        altaform.setNombre("javi");
+        altaform.setNomusuario("javi");
+        altaform.setPassword("javi");
+        //AccountManager am = AccountManager.getInstance();
+        am.alta(altaform);
+        /*EntradaModificarConoForm cform = new EntradaModificarConoForm();
+        cform.setUsername("juan");
+        cform.setTitulo("java");
+        */
         return mapping.findForward(SUCCESS);
     }
 }

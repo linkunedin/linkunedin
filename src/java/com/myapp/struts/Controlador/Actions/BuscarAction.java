@@ -26,41 +26,35 @@ public class BuscarAction extends org.apache.struts.action.Action {
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
 
-    /**
-     * This is the action called from the Struts framework.
-     *
-     * @param mapping The ActionMapping used to select this instance.
-     * @param form The optional ActionForm bean for this request.
-     * @param request The HTTP Request we are processing.
-     * @param response The HTTP Response we are processing.
-     * @throws java.lang.Exception
-     * @return
-     */
+  
     @Override
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        
+            
+            
         
             BusquedaForm busquedaForm = (BusquedaForm)form;
             System.out.println(busquedaForm.getConocimientos());
+            
             UsuariosJpaController usuariosJpa = new UsuariosJpaController(Persistence.createEntityManagerFactory(Configuration.getPu()));
-            List<Usuarios> listaUsuarios = usuariosJpa.findUsuarioByConocimientos(busquedaForm.getConocimientos());
-            request.getSession().setAttribute("listaUsuarios",listaUsuarios);
-            /*
-            Claim claim = ModelFacade.createClaim(claimBean);
-            request.setAttribute("claim", claim);
-            if(claim == null)
-            {
-             return mapping.findForward("notfound");
+            List<Usuarios> listaUsuarios =  usuariosJpa.findUsuariosEntities();
+            // fixme juan es para probar findUsuarioByNombreUsuario
+            if(busquedaForm.getExperiencia()!= ""){
+                listaUsuarios = usuariosJpa.findUsuarioByNombreUsuario(busquedaForm.getExperiencia());
             }
-            else
-            {
-             Policy policy = claim.getPolicy();
-             request.setAttribute("policy", policy);
-             return mapping.findForward("found");
+            else if(busquedaForm.getConocimientos()!= ""){
+                listaUsuarios = usuariosJpa.findUsuarioByConocimientos(busquedaForm.getConocimientos());
             }
-        */
+           /* else if(busquedaForm.getTitulacion()!= ""){
+                listaUsuarios = usuariosJpa.(busquedaForm.getTitulacion());
+            }*/
+            else if(busquedaForm.getLocation()!= ""){
+                listaUsuarios = usuariosJpa.findUsuarioByLocation(busquedaForm.getLocation());
+            }
+            request.setAttribute("listaUsuarios",listaUsuarios);
+            
+        
         return mapping.findForward(SUCCESS);
     }
 }
