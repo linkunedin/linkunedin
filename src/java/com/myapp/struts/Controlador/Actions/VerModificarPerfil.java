@@ -49,16 +49,20 @@ public class VerModificarPerfil extends org.apache.struts.action.Action {
         ActionErrors errors = new ActionErrors();
         ActionMessages amsg = new ActionMessages();
         
+        
         // comprobar si el nombre de usuario es vacio
         if (formu.getNomusuario().equals("")){
             // volver de donde venia
-            return mapping.getInputForward();
+            amsg.add("username", new ActionMessage("errors.profiles.search.nameempty"));
+            this.addErrors(request, amsg);
+            return mapping.findForward(SUCCESS);
         }
         
         // comprobar si estamos logeados
         if (request.getSession().getAttribute("objsesion") == null){
             amsg.add("login", new ActionMessage("errors.notlogged"));
-            return mapping.getInputForward();
+            this.addErrors(request, amsg);
+            return mapping.findForward(SUCCESS);
         }
         
         // comprobar si el nombre de usuario se corresponde con alguno
@@ -66,15 +70,17 @@ public class VerModificarPerfil extends org.apache.struts.action.Action {
         Usuarios us = pm.getProfile(formu.getNomusuario());
         if (us == null){
             amsg.add("username", new ActionMessage("errors.profiles.search.notfound"));
-            return mapping.getInputForward();
+            this.addErrors(request, amsg);
+            return mapping.findForward(SUCCESS);
         }
         
-        
+                
         Usuarios logeado = ((UserSession)request.getSession().getAttribute("objsesion")).getUser();
-        if (!us.equals(logeado) && logeado.getAdmin() == 0){
+        if (!us.equals(logeado) && 
+                logeado.getAdmin() == 0){
             // el usuario no coincide y ademas el usuario logeado no es admin
             amsg.add("login", new ActionMessage("errors.notenoughprivileges"));
-            return mapping.getInputForward();
+            this.addErrors(request, amsg);
         }
         
         // llegados a este punto ha pasado todos los tests y podemos mostrar el formulario ok

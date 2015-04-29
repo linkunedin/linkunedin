@@ -8,33 +8,41 @@
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
 <!--c, :if test= "${perfil}!=null"-->
+
+<span class="text-danger">
+    <html:errors/>
+</span>
 <%
-    if (request.getSession().getAttribute("objsesion") != null) {
+    if (request.getSession().getAttribute("objsesion") != null
+            && request.getAttribute("perfil") != null) {
 %>
 
 <script type="text/javascript">
-    $(function(){
-        
+    $(function() {
+
         // evento click enviar experiencia
-        $("#enviarexpe").click(function(evento){
-            
+        $("#enviarexpe").click(function(evento) {
+
         });
-        
-        $("#enviartitulacion").click(function(evento){
-            $.post("logout.do").done(function(response,jqXHR){
+
+        $("#enviartitulacion").click(function(evento) {
+            $.post("logout.do").done(function(response, jqXHR) {
                 console.log(response);
             });
         });
-        
-        $("#enviarcono").click(function(evento){
+
+        $("#enviarcono").click(function(evento) {
             // prueba de envio por ajax
-            $.post("login.do", 
-                data={"user":"ola", "password":"kase"}  // los datos que se envian
-            ).done(function(response, jqXHR){   // response es lo que responde el servidor
+            $.post("login.do",
+                    data = {"user": "ola", "password": "kase"}  // los datos que se envian
+            ).done(function(response, jqXHR) {   // response es lo que responde el servidor
                 console.log(response);
             });
         });//
-        
+
+        $(".modal-body").css("max-height", "100vh - 210px");
+        $(".modal-body").css("overflow-y", "auto");
+
     });
 </script>
 
@@ -178,7 +186,7 @@
 
 -->
 <div id="dialogoexpe" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
 
         <!-- Modal content-->
         <div class="modal-content">
@@ -193,9 +201,40 @@
                             Datos de la experiencia laboral
                         </div>
                         <div class="panel-body">
-                            
+                            <fieldset>
+                                <legend>
+                                    Datos identificativo
+                                </legend>
+                                <div class="form-group">
+                                    <label for="expempresa">Empresa:</label>
+                                    <input type="text" class="form-control" name="expempresa" id="expempresa"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exppuesto">Puesto:</label>
+                                    <input type="text" class="form-control" name="exppuesto" id="exppuesto"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="expfinicio">Fecha inicio:</label>
+                                    <input type="text" class="form-control" name="expfinicio" id="expfinicio"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="expffin">Fecha fin:</label>
+                                    <input type="text" class="form-control" name="expffin" id="expffin"/>
+                                </div>
+                                <br/>
+                            </fieldset>
+                            <fieldset>
+                                <legend>
+                                    Descripci&oacute;n del puesto
+                                </legend>
+                                <div class="form-group">
+                                    <textarea class="form-control" name="expdescripcion" id="expdescripcion" cols="80" rows="6"></textarea>
+                                </div>
+                            </fieldset>
+
+                            <input type="hidden" value="${objsesion.user.nombreUsuario}"/>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -224,9 +263,9 @@
                             Inserte el tag
                         </div>
                         <div class="panel-body">
-                            
+
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -241,7 +280,7 @@
 
 
 <div id="dialogoacadem" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
 
         <!-- Modal content-->
         <div class="modal-content">
@@ -256,9 +295,37 @@
                             Datos de la titulacion
                         </div>
                         <div class="panel-body">
-                            
+                            <fieldset>
+                                <legend>
+                                    Datos de la titulacion
+                                </legend>
+                                <div class="form-group">
+                                    <label for="acadtitulo">Titulo:</label>
+                                    <input type="text" class="form-control" id="acadtitulo" name="acadtitulo"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="acadcentro">Centro:</label>
+                                    <input type="text" class="form-control" id="acadcentro" name="acadcentro"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="acadfinicio">Fecha inicio</label>
+                                    <input type="text" class="form-control" id="acadfinicio" name="acadfinicio"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="acadffin">Fecha fin</label>
+                                    <input type="text" class="form-control" id="acadffin" name="acadffin"/>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <legend>
+                                    Descripci&oacute;n del t&iacute;tulo
+                                </legend>
+                                <div class="form-group">
+                                    <textarea id="acaddesc" name="acaddesc" cols="70" rows="6"></textarea>
+                                </div>
+                            </fieldset>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -273,5 +340,5 @@
 <% } else { %>
 
 
-<h1>A TOMAR POR CULO</h1>
+<!--h1>A TOMAR POR CULO</h1-->
 <% }%>
