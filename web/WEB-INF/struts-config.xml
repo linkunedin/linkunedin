@@ -7,7 +7,7 @@
 
 <struts-config>
     <form-beans>
-        <form-bean name="PerfilCompletoForm" type="com.myapp.struts.Controlador.Forms.PerfilCompletoForm"/>
+        <!--form-bean name="PerfilCompletoForm" type="com.myapp.struts.Controlador.Forms.PerfilCompletoForm"/-->
         <form-bean name="BusquedaForm" type="com.myapp.struts.Controlador.Forms.BusquedaForm"/>
         <form-bean name="ModificarExpe" type="com.myapp.struts.Controlador.Forms.ModificarExpe"/>
         <form-bean name="EntradaModificarPerfilForm" type="com.myapp.struts.Controlador.Forms.EntradaModificarPerfilForm"/>
@@ -62,13 +62,16 @@
             <forward name="error" path="/login.jsp"/>
         </action>
         
-        <action input="/" name="PerfilCompletoForm" path="/ListarUsuarios" scope="session" type="com.myapp.struts.Controlador.Actions.ListarUsuariosAction">
+        <action input="/" name="EntradaModificarPerfilForm" path="/ListarUsuarios" scope="session" type="com.myapp.struts.Controlador.Actions.ListarUsuariosAction">
             <forward name="success" path="/listarUsuarios.jsp"/>
         </action>
         
         <action input="/" name="BusquedaForm" path="/buscar" scope="session" type="com.myapp.struts.Controlador.Actions.BuscarAction">
             <forward name="success" path="/listarUsuarios.jsp"/>
             <forward name="error" path="/formBusqueda.jsp"/>
+        </action>
+        <action input="/" name="EntradaModificarPerfilForm" path="/vermodificarperfil" scope="request" type="com.myapp.struts.Controlador.Actions.VerModificarPerfil" validate="false">
+            <forward name="success" path="/modificarPerfil.jsp"/>
         </action>    
         
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
