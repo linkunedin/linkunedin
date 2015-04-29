@@ -7,7 +7,7 @@
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
-<!--c, :if test= "${objsesion.user}!=null"-->
+<!--c, :if test= "${perfil}!=null"-->
 <%
     if (request.getSession().getAttribute("objsesion") != null) {
 %>
@@ -33,7 +33,7 @@
             ).done(function(response, jqXHR){   // response es lo que responde el servidor
                 console.log(response);
             });
-        });
+        });//
         
     });
 </script>
@@ -53,19 +53,19 @@
 
 
                     <label for="nombre">Nombre:</label>
-                    <html:text property="nombre" styleClass="form-control" value="${objsesion.user.nombre}"></html:text>
+                    <html:text property="nombre" styleClass="form-control" value="${perfil.nombre}"></html:text>
                     </div>
                     <div class="form-group">
                         <label for="apellidos">Apellidos:</label>
-                    <html:text property="apellidos" styleClass="form-control" value="${objsesion.user.apellidos}"></html:text>
+                    <html:text property="apellidos" styleClass="form-control" value="${perfil.apellidos}"></html:text>
                     </div>
                     <div class="form-group">
                         <label for="email">Email:</label>
-                    <html:text property="email" styleClass="form-control" value="${objsesion.user.email}"></html:text>
+                    <html:text property="email" styleClass="form-control" value="${perfil.email}"></html:text>
                     </div>
                     <div class="form-group">
                         <label for="nombre">Direcci&oacute;n</label>
-                    <html:text property="nombre" styleClass="form-control" value="${objsesion.user.location}"></html:text>
+                    <html:text property="nombre" styleClass="form-control" value="${perfil.location}"></html:text>
                     </div>
                 </fieldset>
                 <fieldset>
@@ -74,21 +74,21 @@
                     </legend>
                     <div class="form-group">
                         <label for="nomusuario">Nombre usuario:</label>
-                    <html:text property="nomusuario" readonly="true" styleClass="form-control" value="${objsesion.user.nombreUsuario}"></html:text>
+                    <html:text property="nomusuario" readonly="true" styleClass="form-control" value="${perfil.nombreUsuario}"></html:text>
                     </div>
 
                     <div class="form-group">
                         <label for="nombre">Foto:</label>
-                    <html:text property="foto" styleClass="form-control" value="${objsesion.user.rutafoto}"></html:text>
+                    <html:text property="foto" styleClass="form-control" value="${perfil.rutafoto}"></html:text>
                     </div>
                     <div class="form-group">
                         <label for="pdf">Pdf:</label>
-                    <html:text property="pdf" styleClass="form-control" value="${objsesion.user.pdf}"></html:text>
+                    <html:text property="pdf" styleClass="form-control" value="${perfil.pdf}"></html:text>
                     </div>
 
                     <div class="form-group">
                         <label for="nombre">Password:</label>
-                    <html:password property="nombre" styleClass="form-control" value="${objsesion.user.password}"></html:password>
+                    <html:password property="nombre" styleClass="form-control" value="${perfil.password}"></html:password>
                     </div>
                 </fieldset>
 
@@ -98,15 +98,15 @@
                     </legend>
                     <div class="form-group">
                         <label for="dia">Dia:</label>
-                    <html:text property="dia" styleClass="form-control" size="2" value="${objsesion.user.fechaNac.Day}"></html:text>
+                    <html:text property="dia" styleClass="form-control" size="2" value="${perfil.fechaNac.Day}"></html:text>
                     </div>
                     <div class="form-group">
                         <label for="mes">Mes:</label>
-                    <html:text property="mes" styleClass="form-control" size="2" value="${objsesion.user.fechaNac.Month}"></html:text>
+                    <html:text property="mes" styleClass="form-control" size="2" value="${perfil.fechaNac.Month}"></html:text>
                     </div>
                     <div class="form-group">
                         <label for="ano">Año:</label>
-                    <html:text property="ano" styleClass="form-control" size="4" value="${objsesion.user.fechaNac.Year}"></html:text>
+                    <html:text property="ano" styleClass="form-control" size="4" value="${perfil.fechaNac.Year}"></html:text>
                     </div>
                 </fieldset>
 
@@ -116,7 +116,7 @@
                     </legend>
                     <div class="form-group">
 
-                    <html:textarea property="nombre" styleClass="form-control" cols="90" rows="7">${objsesion.user.perfil}</html:textarea>
+                    <html:textarea property="nombre" styleClass="form-control" cols="90" rows="7">${perfil.perfil}</html:textarea>
                     </div>
                 </fieldset>
             </div>
