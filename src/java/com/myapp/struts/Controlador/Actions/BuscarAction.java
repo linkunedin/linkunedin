@@ -47,7 +47,7 @@ public class BuscarAction extends org.apache.struts.action.Action {
                 listaUsuarios = usuariosJpa.findUsuarioByConocimientos(busquedaForm.getConocimientos());
             }
            /* else if(busquedaForm.getTitulacion()!= ""){
-                listaUsuarios = usuariosJpa.(busquedaForm.getTitulacion());
+                listaUsuarios = usuariosJpa.findUsuarioBy
             }*/
             else if(busquedaForm.getLocation()!= ""){
                 listaUsuarios = usuariosJpa.findUsuarioByLocation(busquedaForm.getLocation());

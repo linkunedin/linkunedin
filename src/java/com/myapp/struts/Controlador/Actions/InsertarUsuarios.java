@@ -43,6 +43,7 @@ public class InsertarUsuarios extends org.apache.struts.action.Action {
         altaform.setNombre("david");
         altaform.setNomusuario("david");
         altaform.setPassword("david");
+        
         AccountManager am = AccountManager.getInstance();
         am.alta(altaform);
         altaform = new AltaForm();
