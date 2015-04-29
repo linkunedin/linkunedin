@@ -5,6 +5,12 @@
  */
 package com.myapp.struts.Controlador.Actions;
 
+import com.myapp.struts.Controlador.Forms.BusquedaForm;
+import com.myapp.struts.configuration.Configuration;
+import com.myapp.struts.persistencia.controladores.UsuariosJpaController;
+import com.myapp.struts.persistencia.entidades.Usuarios;
+import java.util.List;
+import javax.persistence.Persistence;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
@@ -35,6 +41,26 @@ public class BuscarAction extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         
+        
+            BusquedaForm busquedaForm = (BusquedaForm)form;
+            System.out.println(busquedaForm.getConocimientos());
+            UsuariosJpaController usuariosJpa = new UsuariosJpaController(Persistence.createEntityManagerFactory(Configuration.getPu()));
+            List<Usuarios> listaUsuarios = usuariosJpa.findUsuarioByConocimientos(busquedaForm.getConocimientos());
+            request.getSession().setAttribute("listaUsuarios",listaUsuarios);
+            /*
+            Claim claim = ModelFacade.createClaim(claimBean);
+            request.setAttribute("claim", claim);
+            if(claim == null)
+            {
+             return mapping.findForward("notfound");
+            }
+            else
+            {
+             Policy policy = claim.getPolicy();
+             request.setAttribute("policy", policy);
+             return mapping.findForward("found");
+            }
+        */
         return mapping.findForward(SUCCESS);
     }
 }

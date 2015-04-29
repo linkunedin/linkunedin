@@ -64,7 +64,7 @@
         </action>
         
         <action input="/" name="BusquedaForm" path="/buscar" scope="session" type="com.myapp.struts.Controlador.Actions.BuscarAction">
-            <forward name="success" path="/success.jsp"/>
+            <forward name="success" path="/listarUsuarios.jsp"/>
             <forward name="error" path="/formBusqueda.jsp"/>
         </action>    
         
