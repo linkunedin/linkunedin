@@ -80,7 +80,13 @@ public class BusquedaForm extends org.apache.struts.action.ActionForm {
      */
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
-        
+        //titulacion, experiencia, conocimientos, location;
+       /*9
+        if(fechaNac == null || description.equals("")){
+              errors.add("fehca", new ActionMessage("error.fecha_invalida"));
+        }
+        //return errors;
+       */
         return errors;
     }
 }
