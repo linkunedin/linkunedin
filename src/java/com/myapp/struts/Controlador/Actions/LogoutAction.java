@@ -36,7 +36,7 @@ public class LogoutAction extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         // quita la informacion asociada a la sesion
-        request.getSession().setAttribute("usersession", null);
+        request.getSession().removeAttribute("objsesion");
         return mapping.findForward(SUCCESS);
     }
 }

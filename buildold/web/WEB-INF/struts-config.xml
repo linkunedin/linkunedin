@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    <form-beans>
+        <form-bean name="PerfilCompletoForm" type="com.myapp.struts.Controlador.Forms.PerfilCompletoForm"/>
+        <form-bean name="BusquedaForm" type="com.myapp.struts.Controlador.Forms.BusquedaForm"/>
+        <form-bean name="ModificarExpe" type="com.myapp.struts.Controlador.Forms.ModificarExpe"/>
+        <form-bean name="EntradaModificarPerfilForm" type="com.myapp.struts.Controlador.Forms.EntradaModificarPerfilForm"/>
+        <form-bean name="FuncionalidadForm" type="com.myapp.struts.Controlador.Forms.FuncionalidadForm"/>
+        <form-bean name="EntradaModificarConoForm" type="com.myapp.struts.Controlador.Forms.EntradaModificarConoForm"/>
+        <form-bean name="ConocimientoForm" type="com.myapp.struts.Controlador.Forms.ConocimientoForm"/>
+        <form-bean name="ExperienciaForm" type="com.myapp.struts.Controlador.Forms.ExperienciaForm"/>
+        <form-bean name="AltaForm" type="com.myapp.struts.Controlador.Forms.AltaForm"/>
+        <form-bean name="ModifyProfile" type="com.myapp.struts.Controlador.Forms.ModifyProfile"/>
+        <form-bean name="CreateProfileForm" type="com.myapp.struts.Controlador.Forms.CreateProfileForm"/>
+        <form-bean name="CreateUserForm" type="com.myapp.struts.Controlador.Forms.CreateUserForm"/>
+        <form-bean name="LoginForm" type="com.myapp.struts.Controlador.Forms.LoginForm"/>
+        <form-bean name="EducacionForm" type="com.myapp.struts.Controlador.Actions.EducacionForm"/>
+    
+    </form-beans>
+    
+    <global-exceptions>
+    
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="welcome"  path="/Welcome.do"/>
+    </global-forwards>
+
+    <action-mappings>
+        <action input="/" name="ConocimientoForm" path="/anadirConocimiento" scope="request" type="com.myapp.struts.Controlador.Actions.AnadirConocimientoAction"/>
+        <action input="/" name="ExperienciaForm" path="/anadirExpe" scope="request" type="com.myapp.struts.Controlador.Actions.AnadirExpeAction"/>
+        <action input="/" name="EducacionForm" path="/anadirEducacion" scope="request" type="com.myapp.struts.Controlador.Actions.AnadirEducacionAction"/>
+        <action input="/" name="EducacionForm" path="/modificarEducacion" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarEducacionAction"/>
+        <action input="/" name="EntradaModificarPerfilForm" path="/modificarCono" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarConoAction"/>
+        <action input="/" name="FuncionalidadForm" path="/modificarFunc" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarFuncAction"/>
+        <action input="/" name="ModificarExpe" path="/modificarExpe" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarExpeAction"/>
+        <action input="/" name="EntradaModificarPerfilForm" path="/modificarperfil" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarPerfilAction"/>
+        <action input="/formRegistro.jsp" name="AltaForm" path="/alta" scope="request" validate="true" type="com.myapp.struts.Controlador.Actions.AltaAction">
+            <forward name="success" path="/modificarPerfil.jsp"/>
+            <forward name="error" path="/formRegistro.jsp"/>
+        </action>
+        <action input="/" name="BajaForm" path="/baja" type="com.myapp.struts.Controlador.Actions.BajaAction"/>
+        
+        
+        <action path="/logout" type="com.myapp.struts.Controlador.Actions.LogoutAction" >
+            <forward name="success" path="/logout.jsp"/>
+            <forward name="error" path="/login.jsp"/>
+        </action>>  
+        <action input="/" name="LoginForm" path="/login" scope="request" type="com.myapp.struts.Controlador.Actions.LoginAction">
+            <forward name="success" path="/success.jsp"/>
+            <forward name="error" path="/login.jsp"/>
+        </action>
+        
+        <action input="/" name="PerfilCompletoForm" path="/ListarUsuarios" scope="session" type="com.myapp.struts.Controlador.Actions.ListarUsuariosAction">
+            <forward name="success" path="/listarUsuarios.jsp"/>
+        </action>
+        
+        
+        <action path="/Welcome" forward="/welcomeStruts.jsp"/>
+    </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="com/myapp/struts/ApplicationResource"/>    
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>

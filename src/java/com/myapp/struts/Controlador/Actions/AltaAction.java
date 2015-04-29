@@ -50,8 +50,6 @@ public class AltaAction extends org.apache.struts.action.Action {
             am.alta(form);
             
             us = (UserSession) lm.login(altaform.getNomusuario(),altaform.getPassword());
-            
-            
         }catch(UserAlreadyExistsException ex){
             altaform.setError("Error : el usuario ya existe");
             return mapping.findForward(ERROR);

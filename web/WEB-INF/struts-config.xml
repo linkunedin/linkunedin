@@ -49,7 +49,10 @@
         
             <action input="/" name="BajaForm" path="/baja" type="com.myapp.struts.Controlador.Actions.BajaAction"/>
         
-        
+        <action input="/" path="/insertarusuarios" type="com.myapp.struts.Controlador.Actions.InsertarUsuarios">
+            <forward name="success" path="/listarUsuarios.jsp" />
+        </action>
+            
         <action path="/logout" type="com.myapp.struts.Controlador.Actions.LogoutAction" >
             <forward name="success" path="/logout.jsp"/>
             <forward name="error" path="/login.jsp"/>

@@ -20,6 +20,8 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 import org.apache.struts.chain.contexts.ActionContext;
 
 /**
@@ -48,9 +50,26 @@ public class LoginAction extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         LoginForm lf = (LoginForm) form;
+        
+        LoginManager lm = LoginManager.getInstance();
+        UserSession us = (UserSession) lm.login(lf.getUser(), lf.getPassword());
+        
+        if (us == null){
+            ActionMessages am = new ActionMessages();
+            ActionMessage amsg = new ActionMessage("sadasd");
+            am.add("login", new ActionMessage("errors.login.errorlogging"));
+            this.addErrors(request, am);
+            return mapping.findForward(ERROR);
+            
+        }
+        
+        
+        request.getSession().setAttribute("objsesion", us);
+        
+        return mapping.findForward(SUCCESS);
              
 
-        UsuariosJpaController usuariosJpa = new UsuariosJpaController(Persistence.createEntityManagerFactory(Configuration.getPu()));
+        /*UsuariosJpaController usuariosJpa = new UsuariosJpaController(Persistence.createEntityManagerFactory(Configuration.getPu()));
         List<Usuarios> listaUsuarios = usuariosJpa.findUsuarioByUserPwd(lf.getUser(), lf.getPassword());
        
 
@@ -68,6 +87,6 @@ public class LoginAction extends org.apache.struts.action.Action {
         }else{
             System.out.println("Usuario no encontrado");
             return mapping.findForward(ERROR);
-        }
+        }*/
     }
 }
