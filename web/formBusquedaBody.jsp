@@ -34,7 +34,7 @@
                         <html:text property="fechaNac" styleClass="form-control"/>
                     </div>
                     <button type="submit" class="btn btn-primary">Registrar</button>
-                    <bean:write name="BusquedaForm" property="error"  filter="false"/>
+                    <!--bean:write name="BusquedaForm" property="error"  filter="false"/-->
 
 
 

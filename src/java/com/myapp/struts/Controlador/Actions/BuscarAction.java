@@ -6,6 +6,7 @@
 package com.myapp.struts.Controlador.Actions;
 
 import com.myapp.struts.Controlador.Forms.BusquedaForm;
+import com.myapp.struts.Modelo.clases.ProfilesManager;
 import com.myapp.struts.configuration.Configuration;
 import com.myapp.struts.persistencia.controladores.UsuariosJpaController;
 import com.myapp.struts.persistencia.entidades.Usuarios;
@@ -37,7 +38,12 @@ public class BuscarAction extends org.apache.struts.action.Action {
             BusquedaForm busquedaForm = (BusquedaForm)form;
             System.out.println(busquedaForm.getConocimientos());
             
-            UsuariosJpaController usuariosJpa = new UsuariosJpaController(Persistence.createEntityManagerFactory(Configuration.getPu()));
+            ProfilesManager pm = ProfilesManager.getInstance();
+            
+            List<Usuarios> lus = pm.getProfiles(busquedaForm);
+            
+            
+            /*UsuariosJpaController usuariosJpa = new UsuariosJpaController(Persistence.createEntityManagerFactory(Configuration.getPu()));
             List<Usuarios> listaUsuarios =  usuariosJpa.findUsuariosEntities();
             // fixme juan es para probar findUsuarioByNombreUsuario
             if(busquedaForm.getExperiencia()!= ""){
@@ -46,13 +52,13 @@ public class BuscarAction extends org.apache.struts.action.Action {
             else if(busquedaForm.getConocimientos()!= ""){
                 listaUsuarios = usuariosJpa.findUsuarioByConocimientos(busquedaForm.getConocimientos());
             }
-           /* else if(busquedaForm.getTitulacion()!= ""){
+            else if(busquedaForm.getTitulacion()!= ""){
                 listaUsuarios = usuariosJpa.findUsuarioBy
-            }*/
+            }
             else if(busquedaForm.getLocation()!= ""){
                 listaUsuarios = usuariosJpa.findUsuarioByLocation(busquedaForm.getLocation());
-            }
-            request.setAttribute("listaUsuarios",listaUsuarios);
+            }*/
+            request.setAttribute("listaUsuarios",lus);
             
         
         return mapping.findForward(SUCCESS);
