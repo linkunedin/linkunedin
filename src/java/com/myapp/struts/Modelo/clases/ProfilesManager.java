@@ -14,18 +14,20 @@ import com.myapp.struts.Modelo.interfaces.CriteriaIF;
 import com.myapp.struts.Modelo.interfaces.ProfilesManagerIF;
 import com.myapp.struts.configuration.Configuration;
 import com.myapp.struts.persistencia.controladores.*;
+import com.myapp.struts.persistencia.controladores.exceptions.*;
 import com.myapp.struts.persistencia.controladores.exceptions.NonexistentEntityException;
 import com.myapp.struts.persistencia.entidades.Educacion;
 import com.myapp.struts.persistencia.entidades.Experiencias;
 import com.myapp.struts.persistencia.entidades.Intereses;
 import com.myapp.struts.persistencia.entidades.Usuarios;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.Persistence;
-import com.myapp.struts.persistencia.controladores.exceptions.*;
 /**
  *
  * @author Administrador
@@ -264,26 +266,31 @@ public class ProfilesManager implements ProfilesManagerIF {
         return true;
     }
     
-    public void addExperience(Object modifier, ExperienciaForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException{
+    public void addExperience(Object modifier, ExperienciaForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException, ParseException{
         canModify(modifier, formu.getUsername());
         
         Usuarios usu = getProfile(formu.getUsername());
         
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        Date dfin, dffin;
+        dffin = formatter.parse(formu.getFechafin());
+        dfin = formatter.parse(formu.getFechainicio());
         
-        String user = (String) modifier;
+        String user = ((Usuarios) modifier).getNombreUsuario();
         Experiencias exp = new Experiencias();
         // TODO: arreglar eso
         //exp.setActividades(formu.get);    // no tiene actividades
         exp.setDescripcion(formu.getDescripcion());
         exp.setEmpresa(formu.getEmpresa());
-        exp.setFechaFin(new Date(formu.getFechafin()));
-        exp.setFechaInicio(new Date(formu.getFechainicio()));
+        exp.setFechaFin(dffin);
+        exp.setFechaInicio(dfin);
         exp.setPuesto(formu.getPuesto());
         exp.setUsuarioId(usu);      // ¿?¿?¿?¿?
         exp.setValido((short)1);
+        System.out.println("intentando crear experiencia " + exp.toString());
         
         ejc.create(exp);
-        
+        System.out.println("creada experiencia :" /*+ getProfile(usu.getNombreUsuario()).toString()*/ + exp.toString());
     }
     
     public void addEducation(Object modifier, EducacionForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException{

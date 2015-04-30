@@ -6,12 +6,13 @@
 
 package com.myapp.struts.persistencia.entidades;
 
-import java.sql.Date;
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -75,13 +76,13 @@ public class Usuarios implements Serializable {
     @Lob
     @Column(name = "perfil", length = 65535)
     private String perfil;
-    @ManyToMany(mappedBy = "usuariosCollection")
+    @ManyToMany(mappedBy = "usuariosCollection", fetch = FetchType.EAGER)
     private Collection<Intereses> interesesCollection;
-    @ManyToMany(mappedBy = "usuariosCollection")
+    @ManyToMany(mappedBy = "usuariosCollection", fetch = FetchType.EAGER)
     private Collection<Entidades> entidadesCollection;
-    @OneToMany(mappedBy = "usuarioId")
+    @OneToMany(mappedBy = "usuarioId", fetch = FetchType.EAGER)
     private Collection<Educacion> educacionCollection;
-    @OneToMany(mappedBy = "usuarioId")
+    @OneToMany(mappedBy = "usuarioId", fetch = FetchType.EAGER)
     private Collection<Experiencias> experienciasCollection;
     
     @Column(name = "pdf", length = 255)

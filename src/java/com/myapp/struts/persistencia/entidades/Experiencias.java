@@ -248,7 +248,7 @@ public class Experiencias implements Serializable {
 
     @Override
     public String toString() {
-        return "Experiencias{" + "id=" + id + ", empresa=" + empresa + ", puesto=" + puesto + ", actividades=" + actividades + ", descripcion=" + descripcion + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", valido=" + valido + ", usuarioId=" + usuarioId + '}';
+        return "Experiencias{" + "id=" + id + ", empresa=" + empresa + ", puesto=" + puesto + ", actividades=" + actividades + ", descripcion=" + descripcion + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", valido=" + valido + ", usuarioId=" + usuarioId.getId() + '}';
     }
 
     

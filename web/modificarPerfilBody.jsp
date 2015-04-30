@@ -22,6 +22,16 @@
 
         // evento click enviar experiencia
         $("#enviarexpe").click(function(evento) {
+            $.post("anadirExpe.do", data={
+                "empresa" : $("#expempresa").val(),
+                "puesto" : $("#exppuesto").val(),
+                "descripcion" : $("#expdescripcion").val(),
+                "fechainicio" : $("#expfinicio").val(),
+                "fechafin" : $("#expffin").val(),
+                "username" : $("#expusuario").val()
+            }).done(function(response){
+                console.log(response);
+            });
 
         });
 
@@ -161,7 +171,7 @@
 
         </div>
         <div class="panel-footer">
-            <button type="button" class="btn btn-primary" id="nuevaexpe" name="nuevaexpe" data-toggle="modal" data-target="#dialogocono">Nueva experiencia</button>
+            <button type="button" class="btn btn-primary" id="nuevaexpe" name="nuevaexpe" data-toggle="modal" data-target="#dialogocono">Nueva competencia</button>
         </div>
     </div>
 </div>
@@ -232,7 +242,7 @@
                                 </div>
                             </fieldset>
 
-                            <input type="hidden" value="${objsesion.user.nombreUsuario}"/>
+                            <input id="expusuario" type="hidden" value="${objsesion.user.nombreUsuario}"/>
                         </div>
 
                     </div>

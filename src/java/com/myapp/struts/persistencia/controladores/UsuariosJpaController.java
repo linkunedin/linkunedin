@@ -338,6 +338,7 @@ public class UsuariosJpaController implements Serializable {
     public Usuarios findUsuarios(Integer id) {
         EntityManager em = getEntityManager();
         try {
+            
             return em.find(Usuarios.class, id);
         } finally {
             em.close();
