@@ -15,6 +15,7 @@
                 <th>Nombre usuario</th>
                 <th>Admin</th>
                 <th>Email</th>
+                <th>Editar</th>
             </tr>
             
             <logic:iterate name="listaUsuarios" id="listUserId">
@@ -24,6 +25,11 @@
                     <td><bean:write name="listUserId" property="nombreUsuario"/></td>
                     <td><bean:write name="listUserId" property="admin"/></td>
                     <td><bean:write name="listUserId" property="email"/></td>
+                    <td>
+                        <a href="vermodificarperfil.do?nomusuario=${listUserId.nombreUsuario}">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                    </td>
                 </tr>
                 
                 
