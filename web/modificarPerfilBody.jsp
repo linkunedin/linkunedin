@@ -7,14 +7,14 @@
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
-<!--c, :if test= "${perfil}!=null"-->
+<!--c, :if test= "${usuperfil}!=null"-->
 
 <span class="text-danger">
     <html:errors/>
 </span>
 <%
     if (request.getSession().getAttribute("objsesion") != null
-            && request.getAttribute("perfil") != null) {
+            && request.getAttribute("usuperfil") != null) {
 %>
 
 <script type="text/javascript">
@@ -61,19 +61,19 @@
 
 
                     <label for="nombre">Nombre:</label>
-                    <html:text property="nombre" styleClass="form-control" value="${perfil.nombre}"></html:text>
+                    <html:text property="nombre" styleClass="form-control" value="${usuperfil.nombre}"></html:text>
                     </div>
                     <div class="form-group">
                         <label for="apellidos">Apellidos:</label>
-                    <html:text property="apellidos" styleClass="form-control" value="${perfil.apellidos}"></html:text>
+                    <html:text property="apellidos" styleClass="form-control" value="${usuperfil.apellidos}"></html:text>
                     </div>
                     <div class="form-group">
                         <label for="email">Email:</label>
-                    <html:text property="email" styleClass="form-control" value="${perfil.email}"></html:text>
+                    <html:text property="email" styleClass="form-control" value="${usuperfil.email}"></html:text>
                     </div>
                     <div class="form-group">
-                        <label for="nombre">Direcci&oacute;n</label>
-                    <html:text property="nombre" styleClass="form-control" value="${perfil.location}"></html:text>
+                        <label for="location">Direcci&oacute;n</label>
+                    <html:text property="location" styleClass="form-control" value="${usuperfil.location}"></html:text>
                     </div>
                 </fieldset>
                 <fieldset>
@@ -82,21 +82,21 @@
                     </legend>
                     <div class="form-group">
                         <label for="nomusuario">Nombre usuario:</label>
-                    <html:text property="nomusuario" readonly="true" styleClass="form-control" value="${perfil.nombreUsuario}"></html:text>
+                    <html:text property="nomusuario" readonly="true" styleClass="form-control" value="${usuperfil.nombreUsuario}"></html:text>
                     </div>
 
                     <div class="form-group">
                         <label for="nombre">Foto:</label>
-                    <html:text property="foto" styleClass="form-control" value="${perfil.rutafoto}"></html:text>
+                    <html:text property="foto" styleClass="form-control" value="${usuperfil.rutafoto}"></html:text>
                     </div>
                     <div class="form-group">
                         <label for="pdf">Pdf:</label>
-                    <html:text property="pdf" styleClass="form-control" value="${perfil.pdf}"></html:text>
+                    <html:text property="pdf" styleClass="form-control" value="${usuperfil.pdf}"></html:text>
                     </div>
 
                     <div class="form-group">
-                        <label for="nombre">Password:</label>
-                    <html:password property="nombre" styleClass="form-control" value="${perfil.password}"></html:password>
+                        <label for="password">Password:</label>
+                    <html:text property="password" styleClass="form-control" value="${usuperfil.password}"></html:text>
                     </div>
                 </fieldset>
 
@@ -106,15 +106,15 @@
                     </legend>
                     <div class="form-group">
                         <label for="dia">Dia:</label>
-                    <html:text property="dia" styleClass="form-control" size="2" value="${perfil.fechaNac.Day}"></html:text>
+                    <html:text property="dia" styleClass="form-control" size="2" value="${usuperfil.fechaNac.day}"></html:text>
                     </div>
                     <div class="form-group">
                         <label for="mes">Mes:</label>
-                    <html:text property="mes" styleClass="form-control" size="2" value="${perfil.fechaNac.Month}"></html:text>
+                    <html:text property="mes" styleClass="form-control" size="2" value="${usuperfil.fechaNac.month}"></html:text>
                     </div>
                     <div class="form-group">
                         <label for="ano">Año:</label>
-                    <html:text property="ano" styleClass="form-control" size="4" value="${perfil.fechaNac.Year}"></html:text>
+                    <html:text property="ano" styleClass="form-control" size="4" value="${usuperfil.fechaNac.year}"></html:text>
                     </div>
                 </fieldset>
 
@@ -124,7 +124,7 @@
                     </legend>
                     <div class="form-group">
 
-                    <html:textarea property="nombre" styleClass="form-control" cols="90" rows="7">${perfil.perfil}</html:textarea>
+                    <html:textarea property="perfil" styleClass="form-control" cols="90" rows="7" value="${usuperfil.perfil}"></html:textarea>
                     </div>
                 </fieldset>
             </div>

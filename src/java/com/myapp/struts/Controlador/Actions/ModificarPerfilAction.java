@@ -8,13 +8,19 @@ package com.myapp.struts.Controlador.Actions;
 
 import com.myapp.struts.Controlador.Forms.EntradaModificarPerfilForm;
 import com.myapp.struts.Modelo.clases.LoginManager;
+import com.myapp.struts.Modelo.clases.ProfilesManager;
 import com.myapp.struts.Modelo.clases.UserSession;
+import com.myapp.struts.Modelo.exeptions.NotEnoughPrivilegesException;
+import com.myapp.struts.Modelo.exeptions.ProfileNotExistsException;
 import com.myapp.struts.persistencia.entidades.Usuarios;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 
 /**
  *
@@ -41,23 +47,40 @@ public class ModificarPerfilAction extends org.apache.struts.action.Action {
             throws Exception {
         
         EntradaModificarPerfilForm empf = (EntradaModificarPerfilForm) form;
+        ActionErrors ae = new ActionErrors();
+        Usuarios usuario;
         
         try{
            UserSession us = (UserSession)  request.getSession().getAttribute("objsesion");
-           Usuarios usuario = us.getUser();
+           usuario = us.getUser();
            
         }
-        catch(Exception e){}
-        // comprobar logeo
-
-        // comprobar si existe el id de usuario
-      
-        // si no existe devolver mensaje de error indicando que no existe
+        catch(Exception e){
+            // no esta logeado? 
+            ae.add("login", new ActionMessage("errors.notlogged"));
+            this.addErrors(request, ae);
+            e.printStackTrace();
+            return mapping.findForward(SUCCESS);
+        }
         
-        // si el usuario indicado no es el mismo que el logeado comprobamos si es admin
-        // si es admin mostrmos el perfil del usuario para modificar
-        // sino se le devuelve un mensaje indicando que no tiene permisos suficientes
-        
+        ProfilesManager pm = ProfilesManager.getInstance();
+        try{
+            pm.modifyProfile(usuario, empf);
+        }
+        catch(ProfileNotExistsException | NotEnoughPrivilegesException e){
+            ae.add("login", new ActionMessage("errors.notallowed"));
+            this.addErrors(request, ae);
+            e.printStackTrace();
+            return mapping.findForward(SUCCESS);
+        }
+        //
+        // si es el mismo usuario hay que actualizar la info de logeo
+        if (empf.getNomusuario().equals(usuario.getNombreUsuario())){
+            Usuarios nusu = pm.getProfile(usuario.getNombreUsuario());
+            LoginManager lm = LoginManager.getInstance();
+            UserSession us = (UserSession) lm.login(nusu.getNombreUsuario(), nusu.getPassword());
+            request.getSession().setAttribute("objsesion", us);
+        }
         
         return mapping.findForward(SUCCESS);
     }

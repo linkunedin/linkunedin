@@ -18,7 +18,7 @@ import org.apache.struts.action.ActionMessage;
  */
 public class AltaForm extends org.apache.struts.action.ActionForm {
     
-    private String nombre, apellidos, nomusuario, password, email, rutafoto, perfil, error;
+    private String nombre, apellidos, nomusuario, password, email, rutafoto, perfil, error, admin;
 
     /**
      *
@@ -130,6 +130,14 @@ public class AltaForm extends org.apache.struts.action.ActionForm {
 
     public void setError(String error) {
         this.error = error;
+    }
+
+    public String getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(String admin) {
+        this.admin = admin;
     }
     
     

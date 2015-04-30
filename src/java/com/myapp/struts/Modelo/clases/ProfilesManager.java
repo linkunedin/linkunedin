@@ -88,12 +88,13 @@ public class ProfilesManager implements ProfilesManagerIF {
         canModify(modifier, ((EntradaModificarPerfilForm)profile).getNomusuario());
         // si pasamos de aqui es porque podemos proceder a modificar
         
-        String userm = (String) modifier;
+        //String userm = (Usuarios) modifier;
         EntradaModificarPerfilForm formu = (EntradaModificarPerfilForm) profile;
         
         // primero comprobamos que el usuario tiene permisos (es admin)
         // o bien es el mismo usuario
-        Usuarios us = (Usuarios) modifier;
+        //Usuarios us = (Usuarios) modifier;
+        Usuarios us = getProfile(formu.getNomusuario());
         
         us.setApellidos(formu.getApellidos());
         us.setEmail(formu.getEmail());
@@ -102,6 +103,12 @@ public class ProfilesManager implements ProfilesManagerIF {
         us.setRutafoto(formu.getFoto()); // no existe en formu?
         // a Usuarios le falta el campo Pdf, se lo anado
         us.setPdf(formu.getPdf());
+        us.setPassword(formu.getPassword());
+        us.setLocation(formu.getLocation());
+        java.sql.Date fecha = new java.sql.Date(Integer.parseInt(formu.getAno()), 
+                Integer.parseInt(formu.getMes()), Integer.parseInt(formu.getDia()));
+        us.setFechaNac(fecha);
+        
         
         try {
             ujc.edit(us);
@@ -229,7 +236,7 @@ public class ProfilesManager implements ProfilesManagerIF {
      * @throws NotEnoughPrivilegesException 
      */
     public boolean canModify(Object modifier, Object profile) throws ProfileNotExistsException, NotEnoughPrivilegesException {
-        String userm = (String) modifier;
+        //String userm = (String) modifier;
         //PerfilCompletoForm formu = (EntradaModificarPerfilForm) profile;
         String name = (String) profile;
         

@@ -84,7 +84,9 @@ public class VerModificarPerfil extends org.apache.struts.action.Action {
         }
         
         // llegados a este punto ha pasado todos los tests y podemos mostrar el formulario ok
-        request.setAttribute("perfil", us);
+        /*request.getSession().removeAttribute("perfil");
+        request.removeAttribute("perfil");*/
+        request.setAttribute("usuperfil", us);
         
         return mapping.findForward(SUCCESS);
     }
