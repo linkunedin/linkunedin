@@ -10,7 +10,9 @@
                 <p>Para buscar por una categoria determida rellene cualquiera de los campos a continuacion</p>
             </div>
             <div class="col-lg-6 col-lg-offset-3">
-                
+                    <span class="text-danger">
+                        <html:errors/>
+                    </span>
                     <html:form action="/buscar">
                     <div class="form-group">
                         <label>Introduzca una titulación</label>
@@ -32,6 +34,7 @@
                     <div class="form-group">
                         <label>Introduzca una fecha</label>
                         <html:text property="fechaNac" styleClass="form-control"/>
+                      
                     </div>
                     <button type="submit" class="btn btn-primary">Registrar</button>
                     <!--bean:write name="BusquedaForm" property="error"  filter="false"/-->

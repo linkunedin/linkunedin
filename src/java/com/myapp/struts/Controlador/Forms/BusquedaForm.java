@@ -7,11 +7,17 @@
 package com.myapp.struts.Controlador.Forms;
 
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import static javax.print.attribute.Size2DSyntax.MM;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 
 /**
  * prueba de cambio
@@ -21,7 +27,8 @@ public class BusquedaForm extends org.apache.struts.action.ActionForm {
     
     private String titulacion, experiencia, conocimientos, location;
     private java.sql.Date fechaNac;
-
+    // si intenta validar la fecha
+    private boolean fechaIntento = false;
     public String getTitulacion() {
         return titulacion;
     }
@@ -59,8 +66,24 @@ public class BusquedaForm extends org.apache.struts.action.ActionForm {
         return fechaNac;
     }
 
-    public void setFechaNac(Date fechaNac) {
-        this.fechaNac = fechaNac;
+    public void setFechaNac(String fecha)  {
+        //SimpleDateFormat formatter = 
+       // Date fecha = null;
+        fechaIntento = true;
+        try{
+            this.fechaNac = (Date) new SimpleDateFormat("yyyy/MM/dd").parse(fecha);
+            
+        }
+        
+        catch (ParseException ex) {
+            Logger.getLogger(BusquedaForm.class.getName()).log(Level.SEVERE, null, ex);
+            //System.out.println(BusquedaForm.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("error fecha");
+            
+        }
+        //this.fechaNac = fechaNac; 
+        
+        
     }
     
     
@@ -71,14 +94,9 @@ public class BusquedaForm extends org.apache.struts.action.ActionForm {
         super();
     }
     
-    /**
-     * This is the action called from the Struts framework.
-     *
-     * @param mapping The ActionMapping used to select this instance.
-     * @param request The HTTP Request we are processing.
-     * @return
-     */
+   
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
+       
         ActionErrors errors = new ActionErrors();
         //titulacion, experiencia, conocimientos, location;
        /*9
@@ -87,6 +105,14 @@ public class BusquedaForm extends org.apache.struts.action.ActionForm {
         }
         //return errors;
        */
+       
+        if(fechaIntento){
+            
+            errors.add("fechaNac",new ActionMessage("errors.fecha_invalida"));
+        }
         return errors;
     }
+
+    
+   
 }
