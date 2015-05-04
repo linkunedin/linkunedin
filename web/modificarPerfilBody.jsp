@@ -124,8 +124,13 @@
                     <input type="text" name="fechaNac2" id="fechaNac2" class="form-control" size="10" value="<% 
                     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                     Date fecha = ((Usuarios)request.getAttribute("usuperfil")).getFechaNac();
+                    if (fecha == null){
+                        out.println("");
+                    }
+                    else{
                     String fechaformateada = sdf.format(fecha);
                     out.println(fechaformateada);
+                    }
                     %>" />
                     </div>
                 </fieldset>
