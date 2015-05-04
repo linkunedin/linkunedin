@@ -11,6 +11,7 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -65,7 +66,7 @@ public class Experiencias implements Serializable {
     @Column(name = "valido")
     private Short valido;
     @JoinColumn(name = "usuario_id", referencedColumnName = "id")
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.EAGER)
     private Usuarios usuarioId;
 
     /**

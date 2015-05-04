@@ -31,6 +31,7 @@
                 "username" : $("#expusuario").val()
             }).done(function(response){
                 console.log(response);
+                window.location.reload();
             });
 
         });
@@ -242,7 +243,7 @@
                                 </div>
                             </fieldset>
 
-                            <input id="expusuario" type="hidden" value="${objsesion.user.nombreUsuario}"/>
+                            <input id="expusuario" type="hidden" value="${usuperfil.nombreUsuario}"/>
                         </div>
 
                     </div>

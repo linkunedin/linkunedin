@@ -56,7 +56,7 @@ public class AnadirExpeAction extends org.apache.struts.action.Action {
         }
         Usuarios objetivo = pm.getProfile(formu.getUsername());
         
-        pm.addExperience(objetivo, formu);
+        pm.addExperience(us, formu);
         
         return mapping.findForward(SUCCESS);
     }

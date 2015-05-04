@@ -288,9 +288,21 @@ public class ProfilesManager implements ProfilesManagerIF {
         exp.setUsuarioId(usu);      // ¿?¿?¿?¿?
         exp.setValido((short)1);
         System.out.println("intentando crear experiencia " + exp.toString());
+        /*ArrayList<Experiencias> el = new ArrayList();
+        el.add(exp);*/
+        //usu.getExperienciasCollection().add(exp);
+        //System.out.println(usu);
+        try {
+            ejc.create(exp);
+            //System.out.println(ujc.findUsuariosEntities());
+            //System.out.println(ujc.findUsuarios(usu.getId()));
+            System.out.println(ujc.findUsuarioByNombreUsuario(usu.getNombreUsuario()));
+        } catch (Exception ex) {
+            Logger.getLogger(ProfilesManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        ejc.create(exp);
-        System.out.println("creada experiencia :" /*+ getProfile(usu.getNombreUsuario()).toString()*/ + exp.toString());
+        //ejc.create(exp);
+        //System.out.println("creada experiencia :" /*+ getProfile(usu.getNombreUsuario()).toString()*/ + exp.toString());
     }
     
     public void addEducation(Object modifier, EducacionForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException{
