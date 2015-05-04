@@ -107,9 +107,14 @@ public class ProfilesManager implements ProfilesManagerIF {
         us.setPdf(formu.getPdf());
         us.setPassword(formu.getPassword());
         us.setLocation(formu.getLocation());
-        java.sql.Date fecha = new java.sql.Date(Integer.parseInt(formu.getAno()), 
-                Integer.parseInt(formu.getMes()), Integer.parseInt(formu.getDia()));
+        /*java.sql.Date fecha = new java.sql.Date(Integer.parseInt(formu.getAno()), 
+                Integer.parseInt(formu.getMes()), Integer.parseInt(formu.getDia()));*/
+        System.out.println("formu");
+        System.out.println(formu.getFechaNac());
+        java.sql.Date fecha = new java.sql.Date(formu.getFechaNac().getTime());
         us.setFechaNac(fecha);
+        System.out.println("fecha");
+        System.out.println(fecha);
         
         
         try {
@@ -214,8 +219,8 @@ public class ProfilesManager implements ProfilesManagerIF {
         aus.addAll(lus);
      }
 
-     if (!(formu.getFechaNac().equals(""))){
-        lus = ujc.findUsuarioByFechaNac(formu.getFechaNac());
+     if (!(formu.getFechaNac2().equals(""))){    
+        lus = ujc.findUsuarioByFechaNac(new java.sql.Date(formu.getFechaNac().getYear(),formu.getFechaNac().getMonth(),formu.getFechaNac().getDay()));
         aus.addAll(lus);
      }
      

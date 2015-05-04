@@ -7,6 +7,7 @@
 package com.myapp.struts.Controlador.Forms;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
@@ -20,10 +21,37 @@ import org.apache.struts.action.ActionMessage;
 public class EntradaModificarPerfilForm extends org.apache.struts.action.ActionForm {
     
     private String nombre, apellidos, nomusuario, email, foto, perfil, pdf, location, password, error;
-    private String ano,mes,dia;
     private int usuarioId;
- 
+    private java.util.Date fechaNac;
+    private String fechaNac2;
 
+    public java.util.Date getFechaNac() {
+        return fechaNac;
+    }
+
+    public void setFechaNac(java.util.Date fechaNac) {
+        this.fechaNac = fechaNac;
+    }
+
+    public String getFechaNac2() {
+        return fechaNac2;
+    }
+
+   
+    public void setFechaNac2(String fechaNac2) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        java.util.Date fnac;
+        fnac= new java.util.Date();
+        
+        try{
+            fnac =  formatter.parse(fechaNac2);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        System.out.println(fnac);
+        this.fechaNac2 = fechaNac2;
+        this.fechaNac = fnac;
+    }
     /**
      *
      */
@@ -45,6 +73,7 @@ public class EntradaModificarPerfilForm extends org.apache.struts.action.ActionF
         return errors;
     }
 
+ 
     public int getUsuarioId() {
         return usuarioId;
     }
@@ -70,35 +99,7 @@ public class EntradaModificarPerfilForm extends org.apache.struts.action.ActionF
         this.error = error;
     }
 
-    public String getAno() {
-        return ano;
-    }
 
-    public void setAno(String ano) {
-        this.ano = ano;
-    }
-
-    public String getMes() {
-        return mes;
-    }
-
-    public void setMes(String mes) {
-        this.mes = mes;
-    }
-
-    public String getDia() {
-        return dia;
-    }
-
-    public void setDia(String dia) {
-        this.dia = dia;
-    }
-
-
-    
-    public java.sql.Date getFechaNac() {
-        return new java.sql.Date(Integer.parseInt(ano), Integer.parseInt(mes), Integer.parseInt(dia));
-    }
 
     public void setFechaNac(String ano, String mes, String dia) {
         // de esta forma este metodo seria inutil

@@ -31,7 +31,7 @@
                     </div>
                     <div class="form-group">
                         <label>Introduzca una fecha</label>
-                        <html:text property="fechaNac" styleClass="form-control"/>
+                        <html:text property="fechaNac2" styleClass="form-control"/>
                     </div>
                     <button type="submit" class="btn btn-primary">Registrar</button>
                     <!--bean:write name="BusquedaForm" property="error"  filter="false"/-->

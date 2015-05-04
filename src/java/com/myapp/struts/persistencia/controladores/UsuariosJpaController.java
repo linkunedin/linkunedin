@@ -398,7 +398,7 @@ public class UsuariosJpaController implements Serializable {
     }
     
     public List<Usuarios> findUsuarioByFechaNac(java.sql.Date fecha){
-        Query q = query("Usuarios.findByLocation");
+        Query q = query("Usuarios.findByFechaNac");
         q.setParameter("fechaNac", fecha);
         return q.getResultList();
     }

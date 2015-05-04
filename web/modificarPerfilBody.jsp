@@ -3,6 +3,9 @@
     Created on : 15-abr-2015, 18:36:44
     Author     : juan
 --%>
+<%@page import="java.sql.Date"%>
+<%@page import="com.myapp.struts.persistencia.entidades.Usuarios"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <!--%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %-->
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
@@ -116,16 +119,14 @@
                         Fecha de nacimiento
                     </legend>
                     <div class="form-group">
-                        <label for="dia">Dia:</label>
-                    <html:text property="dia" styleClass="form-control" size="2" value="${usuperfil.fechaNac.day}"></html:text>
-                    </div>
-                    <div class="form-group">
-                        <label for="mes">Mes:</label>
-                    <html:text property="mes" styleClass="form-control" size="2" value="${usuperfil.fechaNac.month}"></html:text>
-                    </div>
-                    <div class="form-group">
-                        <label for="ano">Año:</label>
-                    <html:text property="ano" styleClass="form-control" size="4" value="${usuperfil.fechaNac.year}"></html:text>
+                        <label for="fechaNac2">Fecha Nacimiento</label>
+                    
+                    <input type="text" name="fechaNac2" id="fechaNac2" class="form-control" size="10" value="<% 
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha = ((Usuarios)request.getAttribute("usuperfil")).getFechaNac();
+                    String fechaformateada = sdf.format(fecha);
+                    out.println(fechaformateada);
+                    %>" />
                     </div>
                 </fieldset>
 

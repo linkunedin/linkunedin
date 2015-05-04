@@ -7,6 +7,7 @@
 package com.myapp.struts.Controlador.Forms;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
@@ -20,7 +21,26 @@ import org.apache.struts.action.ActionMessage;
 public class BusquedaForm extends org.apache.struts.action.ActionForm {
     
     private String titulacion, experiencia, conocimientos, location;
-    private java.sql.Date fechaNac;
+    private java.util.Date fechaNac;
+    private String fechaNac2;
+
+    public String getFechaNac2() {
+        return fechaNac2;
+    }
+
+    public void setFechaNac2(String fechaNac2) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        java.util.Date fnac;
+        fnac= new java.util.Date();
+        
+        try{
+            fnac = (java.sql.Date) formatter.parse(fechaNac2);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        this.fechaNac2 = fechaNac2;
+        this.fechaNac = fnac;
+    }
 
     public String getTitulacion() {
         return titulacion;
@@ -55,7 +75,7 @@ public class BusquedaForm extends org.apache.struts.action.ActionForm {
         this.location = location;
     }
 
-    public Date getFechaNac() {
+    public  java.util.Date getFechaNac() {
         return fechaNac;
     }
 
