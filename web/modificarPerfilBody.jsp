@@ -22,15 +22,16 @@
 
         // evento click enviar experiencia
         $("#enviarexpe").click(function(evento) {
-            $.post("anadirExpe.do", data={
-                "empresa" : $("#expempresa").val(),
-                "puesto" : $("#exppuesto").val(),
-                "descripcion" : $("#expdescripcion").val(),
-                "fechainicio" : $("#expfinicio").val(),
-                "fechafin" : $("#expffin").val(),
-                "username" : $("#expusuario").val()
-            }).done(function(response){
+            $.post("anadirExpe.do", data = {
+                "empresa": $("#expempresa").val(),
+                "puesto": $("#exppuesto").val(),
+                "descripcion": $("#expdescripcion").val(),
+                "fechainicio": $("#expfinicio").val(),
+                "fechafin": $("#expffin").val(),
+                "username": $("#expusuario").val()
+            }).done(function(response) {
                 console.log(response);
+                window.location.reload();
             });
 
         });
@@ -181,6 +182,22 @@
             Experiencia laboral
         </div>
         <div class="panel-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Empresa</th>
+                        <th>Puesto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <logic:iterate name="usuperfil" property="experienciasCollection" id="exp">
+                        <tr>
+                            <td><bean:write name="exp" property="empresa" /></td>
+                            <td><bean:write name="exp" property="puesto" /></td>
+                        </tr>
+                    </logic:iterate>
+                </tbody>
+            </table>
 
         </div>
         <div class="panel-footer">
@@ -242,7 +259,7 @@
                                 </div>
                             </fieldset>
 
-                            <input id="expusuario" type="hidden" value="${objsesion.user.nombreUsuario}"/>
+                            <input id="expusuario" type="hidden" value="${usuperfil.nombreUsuario}"/>
                         </div>
 
                     </div>

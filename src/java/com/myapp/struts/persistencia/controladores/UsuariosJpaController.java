@@ -369,6 +369,7 @@ public class UsuariosJpaController implements Serializable {
      */
     public Query query(String namequery){
         EntityManager em = getEntityManager();
+        
         return em.createNamedQuery(namequery, Usuarios.class);
     }
     

@@ -37,7 +37,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Usuarios.findById", query = "SELECT u FROM Usuarios u WHERE u.id = :id"),
     @NamedQuery(name = "Usuarios.findByNombre", query = "SELECT u FROM Usuarios u WHERE u.nombre = :nombre"),
     @NamedQuery(name = "Usuarios.findByApellidos", query = "SELECT u FROM Usuarios u WHERE u.apellidos = :apellidos"),
-    @NamedQuery(name = "Usuarios.findByNombreUsuario", query = "SELECT u FROM Usuarios u WHERE u.nombreUsuario = :nombreUsuario"),
+    @NamedQuery(name = "Usuarios.findByNombreUsuario", query = "SELECT u FROM Usuarios u left join fetch u.experienciasCollection e WHERE u.nombreUsuario = :nombreUsuario"),
     @NamedQuery(name = "Usuarios.findByPassword", query = "SELECT u FROM Usuarios u WHERE u.password = :password"),
     @NamedQuery(name = "Usuarios.findByUserPwd", query = "SELECT u FROM Usuarios u WHERE u.nombreUsuario = :nombre and u.password = :password"),
     @NamedQuery(name = "Usuarios.findByAdmin", query = "SELECT u FROM Usuarios u WHERE u.admin = :admin"),
@@ -76,13 +76,13 @@ public class Usuarios implements Serializable {
     @Lob
     @Column(name = "perfil", length = 65535)
     private String perfil;
-    @ManyToMany(mappedBy = "usuariosCollection", fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "usuariosCollection", fetch = FetchType.EAGER, targetEntity=Intereses.class)
     private Collection<Intereses> interesesCollection;
-    @ManyToMany(mappedBy = "usuariosCollection", fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "usuariosCollection", fetch = FetchType.LAZY)
     private Collection<Entidades> entidadesCollection;
-    @OneToMany(mappedBy = "usuarioId", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "usuarioId", fetch = FetchType.EAGER, targetEntity=Educacion.class)
     private Collection<Educacion> educacionCollection;
-    @OneToMany(mappedBy = "usuarioId", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "usuarioId", fetch = FetchType.EAGER, targetEntity=Experiencias.class)
     private Collection<Experiencias> experienciasCollection;
     
     @Column(name = "pdf", length = 255)

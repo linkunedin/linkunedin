@@ -11,6 +11,7 @@ import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -53,7 +54,7 @@ public class Intereses implements Serializable {
     @JoinTable(name = "usuarios_intereses", joinColumns = {
         @JoinColumn(name = "interes_id", referencedColumnName = "id", nullable = false)}, inverseJoinColumns = {
         @JoinColumn(name = "usuario_id", referencedColumnName = "id", nullable = false)})
-    @ManyToMany
+    @ManyToMany(fetch=FetchType.EAGER)
     private Collection<Usuarios> usuariosCollection;
 
     /**
