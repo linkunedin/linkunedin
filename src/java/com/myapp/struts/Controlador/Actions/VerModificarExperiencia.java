@@ -40,6 +40,7 @@ public class VerModificarExperiencia extends org.apache.struts.action.Action {
         System.out.println("akdnajsdn");
         ExperienciaForm formu = (ExperienciaForm) form;
         ProfilesManager pm = ProfilesManager.getInstance();
+        System.out.println(formu);
         
         Experiencias exp = pm.getExperience(Integer.parseInt(formu.getIdexp()));
 

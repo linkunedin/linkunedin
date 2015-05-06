@@ -47,14 +47,14 @@
             <forward name="error" path="/formRegistro.jsp"/>
         </action>
 
-       
-        
-        
-
         <action input="/" name="BajaForm" path="/baja" type="com.myapp.struts.Controlador.Actions.BajaAction"/>
         
         <action input="/" path="/insertarusuarios" type="com.myapp.struts.Controlador.Actions.InsertarUsuarios">
             <forward name="success" path="/listarUsuarios.jsp" />
+        </action>
+        
+        <action input="/" name="ExperienciaForm" path="/vermodificarExpe" type="com.myapp.struts.Controlador.Actions.VerModificarExperiencia">
+            <forward name="success" path="/modificarExperiencia.jsp" />
         </action>
             
         <action path="/logout" type="com.myapp.struts.Controlador.Actions.LogoutAction" >
