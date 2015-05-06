@@ -37,6 +37,7 @@ public class ModificarExpeAction extends org.apache.struts.action.Action {
         ExperienciaForm formu = (ExperienciaForm) form;
         // si ok devolver a la pagina principal
         if (true) {
+            System.out.println("Paso por el success de modificar ExpeAction");
             return mapping.findForward(SUCCESS);
         } // si no ok devolver a la misma pagina de alta
         else {

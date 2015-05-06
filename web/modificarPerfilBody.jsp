@@ -34,9 +34,11 @@
                 "username": $("#expusuario").val()
             }).done(function(response) {
                 console.log(response);
-                window.location.reload();
+                if ($("#expfinicio").val().match(/\d{2}\/\d{2}\/\d{4}/g) && $("#expffin").val().match(/\d{2}\/\d{2}\/\d{4}/g)){
+                    window.location.reload();
+                }
+                else alert("Por favor, introduce una fecha valida!");
             });
-
         });
 
         $("#enviartitulacion").click(function(evento) {
@@ -49,10 +51,11 @@
                 "username" : $("#expusuario").val()
             }).done(function(response, jqXHR) {
                 console.log(response);
-                if ($("#acadfinicio").val().match(/\d{2}\/\d{2}\/\d{4}/g)){
+                if ($("#acadfinicio").val().match(/\d{2}\/\d{2}\/\d{4}/g) && $("#acadffin").val().match(/\d{2}\/\d{2}\/\d{4}/g)) {
                     window.location.reload();
                 }
                 else alert("Por favor, introduce una fecha valida!");
+  
             });
         });
 
@@ -66,19 +69,19 @@
         });//
         
         window["modificarExpe"] = function (id){
-            window.location = "vermodificarExpe.do?idexp" + id;
+            window.location = "vermodificarExpe.do?idexp=" + id;
         }
         
         window["eliminarExpe"] = function (id){
-            window.location = "modificarExpe.do?idexp" + id;
+            window.location = "modificarExpe.do?idexp=" + id;
         }
         
         window["modificarEduc"] = function (id){
-            window.location = "vermodificarEducacion.do?idexp" + id;
+            window.location = "vermodificarEducacion.do?idexp=" + id;
         }
         
         window["eliminarEduc"] = function (id){
-            window.location = "modificarExpe.do?idexp" + id;
+            window.location = "modificarExpe.do?idexp=" + id;
         }
 
         $(".modal-body").css("max-height", "100vh - 210px");
@@ -148,18 +151,21 @@
                     <div class="form-group">
                         <label for="fechaNac2">Fecha Nacimiento</label>
 
-                        <input type="text" name="fechaNac2" id="fechaNac2" class="form-control" size="10" value="<%
-                            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                            Date fecha = ((Usuarios) request.getAttribute("usuperfil")).getFechaNac();
-                            if (fecha == null) {
-                                out.println("");
-                            } else {
-                                String fechaformateada = sdf.format(fecha);
-                                out.println(fechaformateada);
-                            }
-                           %>" />
-                </div>
-            </fieldset>
+                    
+                    <input type="text" name="fechaNac2" id="fechaNac2" class="form-control" size="10" value="<% 
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha = ((Usuarios)request.getAttribute("usuperfil")).getFechaNac();
+                    if (fecha == null){
+                        out.println("");
+                    }
+                    else{
+                    String fechaformateada = sdf.format(fecha);
+                    out.println(fechaformateada);
+                    }
+                    %>" />
+                    </div>
+                </fieldset>
+
 
             <fieldset>
                 <legend>

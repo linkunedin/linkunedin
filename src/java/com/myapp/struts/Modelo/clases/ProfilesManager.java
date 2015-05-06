@@ -475,4 +475,8 @@ public class ProfilesManager implements ProfilesManagerIF {
         }
     }
     
+    public Experiencias getExperience(int id){
+        return this.ejc.findExperiencias(id);
+    }
+    
 }

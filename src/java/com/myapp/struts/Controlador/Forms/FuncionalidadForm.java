@@ -18,7 +18,7 @@ import org.apache.struts.action.ActionMessage;
  */
 public class FuncionalidadForm extends org.apache.struts.action.ActionForm {
     
-    private String funcionalidad, estado, error;
+    private String funcionalidad, estado;
 
     /**
      *
@@ -53,13 +53,6 @@ public class FuncionalidadForm extends org.apache.struts.action.ActionForm {
     }
 
     
-     public String getError(){
-        return error;
-    }
-
-    public void setError(String error){
-        this.error = error;
-    }
     
     /**
      *
@@ -90,5 +83,4 @@ public class FuncionalidadForm extends org.apache.struts.action.ActionForm {
         
         return errors;
     }
-   
 }
