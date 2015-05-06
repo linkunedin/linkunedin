@@ -53,9 +53,10 @@
             <forward name="success" path="/listarUsuarios.jsp" />
         </action>
         
-        <action input="/" name="ExperienciaForm" path="/vermodificarExpe" type="com.myapp.struts.Controlador.Actions.VerModificarExperiencia">
+        <action input="/" name="ExperienciaForm" path="/vermodificarExpe" type="com.myapp.struts.Controlador.Actions.VerModificarExperiencia" validate="false">
             <forward name="success" path="/modificarExperiencia.jsp" />
         </action>
+        
             
         <action path="/logout" type="com.myapp.struts.Controlador.Actions.LogoutAction" >
             <forward name="success" path="/logout.jsp"/>

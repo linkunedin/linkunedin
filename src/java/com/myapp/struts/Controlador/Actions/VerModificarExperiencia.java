@@ -38,6 +38,7 @@ public class VerModificarExperiencia extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         System.out.println("akdnajsdn");
+        System.out.flush();
         ExperienciaForm formu = (ExperienciaForm) form;
         ProfilesManager pm = ProfilesManager.getInstance();
         System.out.println(formu);
