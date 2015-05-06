@@ -20,7 +20,7 @@
         <form-bean name="CreateProfileForm" type="com.myapp.struts.Controlador.Forms.CreateProfileForm"/>
         <form-bean name="CreateUserForm" type="com.myapp.struts.Controlador.Forms.CreateUserForm"/>
         <form-bean name="LoginForm" type="com.myapp.struts.Controlador.Forms.LoginForm"/>
-        <form-bean name="EducacionForm" type="com.myapp.struts.Controlador.Actions.EducacionForm"/>
+        <form-bean name="EducacionForm" type="com.myapp.struts.Controlador.Forms.EducacionForm"/>
     
     </form-beans>
     
