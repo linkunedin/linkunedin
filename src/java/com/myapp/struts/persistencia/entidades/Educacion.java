@@ -249,7 +249,7 @@ public class Educacion implements Serializable {
 
     @Override
     public String toString() {
-        return "Educacion{" + "id=" + id + ", centroEstudios=" + centroEstudios + ", titulacion=" + titulacion + ", actividades=" + actividades + ", descripcion=" + descripcion + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", valido=" + valido + ", usuarioId=" + usuarioId + '}';
+        return "Educacion{" + "id=" + id + ", centroEstudios=" + centroEstudios + ", titulacion=" + titulacion + ", actividades=" + actividades + ", descripcion=" + descripcion + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", valido=" + valido + ", usuarioId=" + usuarioId.getId() + '}';
     }
 
     

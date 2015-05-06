@@ -49,7 +49,10 @@
                 "username" : $("#expusuario").val()
             }).done(function(response, jqXHR) {
                 console.log(response);
-                //window.location.reload();
+                if ($("#acadfinicio").val().match(/\d{2}\/\d{2}\/\d{4}/g)){
+                    window.location.reload();
+                }
+                else alert("Por favor, introduce una fecha valida!");
             });
         });
 
@@ -197,7 +200,7 @@
                     <logic:iterate name="usuperfil" property="educacionCollection" id="educ">
                         <tr>
                             <td><bean:write name="educ" property="titulacion" /></td>
-                            <td><bean:write name="educ" property="centro_estudios" /></td>
+                            <td><bean:write name="educ" property="centroEstudios" /></td>
                             <td>
                                 <div class="dropdown">
                                     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Acci&oacute;n

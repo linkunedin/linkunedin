@@ -45,19 +45,22 @@ public class AnadirEducacionAction extends org.apache.struts.action.Action {
         EducacionForm formu = (EducacionForm) form;
         ProfilesManager pm = ProfilesManager.getInstance();
         //pm.modifyEducation(mapping, formu);
-        
+        System.out.println(formu.toString());
         // comprobar si estamos logeados
         UserSession us = (UserSession) request.getSession().getAttribute("objsesion");
         if (us == null){
             ae.add("notloged", new ActionMessage("errors.notlogged"));
             this.addErrors(request, ae);
-            return mapping.findForward("error");
+            return mapping.getInputForward();
         }
         // pasamos de aqui => esta logeado
         // usuario modificador : 
         Usuarios usu = us.getUser();
+        if (usu == null || formu == null){
+            System.out.println("ES NULO");
+        }
         
-        
+        pm.addEducation(usu, formu);
         
         return mapping.findForward(SUCCESS);
     }
