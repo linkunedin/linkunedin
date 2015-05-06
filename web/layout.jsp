@@ -58,6 +58,12 @@
                         <li><a href="logout.do">Logout</a></li>
                         <li><a href="formBusqueda.jsp">Buscar</a></li>
                     </ul>
+                    <hr>
+                    <ul class="nav nav-pills nav-stacked">    
+                        <li><a href="modificarFuncionalidad.jsp">agregar funcionalidades</a></li>
+                        <li><a href="listarFuncionalidades.jsp">Listar funcionalidades</a></li> 
+                    </ul>
+                    <hr>
                     <ul class="nav nav-pills nav-stacked">
                         
                         <li><a href="insertarusuarios.do">Insertar usuarios</a></li>

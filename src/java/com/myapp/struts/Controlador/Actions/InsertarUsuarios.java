@@ -66,6 +66,8 @@ public class InsertarUsuarios extends org.apache.struts.action.Action {
         cform.setUsername("juan");
         cform.setTitulo("java");
         */
+        
+        
         return mapping.findForward(SUCCESS);
     }
 }

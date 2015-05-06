@@ -46,8 +46,12 @@
             <forward name="success" path="/modificarPerfil.jsp"/>
             <forward name="error" path="/formRegistro.jsp"/>
         </action>
+
+       
         
-            <action input="/" name="BajaForm" path="/baja" type="com.myapp.struts.Controlador.Actions.BajaAction"/>
+        
+
+        <action input="/" name="BajaForm" path="/baja" type="com.myapp.struts.Controlador.Actions.BajaAction"/>
         
         <action input="/" path="/insertarusuarios" type="com.myapp.struts.Controlador.Actions.InsertarUsuarios">
             <forward name="success" path="/listarUsuarios.jsp" />
@@ -72,9 +76,20 @@
         </action>
         <action input="/" name="EntradaModificarPerfilForm" path="/vermodificarperfil" scope="request" type="com.myapp.struts.Controlador.Actions.VerModificarPerfil" validate="false">
             <forward name="success" path="/modificarPerfil.jsp"/>
-        </action>    
+        </action>
+
+         <action input="/formFuncionalidades.jsp" name="FuncionalidadForm" path="/funcionalidad" scope="request" validate="true" type="com.myapp.struts.Controlador.Actions.ModificarFuncAction">
+            <forward name="success" path="/listarFuncionalidades.jsp"/>
+            <forward name="error" path="/modificarFuncionalidad.jsp"/>
+        </action>
+
+        <!-- fixme juan poner que sea durante la sesion -->
+        <action input="/" name="FuncionalidadForm" path="/listarFuncionalidades" scope="request" type="com.myapp.struts.Controlador.Actions.ListarFuncionalidadesAction">    
+            <forward name="success" path="/listarFuncionalidades.jsp"/>
+        </action>
         
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
+    
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
