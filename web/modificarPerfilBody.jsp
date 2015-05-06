@@ -40,8 +40,16 @@
         });
 
         $("#enviartitulacion").click(function(evento) {
-            $.post("logout.do").done(function(response, jqXHR) {
+            $.post("anadirEducacion.do", data={
+                "titulo" : $("#acadtitulo").val(),
+                "centro" : $("#acadcentro").val(),
+                "fechainicio" : $("#acadfinicio").val(),
+                "fechafin" : $("#acadffin").val(),
+                "descripcion" : $("#acaddesc").val(),
+                "username" : $("#expusuario").val()
+            }).done(function(response, jqXHR) {
                 console.log(response);
+                //window.location.reload();
             });
         });
 
@@ -53,6 +61,22 @@
                 console.log(response);
             });
         });//
+        
+        window["modificarExpe"] = function (id){
+            window.location = "vermodificarExpe.do?idexp" + id;
+        }
+        
+        window["eliminarExpe"] = function (id){
+            window.location = "modificarExpe.do?idexp" + id;
+        }
+        
+        window["modificarEduc"] = function (id){
+            window.location = "vermodificarEducacion.do?idexp" + id;
+        }
+        
+        window["eliminarEduc"] = function (id){
+            window.location = "modificarExpe.do?idexp" + id;
+        }
 
         $(".modal-body").css("max-height", "100vh - 210px");
         $(".modal-body").css("overflow-y", "auto");
@@ -120,26 +144,25 @@
                     </legend>
                     <div class="form-group">
                         <label for="fechaNac2">Fecha Nacimiento</label>
-                    
-                    <input type="text" name="fechaNac2" id="fechaNac2" class="form-control" size="10" value="<% 
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                    Date fecha = ((Usuarios)request.getAttribute("usuperfil")).getFechaNac();
-                    if (fecha == null){
-                        out.println("");
-                    }
-                    else{
-                    String fechaformateada = sdf.format(fecha);
-                    out.println(fechaformateada);
-                    }
-                    %>" />
-                    </div>
-                </fieldset>
 
-                <fieldset>
-                    <legend>
-                        Informaci&oacute;n adicional
-                    </legend>
-                    <div class="form-group">
+                        <input type="text" name="fechaNac2" id="fechaNac2" class="form-control" size="10" value="<%
+                            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fecha = ((Usuarios) request.getAttribute("usuperfil")).getFechaNac();
+                            if (fecha == null) {
+                                out.println("");
+                            } else {
+                                String fechaformateada = sdf.format(fecha);
+                                out.println(fechaformateada);
+                            }
+                           %>" />
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>
+                    Informaci&oacute;n adicional
+                </legend>
+                <div class="form-group">
 
                     <html:textarea property="perfil" styleClass="form-control" cols="90" rows="7" value="${usuperfil.perfil}"></html:textarea>
                     </div>
@@ -162,7 +185,33 @@
             Formaci&oacute;n acad&eacute;mica
         </div>
         <div class="panel-body">
-
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Titulacion</th>
+                        <th>Centro de estudios</th>
+                        <th>Accion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <logic:iterate name="usuperfil" property="educacionCollection" id="educ">
+                        <tr>
+                            <td><bean:write name="educ" property="titulacion" /></td>
+                            <td><bean:write name="educ" property="centro_estudios" /></td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Acci&oacute;n
+                                        <span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#" onclick="javascript:modificarEduc(${exp.id})">Editar</a></li>
+                                        <li><a href="#" onclick="javascript:eliminarEduc(${exp.id})">Borrar</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </logic:iterate>
+                </tbody>
+            </table>
         </div>
         <div class="panel-footer">
             <button type="button" class="btn btn-primary" id="nuevaacadem" name="nuevaacadem" data-toggle="modal" data-target="#dialogoacadem">Nueva titulacion</button>
@@ -193,6 +242,7 @@
                     <tr>
                         <th>Empresa</th>
                         <th>Puesto</th>
+                        <th>Accion</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -200,6 +250,16 @@
                         <tr>
                             <td><bean:write name="exp" property="empresa" /></td>
                             <td><bean:write name="exp" property="puesto" /></td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Acci&oacute;n
+                                        <span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#" onclick="javascript:modificarExpe(${exp.id})">Editar</a></li>
+                                        <li><a href="#" onclick="javascript:eliminarExpe(${exp.id})">Borrar</a></li>
+                                    </ul>
+                                </div>
+                            </td>
                         </tr>
                     </logic:iterate>
                 </tbody>

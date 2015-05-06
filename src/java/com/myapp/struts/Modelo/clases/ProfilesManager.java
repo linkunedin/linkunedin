@@ -310,19 +310,25 @@ public class ProfilesManager implements ProfilesManagerIF {
         //System.out.println("creada experiencia :" /*+ getProfile(usu.getNombreUsuario()).toString()*/ + exp.toString());
     }
     
-    public void addEducation(Object modifier, EducacionForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException{
+    public void addEducation(Object modifier, EducacionForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException, ParseException{
         canModify(modifier, formu.getUsername());
+        
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        Date dfin, dffin;
+        dffin = formatter.parse(formu.getFechafin());
+        dfin = formatter.parse(formu.getFechainicio());        
+        String user = ((Usuarios) modifier).getNombreUsuario();
         
         Usuarios usu = getProfile(formu.getUsername());
         
-        String user = (String) modifier;
+        
         Educacion edu = new Educacion();
         // TODO: arreglar eso
         //edu.setActividades(formu.get);    // formulario no tiene campo actividades
         edu.setCentroEstudios(formu.getCentro());
         edu.setDescripcion(formu.getDescripcion());
-        edu.setFechaFin(new Date(formu.getFechafin()));
-        edu.setFechaInicio(new Date(formu.getFechainicio()));
+        edu.setFechaFin(dffin);
+        edu.setFechaInicio(dfin);
         edu.setTitulacion(formu.getTitulo());
         edu.setUsuarioId(usu);
         edu.setValido((short)1);
