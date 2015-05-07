@@ -8,8 +8,11 @@ package com.myapp.struts.Controlador.Actions;
 
 import com.myapp.struts.Controlador.Forms.AltaForm;
 import com.myapp.struts.Controlador.Forms.EntradaModificarConoForm;
+import com.myapp.struts.Controlador.Forms.ExperienciaForm;
 import com.myapp.struts.Modelo.clases.AccountManager;
 import com.myapp.struts.Modelo.clases.LoginManager;
+import com.myapp.struts.Modelo.clases.ProfilesManager;
+import com.myapp.struts.persistencia.entidades.Usuarios;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
@@ -66,6 +69,18 @@ public class InsertarUsuarios extends org.apache.struts.action.Action {
         cform.setUsername("juan");
         cform.setTitulo("java");
         */
+        ProfilesManager pm = ProfilesManager.getInstance();
+        ExperienciaForm formu = new ExperienciaForm();
+        
+        formu.setPuesto("ñapas");
+        formu.setEmpresa("Teleperforanos");
+        formu.setUsername("david");
+        formu.setFechainicio("01/01/2015");
+        formu.setFechafin("01/01/2015");
+        formu.setDescripcion("ñapas");
+        Usuarios usu = pm.getProfile("david");
+        pm.addExperience(usu, formu);
+        
         return mapping.findForward(SUCCESS);
     }
 }

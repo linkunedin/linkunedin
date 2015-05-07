@@ -9,7 +9,7 @@
     <form-beans>
         <!--form-bean name="PerfilCompletoForm" type="com.myapp.struts.Controlador.Forms.PerfilCompletoForm"/-->
         <form-bean name="BusquedaForm" type="com.myapp.struts.Controlador.Forms.BusquedaForm"/>
-        <form-bean name="ModificarExpe" type="com.myapp.struts.Controlador.Forms.ModificarExpe"/>
+        <!--form-bean name="ModificarExpe" type="com.myapp.struts.Controlador.Forms.ModificarExpe"/-->
         <form-bean name="EntradaModificarPerfilForm" type="com.myapp.struts.Controlador.Forms.EntradaModificarPerfilForm"/>
         <form-bean name="FuncionalidadForm" type="com.myapp.struts.Controlador.Forms.FuncionalidadForm"/>
         <form-bean name="EntradaModificarConoForm" type="com.myapp.struts.Controlador.Forms.EntradaModificarConoForm"/>
@@ -39,7 +39,7 @@
         <action input="/" name="EducacionForm" path="/modificarEducacion" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarEducacionAction"/>
         <action input="/" name="EntradaModificarPerfilForm" path="/modificarCono" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarConoAction"/>
         <action input="/" name="FuncionalidadForm" path="/modificarFunc" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarFuncAction"/>
-        <action input="/" name="ModificarExpe" path="/modificarExpe" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarExpeAction"/>
+        <action input="/" name="ExperienciaForm" path="/modificarExpe" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarExpeAction"/>
         <action input="/" name="EntradaModificarPerfilForm" path="/modificarperfil" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarPerfilAction"/>
         
         <action input="/formRegistro.jsp" name="AltaForm" path="/alta" scope="request" validate="true" type="com.myapp.struts.Controlador.Actions.AltaAction">
