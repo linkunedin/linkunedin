@@ -7,6 +7,10 @@
 package com.myapp.struts.Controlador.Actions;
 
 import com.myapp.struts.Controlador.Forms.ExperienciaForm;
+import com.myapp.struts.Modelo.clases.ProfilesManager;
+import com.myapp.struts.Modelo.clases.UserSession;
+import com.myapp.struts.persistencia.entidades.Experiencias;
+import com.myapp.struts.persistencia.entidades.Usuarios;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
@@ -36,12 +40,26 @@ public class ModificarExpeAction extends org.apache.struts.action.Action {
             throws Exception {
         ExperienciaForm formu = (ExperienciaForm) form;
         // si ok devolver a la pagina principal
-        if (true) {
-            System.out.println("Paso por el success de modificar ExpeAction");
-            return mapping.findForward(SUCCESS);
-        } // si no ok devolver a la misma pagina de alta
-        else {
+        ProfilesManager pm = ProfilesManager.getInstance();
+        UserSession us = (UserSession) request.getSession().getAttribute("objsesion");
+        Usuarios usu = us.getUser();
+        
+        
+        try{
+            System.out.println("intentando modificar experiencia");
+            
+            pm.modifyExperience(usu, formu);
+            
+            System.out.println("experiencia modificada con exito");
+        }catch(Exception e){
+            e.printStackTrace();
             return mapping.findForward(ERROR);
         }
+        
+        usu = pm.getProfile(formu.getUsername());
+        request.setAttribute("usuperfil", usu);
+        
+        return mapping.findForward(SUCCESS);
+        
     }
 }

@@ -405,7 +405,7 @@ public class ProfilesManager implements ProfilesManagerIF {
         Usuarios usu = getProfile(formu.getUsername());
         
         
-        String user = (String) modifier;
+        Usuarios user = (Usuarios) modifier;
         Experiencias exp = ejc.findExperiencias(Integer.parseInt(formu.getIdexp()));
         // TODO: arreglar eso
         //exp.setActividades(formu.get);    // no tiene actividades
@@ -414,8 +414,8 @@ public class ProfilesManager implements ProfilesManagerIF {
         exp.setFechaFin(new Date(formu.getFechafin()));
         exp.setFechaInicio(new Date(formu.getFechainicio()));
         exp.setPuesto(formu.getPuesto());
-        //exp.setUsuarioId(usu);      // ¿?¿?¿?¿?
-        //exp.setValido((short)1);
+        exp.setUsuarioId(usu);      // ¿?¿?¿?¿?
+        exp.setValido((short)1);
         try {
             ejc.edit(exp);
         } catch (Exception ex) {

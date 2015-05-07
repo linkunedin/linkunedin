@@ -39,7 +39,10 @@
         <action input="/" name="EducacionForm" path="/modificarEducacion" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarEducacionAction"/>
         <action input="/" name="EntradaModificarPerfilForm" path="/modificarCono" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarConoAction"/>
         <action input="/" name="FuncionalidadForm" path="/modificarFunc" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarFuncAction"/>
-        <action input="/" name="ExperienciaForm" path="/modificarExpe" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarExpeAction"/>
+        <action input="/" name="ExperienciaForm" path="/modificarExpe" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarExpeAction">
+            <forward name="success" path="/modificarPerfil.jsp" />
+            <forward name="error" path="/" />
+        </action>
         <action input="/" name="EntradaModificarPerfilForm" path="/modificarperfil" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarPerfilAction"/>
         
         <action input="/formRegistro.jsp" name="AltaForm" path="/alta" scope="request" validate="true" type="com.myapp.struts.Controlador.Actions.AltaAction">
