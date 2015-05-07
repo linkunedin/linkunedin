@@ -36,10 +36,13 @@
         <action input="/" name="ConocimientoForm" path="/anadirConocimiento" scope="request" type="com.myapp.struts.Controlador.Actions.AnadirConocimientoAction"/>
         <action input="/" name="ExperienciaForm" path="/anadirExpe" scope="request" type="com.myapp.struts.Controlador.Actions.AnadirExpeAction"/>
         <action input="/" name="EducacionForm" path="/anadirEducacion" scope="request" type="com.myapp.struts.Controlador.Actions.AnadirEducacionAction"/>
-        <action input="/" name="EducacionForm" path="/modificarEducacion" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarEducacionAction"/>
+        <action input="/" name="EducacionForm" path="/modificarEducacion" validate="false" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarEducacionAction">
+            <forward name="success" path="/modificarPerfil.jsp"/>
+            <forward name="error" path="/"/>
+        </action>
         <action input="/" name="EntradaModificarPerfilForm" path="/modificarCono" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarConoAction"/>
         <action input="/" name="FuncionalidadForm" path="/modificarFunc" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarFuncAction"/>
-        <action input="/" name="ExperienciaForm" path="/modificarExpe" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarExpeAction">
+        <action input="/" name="ExperienciaForm" path="/modificarExpe" scope="request"  type="com.myapp.struts.Controlador.Actions.ModificarExpeAction">
             <forward name="success" path="/modificarPerfil.jsp" />
             <forward name="error" path="/" />
         </action>
@@ -91,6 +94,12 @@
         <action input="/" name="FuncionalidadForm" path="/listarFuncionalidades" scope="request" type="com.myapp.struts.Controlador.Actions.ListarFuncionalidadesAction">    
             <forward name="success" path="/listarFuncionalidades.jsp"/>
         </action>
+        
+        <action input="/" name="EducacionForm" path="/vermodificarEducacion" scope="request" type="com.myapp.struts.Controlador.Actions.VerModificarEducacion" validate="false">
+            <forward name="success" path="/modificarEducacion.jsp" />
+        </action>
+        
+        <action input="/" name="EducacionForm" path="/AnadirEdu" scope="request" type="com.myapp.struts.Controlador.Actions.AnadirEduAction" validate="false"/>
         
         <action input="/" name="ExperienciaForm" path="/BorraExpe" scope="request" type="com.myapp.struts.Controlador.Actions.BorrarExpeAction" validate="false"/>
         

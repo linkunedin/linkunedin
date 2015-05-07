@@ -7,6 +7,7 @@
 package com.myapp.struts.Controlador.Actions;
 
 import com.myapp.struts.Controlador.Forms.AltaForm;
+import com.myapp.struts.Controlador.Forms.EducacionForm;
 import com.myapp.struts.Controlador.Forms.EntradaModificarConoForm;
 import com.myapp.struts.Controlador.Forms.ExperienciaForm;
 import com.myapp.struts.Modelo.clases.AccountManager;
@@ -80,6 +81,15 @@ public class InsertarUsuarios extends org.apache.struts.action.Action {
         formu.setDescripcion("ñapas");
         Usuarios usu = pm.getProfile("david");
         pm.addExperience(usu, formu);
+        
+        EducacionForm formu2 = new EducacionForm();
+        formu2.setCentro("asdasd");
+        formu2.setDescripcion("sadasd");
+        formu2.setTitulo("sadasd");
+        formu2.setUsername("david");
+        formu2.setFechafin("01/01/2015");
+        formu2.setFechainicio("01/01/2015");
+        pm.addEducation(usu, formu2);
         
         return mapping.findForward(SUCCESS);
     }

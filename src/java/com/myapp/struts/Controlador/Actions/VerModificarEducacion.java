@@ -5,8 +5,10 @@
  */
 package com.myapp.struts.Controlador.Actions;
 
+import com.myapp.struts.Controlador.Forms.EducacionForm;
 import com.myapp.struts.Controlador.Forms.ExperienciaForm;
 import com.myapp.struts.Modelo.clases.ProfilesManager;
+import com.myapp.struts.persistencia.entidades.Educacion;
 import com.myapp.struts.persistencia.entidades.Experiencias;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +20,7 @@ import org.apache.struts.action.ActionMapping;
  *
  * @author david
  */
-public class VerModificarExperiencia extends org.apache.struts.action.Action {
+public class VerModificarEducacion extends org.apache.struts.action.Action {
 
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
@@ -38,20 +40,20 @@ public class VerModificarExperiencia extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         
-        ExperienciaForm formu = (ExperienciaForm) form;
+        EducacionForm formu = (EducacionForm) form;
         ProfilesManager pm = ProfilesManager.getInstance();
         System.out.println(formu);
-        
-        Experiencias exp = pm.getExperience(Integer.parseInt(formu.getIdexp()));
 
-        if (exp == null){
-                    System.out.println("exp == null");
+        Educacion edu = pm.getEducacion(Integer.parseInt(formu.getId()));
+
+        if (edu == null) {
+            System.out.println("edu == null");
             return mapping.getInputForward();
-        }else{
-                System.out.println("!exp == null");
+        } else {
+            System.out.println("!edu == null");
         }
-        request.setAttribute("experiencia", exp);
-        
+        request.setAttribute("educacion", edu);
+
         return mapping.findForward(SUCCESS);
     }
 }

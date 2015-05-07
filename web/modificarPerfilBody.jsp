@@ -83,11 +83,11 @@
         }
         
         window["modificarEduc"] = function (id){
-            window.location = "vermodificarEducacion.do?idexp=" + id;
+            window.location = "vermodificarEducacion.do?id=" + id;
         }
         
         window["eliminarEduc"] = function (id, usu){
-            window.location = "modificarExpe.do?idexp=" + id + "&username=" + usu;
+            window.location = "modificarExpe.do?id=" + id + "&username=" + usu;
         }
 
         $(".modal-body").css("max-height", "100vh - 210px");
@@ -218,8 +218,8 @@
                                     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Acci&oacute;n
                                         <span class="caret"></span></button>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#" onclick="javascript:modificarEduc(${exp.id})">Editar</a></li>
-                                        <li><a href="#" onclick="javascript:eliminarEduc(${exp.id})">Borrar</a></li>
+                                        <li><a href="#" onclick="javascript:modificarEduc(${educ.id})">Editar</a></li>
+                                        <li><a href="#" onclick="javascript:eliminarEduc(${educ.id})">Borrar</a></li>
                                     </ul>
                                 </div>
                             </td>

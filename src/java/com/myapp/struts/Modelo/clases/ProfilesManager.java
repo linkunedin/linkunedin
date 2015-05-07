@@ -313,27 +313,33 @@ public class ProfilesManager implements ProfilesManagerIF {
     public void addEducation(Object modifier, EducacionForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException, ParseException{
         canModify(modifier, formu.getUsername());
         
+        Usuarios usu = getProfile(formu.getUsername());
+        
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date dfin, dffin;
         dffin = formatter.parse(formu.getFechafin());
-        dfin = formatter.parse(formu.getFechainicio());        
+        dfin = formatter.parse(formu.getFechainicio());
+        
         String user = ((Usuarios) modifier).getNombreUsuario();
-        
-        Usuarios usu = getProfile(formu.getUsername());
-        
-        
         Educacion edu = new Educacion();
         // TODO: arreglar eso
-        //edu.setActividades(formu.get);    // formulario no tiene campo actividades
-        edu.setCentroEstudios(formu.getCentro());
+        //exp.setActividades(formu.get);    // no tiene actividades
         edu.setDescripcion(formu.getDescripcion());
+        edu.setCentroEstudios(formu.getCentro());
         edu.setFechaFin(dffin);
         edu.setFechaInicio(dfin);
         edu.setTitulacion(formu.getTitulo());
-        edu.setUsuarioId(usu);
+        edu.setUsuarioId(usu);      // ¿?¿?¿?¿?
         edu.setValido((short)1);
-        
-        edujc.create(edu);
+        System.out.println("intentando crear edu " + edu.toString());
+        try {
+             edujc.create(edu);
+            //System.out.println(ujc.findUsuariosEntities());
+            //System.out.println(ujc.findUsuarios(usu.getId()));
+            System.out.println(ujc.findUsuarioByNombreUsuario(usu.getNombreUsuario()));
+        } catch (Exception ex) {
+            Logger.getLogger(ProfilesManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
     
@@ -400,6 +406,9 @@ public class ProfilesManager implements ProfilesManagerIF {
     
     
     public void modifyExperience(Object modifier, ExperienciaForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException{
+       
+        
+        
         canModify(modifier, formu.getUsername());
         
         Usuarios usu = getProfile(formu.getUsername());
@@ -425,11 +434,15 @@ public class ProfilesManager implements ProfilesManagerIF {
     
     public void modifyEducation(Object modifier, EducacionForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException{
         canModify(modifier, formu.getUsername());
-        
+
         Usuarios usu = getProfile(formu.getUsername());
-        
-        String user = (String) modifier;
+
+        Usuarios user = (Usuarios) modifier;
+        //Usuarios usu = getProfile(formu.getUsername());
+
+        //String user = (String) modifier;
         Educacion edu = edujc.findEducacion(Integer.parseInt(formu.getId()));
+        
         // TODO: arreglar eso
         //edu.setActividades(formu.get);    // formulario no tiene campo actividades
         edu.setCentroEstudios(formu.getCentro());
@@ -441,7 +454,10 @@ public class ProfilesManager implements ProfilesManagerIF {
         //edu.setValido((short)1);
         
         try {
+            System.out.println("Antes de edjc.edit en profiles manager");
             edujc.edit(edu);
+            System.out.println("formu modificado en profiles manager");
+            System.out.println(formu.toString());
         } catch (Exception ex) {
             Logger.getLogger(ProfilesManager.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -477,6 +493,10 @@ public class ProfilesManager implements ProfilesManagerIF {
     
     public Experiencias getExperience(int id){
         return this.ejc.findExperiencias(id);
+    }
+    
+        public Educacion getEducacion(int id){
+        return this.edujc.findEducacion(id);
     }
     
 }
