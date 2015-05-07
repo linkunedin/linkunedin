@@ -374,7 +374,7 @@ public class ProfilesManager implements ProfilesManagerIF {
     public void delExperience(Object modifier, ExperienciaForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException, NonexistentEntityException{
         canModify(modifier, formu.getUsername());
         Usuarios usu = getProfile(formu.getUsername());
-        String user = (String) modifier;
+        //String user = (String) modifier;
         
         ejc.destroy(Integer.parseInt(formu.getIdexp()));
         
@@ -383,7 +383,7 @@ public class ProfilesManager implements ProfilesManagerIF {
     public void delEducation(Object modifier, EducacionForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException, NonexistentEntityException{
         canModify(modifier, formu.getUsername());
         Usuarios usu = getProfile(formu.getUsername());
-        String user = (String) modifier;
+        //String user = (String) modifier;
         
         edujc.destroy(Integer.parseInt(formu.getId()));
     }
@@ -391,7 +391,7 @@ public class ProfilesManager implements ProfilesManagerIF {
     public void delKnowledge(Object modifier, EntradaModificarConoForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException, NonexistentEntityException{
         canModify(modifier, formu.getUsername());
         Usuarios usu = getProfile(formu.getUsername());
-        String user = (String) modifier;
+        //String user = (String) modifier;
         
         ijc.destroy(Integer.parseInt(formu.getId()));
     }

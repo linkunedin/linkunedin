@@ -92,6 +92,8 @@
             <forward name="success" path="/listarFuncionalidades.jsp"/>
         </action>
         
+        <action input="/" name="ExperienciaForm" path="/BorraExpe" scope="request" type="com.myapp.struts.Controlador.Actions.BorrarExpeAction" validate="false"/>
+        
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
     
     </action-mappings>

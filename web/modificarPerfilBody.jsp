@@ -72,16 +72,22 @@
             window.location = "vermodificarExpe.do?idexp=" + id;
         }
         
-        window["eliminarExpe"] = function (id){
-            window.location = "modificarExpe.do?idexp=" + id;
+        window["eliminarExpe"] = function (id, usu){
+            $.post("BorraExpe.do", data={
+                "idexp" : id,
+                "username" : usu
+            }).done(function(response){
+                window.location.reload();
+            });
+            //window.location = "BorraExpe.do?idexp=" + id + "&username=" + usu;
         }
         
         window["modificarEduc"] = function (id){
             window.location = "vermodificarEducacion.do?idexp=" + id;
         }
         
-        window["eliminarEduc"] = function (id){
-            window.location = "modificarExpe.do?idexp=" + id;
+        window["eliminarEduc"] = function (id, usu){
+            window.location = "modificarExpe.do?idexp=" + id + "&username=" + usu;
         }
 
         $(".modal-body").css("max-height", "100vh - 210px");
@@ -264,8 +270,8 @@
                                     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Acci&oacute;n
                                         <span class="caret"></span></button>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#" onclick="javascript:modificarExpe(${exp.id})">Editar</a></li>
-                                        <li><a href="#" onclick="javascript:eliminarExpe(${exp.id})">Borrar</a></li>
+                                        <li><a href="#" onclick="javascript:modificarExpe(${exp.id}, '${exp.usuarioId.nombreUsuario}')">Editar</a></li>
+                                        <li><a href="#" onclick="javascript:eliminarExpe(${exp.id}, '${exp.usuarioId.nombreUsuario}')">Borrar</a></li>
                                     </ul>
                                 </div>
                             </td>
