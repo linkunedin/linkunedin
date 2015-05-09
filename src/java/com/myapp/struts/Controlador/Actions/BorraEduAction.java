@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.myapp.struts.Controlador.Actions;
 
 import com.myapp.struts.Controlador.Forms.EducacionForm;
@@ -13,19 +12,20 @@ import com.myapp.struts.Modelo.clases.UserSession;
 import com.myapp.struts.persistencia.entidades.Usuarios;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
 
 /**
  *
- * @author Administrador
+ * @author david
  */
-public class ModificarEducacionAction extends org.apache.struts.action.Action {
+public class BorraEduAction extends org.apache.struts.action.Action {
 
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
-    private static final String ERROR = "error";
 
     /**
      * This is the action called from the Struts framework.
@@ -41,35 +41,23 @@ public class ModificarEducacionAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        System.out.println("bienvenidos a una funcion absurda");
-       EducacionForm formu = (EducacionForm) form;
-        // si ok devolver a la pagina principal
+        EducacionForm formu = (EducacionForm) form;
         ProfilesManager pm = ProfilesManager.getInstance();
-        UserSession us = (UserSession) request.getSession().getAttribute("objsesion");
-        if (us == null){
-           System.out.println("null");
-        }
-        Usuarios usu = us.getUser();
-        
-        System.out.println("Titulacion en modificarEducacionAction");
-        System.out.println(formu.getTitulo());
-        try{
-            System.out.println("antes de pm.modifyEducation");
-            pm.modifyEducation(usu, formu);
-            
-            System.out.println("try modifyEducation");
-        }catch(Exception e){
+        ActionErrors ae = new ActionErrors();
+        Usuarios us;
+        try {
+            us = ((UserSession) request.getSession().getAttribute("objsesion")).getUser();
+        } catch (Exception e) {
+            ae.add("login", new ActionMessage("errors.notlogged"));
+            this.addErrors(request, ae);
             e.printStackTrace();
-            return mapping.findForward(ERROR);
+            return mapping.findForward(SUCCESS);
         }
-        
-        usu = pm.getProfile(formu.getUsername());
-        request.setAttribute("usuperfil", usu);
-        System.out.println("Imprimo formu modificaEdu");
-        System.out.println(formu.toString());
-        System.out.println(formu.getTitulo());
+        Usuarios objetivo = pm.getProfile(formu.getUsername());
+
+        pm.delEducation(us, formu);
+        request.removeAttribute("usuperfil");
+        request.setAttribute("usuperfil",pm.getProfile(formu.getUsername()));
         return mapping.findForward(SUCCESS);
-        
     }
-    
 }

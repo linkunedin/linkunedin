@@ -87,7 +87,12 @@
         }
         
         window["eliminarEduc"] = function (id, usu){
-            window.location = "modificarExpe.do?id=" + id + "&username=" + usu;
+            $.post("BorraEdu.do", data={
+                "id" : id,
+                "username" : usu
+            }).done(function(response){
+                window.location.reload();
+            });
         }
 
         $(".modal-body").css("max-height", "100vh - 210px");
@@ -218,8 +223,8 @@
                                     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Acci&oacute;n
                                         <span class="caret"></span></button>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#" onclick="javascript:modificarEduc(${educ.id})">Editar</a></li>
-                                        <li><a href="#" onclick="javascript:eliminarEduc(${educ.id})">Borrar</a></li>
+                                        <li><a href="#" onclick="javascript:modificarEduc(${educ.id},'${educ.usuarioId.nombreUsuario}')">Editar</a></li>
+                                        <li><a href="#" onclick="javascript:eliminarEduc(${educ.id},'${educ.usuarioId.nombreUsuario}')">Borrar</a></li>
                                     </ul>
                                 </div>
                             </td>

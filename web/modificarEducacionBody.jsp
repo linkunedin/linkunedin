@@ -54,11 +54,11 @@
     COMIENZAN LOS DIALOGOS QUE SE ENVIARAN MEDIANTE AJAX 
 
 -->
-<h1>Formulario de modificaci&oacute;n de experiencia</h1>
+<h1>Formulario de modificaci&oacute;n de educacion</h1>
 <div id="dialogoexpe" class="panel panel-primary">
 
     <div class="panel-heading">
-        Modificar educacion ${educacion.id}
+        Modificar educacion ID = ${educacion.id}
     </div>
 
     <div class="panel-body">
@@ -76,8 +76,8 @@
                     <html:text property="centro" styleClass="form-control" value="${educacion.centroEstudios}"></html:text>                            
                     </div>
                     <div class="form-group">
-                        <label for="titulacion">Titulacion</label>
-                    <html:text property="titulacion" styleClass="form-control" value="${educacion.titulacion}"></html:text> 
+                        <label for="titulo">Titulacion</label>
+                    <html:text property="titulo" styleClass="form-control" value="${educacion.titulacion}"></html:text> 
                     </div>
                     <div class="form-group">
                         <label for="fechainicio">Fecha inicio:</label>

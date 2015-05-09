@@ -99,9 +99,15 @@
             <forward name="success" path="/modificarEducacion.jsp" />
         </action>
         
+        <action input="/" name="EducacionForm" path="/BorraEdu" scope="request" type="com.myapp.struts.Controlador.Actions.BorraEduAction" validate="false">
+           <forward name="success" path="/modificarPerfil.jsp"/>
+        </action>
+        
         <action input="/" name="EducacionForm" path="/AnadirEdu" scope="request" type="com.myapp.struts.Controlador.Actions.AnadirEduAction" validate="false"/>
         
-        <action input="/" name="ExperienciaForm" path="/BorraExpe" scope="request" type="com.myapp.struts.Controlador.Actions.BorrarExpeAction" validate="false"/>
+        <action input="/" name="ExperienciaForm" path="/BorraExpe" scope="request" type="com.myapp.struts.Controlador.Actions.BorrarExpeAction" validate="false">
+            <forward name="success" path="/modificarPerfil.jsp"/>
+        </action>
         
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
     

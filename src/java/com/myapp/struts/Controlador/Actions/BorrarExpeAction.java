@@ -56,7 +56,8 @@ public class BorrarExpeAction extends org.apache.struts.action.Action {
         Usuarios objetivo = pm.getProfile(formu.getUsername());
 
         pm.delExperience(us, formu);
-
+        request.removeAttribute("usuperfil");
+        request.setAttribute("usuperfil",pm.getProfile(formu.getUsername()));
         return mapping.findForward(SUCCESS);
     }
 }

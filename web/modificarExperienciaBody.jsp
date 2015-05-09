@@ -58,7 +58,7 @@
 <div id="dialogoexpe" class="panel panel-primary">
 
     <div class="panel-heading">
-        Modificar experiencia ${experiencia.id}
+        Modificar experiencia ID = ${experiencia.id}
     </div>
 
     <div class="panel-body">
