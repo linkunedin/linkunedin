@@ -174,7 +174,16 @@ public class Intereses implements Serializable {
 
     @Override
     public String toString() {
-        return "Intereses{" + "id=" + id + ", titulo=" + titulo + ", descripcion=" + descripcion + ", valido=" + valido + ", usuariosCollection=" + usuariosCollection + '}';
+        int i;
+        String cad;
+        //cad="laputaquetepario";
+        
+        cad="{" + "id=" + id + ", titulo=" + titulo + ", descripcion=" + descripcion +
+                  ", valido=" + valido + '}';
+        /*Usuarios[]usuArray = (Usuarios[]) usuariosCollection.toArray();
+        for (i=0; i<usuariosCollection.size();i++)
+           cad.concat(usuArray[i].getNombre());*/
+        return cad;
     }
 
     

@@ -7,11 +7,16 @@
 package com.myapp.struts.Controlador.Actions;
 
 import com.myapp.struts.Controlador.Forms.EntradaModificarConoForm;
+import com.myapp.struts.Modelo.clases.ProfilesManager;
+import com.myapp.struts.Modelo.clases.UserSession;
+import com.myapp.struts.persistencia.entidades.Usuarios;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
 
 /**
  *
@@ -38,7 +43,22 @@ public class AnadirConocimientoAction extends org.apache.struts.action.Action {
             throws Exception {
         
         EntradaModificarConoForm formu = (EntradaModificarConoForm) form;
-        
+        ProfilesManager pm = ProfilesManager.getInstance();
+        ActionErrors ae = new ActionErrors();
+        Usuarios us;
+        try{
+            us = ((UserSession)request.getSession().getAttribute("objsesion")).getUser();
+        }catch(Exception e){
+            ae.add("login", new ActionMessage("errors.notlogged"));
+            this.addErrors(request, ae);
+            e.printStackTrace();
+            return mapping.findForward(SUCCESS);
+        }
+        Usuarios objetivo = pm.getProfile(formu.getUsername());
+        System.out.println("conocimientos:");
+        System.out.println(formu.getTitulo());
+        System.out.println(formu.getDescripcion());
+        pm.addKnowledge(us, formu);
         return mapping.findForward(SUCCESS);
     }
 }

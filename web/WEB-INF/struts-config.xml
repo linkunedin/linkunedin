@@ -33,7 +33,7 @@
     </global-forwards>
 
     <action-mappings>
-        <action input="/" name="ConocimientoForm" path="/anadirConocimiento" scope="request" type="com.myapp.struts.Controlador.Actions.AnadirConocimientoAction"/>
+        <action input="/" name="EntradaModificarConoForm" path="/anadirConocimiento" scope="request" type="com.myapp.struts.Controlador.Actions.AnadirConocimientoAction"/>
         <action input="/" name="ExperienciaForm" path="/anadirExpe" scope="request" type="com.myapp.struts.Controlador.Actions.AnadirExpeAction"/>
         <action input="/" name="EducacionForm" path="/anadirEducacion" scope="request" type="com.myapp.struts.Controlador.Actions.AnadirEducacionAction"/>
         <action input="/" name="EducacionForm" path="/modificarEducacion" validate="false" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarEducacionAction">

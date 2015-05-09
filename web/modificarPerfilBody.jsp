@@ -21,10 +21,10 @@
 %>
 
 <script type="text/javascript">
-    $(function() {
+    $(function () {
 
         // evento click enviar experiencia
-        $("#enviarexpe").click(function(evento) {
+        $("#enviarexpe").click(function (evento) {
             $.post("anadirExpe.do", data = {
                 "empresa": $("#expempresa").val(),
                 "puesto": $("#exppuesto").val(),
@@ -32,65 +32,72 @@
                 "fechainicio": $("#expfinicio").val(),
                 "fechafin": $("#expffin").val(),
                 "username": $("#expusuario").val()
-            }).done(function(response) {
+            }).done(function (response) {
                 console.log(response);
-                if ($("#expfinicio").val().match(/\d{2}\/\d{2}\/\d{4}/g) && $("#expffin").val().match(/\d{2}\/\d{2}\/\d{4}/g)){
+                if ($("#expfinicio").val().match(/\d{2}\/\d{2}\/\d{4}/g) && $("#expffin").val().match(/\d{2}\/\d{2}\/\d{4}/g)) {
                     window.location.reload();
                 }
-                else alert("Por favor, introduce una fecha valida!");
+                else
+                    alert("Por favor, introduce una fecha valida!");
             });
         });
 
-        $("#enviartitulacion").click(function(evento) {
-            $.post("anadirEducacion.do", data={
-                "titulo" : $("#acadtitulo").val(),
-                "centro" : $("#acadcentro").val(),
-                "fechainicio" : $("#acadfinicio").val(),
-                "fechafin" : $("#acadffin").val(),
-                "descripcion" : $("#acaddesc").val(),
-                "username" : $("#expusuario").val()
-            }).done(function(response, jqXHR) {
+        $("#enviartitulacion").click(function (evento) {
+            $.post("anadirEducacion.do", data = {
+                "titulo": $("#acadtitulo").val(),
+                "centro": $("#acadcentro").val(),
+                "fechainicio": $("#acadfinicio").val(),
+                "fechafin": $("#acadffin").val(),
+                "descripcion": $("#acaddesc").val(),
+                "username": $("#expusuario").val()
+            }).done(function (response, jqXHR) {
                 console.log(response);
                 if ($("#acadfinicio").val().match(/\d{2}\/\d{2}\/\d{4}/g) && $("#acadffin").val().match(/\d{2}\/\d{2}\/\d{4}/g)) {
                     window.location.reload();
                 }
-                else alert("Por favor, introduce una fecha valida!");
-  
+                else
+                    alert("Por favor, introduce una fecha valida!");
+
             });
         });
 
-        $("#enviarcono").click(function(evento) {
+        $("#enviarcono").click(function (evento) {
             // prueba de envio por ajax
-            $.post("login.do",
-                    data = {"user": "ola", "password": "kase"}  // los datos que se envian
-            ).done(function(response, jqXHR) {   // response es lo que responde el servidor
+            $.post("anadirConocimiento.do",
+                    data = {"titulo": $("#titulocono").val(),
+                        "username": $("#expusuario").val(),
+                        "descripcion": $("#descrcono").val()  // los datos que se envian
+                    }).done(function (response, jqXHR) {   // response es lo que responde el servidor
+
                 console.log(response);
+                window.location.reload();
+                
             });
         });//
-        
-        window["modificarExpe"] = function (id){
+
+        window["modificarExpe"] = function (id) {
             window.location = "vermodificarExpe.do?idexp=" + id;
         }
-        
-        window["eliminarExpe"] = function (id, usu){
-            $.post("BorraExpe.do", data={
-                "idexp" : id,
-                "username" : usu
-            }).done(function(response){
+
+        window["eliminarExpe"] = function (id, usu) {
+            $.post("BorraExpe.do", data = {
+                "idexp": id,
+                "username": usu
+            }).done(function (response) {
                 window.location.reload();
             });
             //window.location = "BorraExpe.do?idexp=" + id + "&username=" + usu;
         }
-        
-        window["modificarEduc"] = function (id){
+
+        window["modificarEduc"] = function (id) {
             window.location = "vermodificarEducacion.do?id=" + id;
         }
-        
-        window["eliminarEduc"] = function (id, usu){
-            $.post("BorraEdu.do", data={
-                "id" : id,
-                "username" : usu
-            }).done(function(response){
+
+        window["eliminarEduc"] = function (id, usu) {
+            $.post("BorraEdu.do", data = {
+                "id": id,
+                "username": usu
+            }).done(function (response) {
                 window.location.reload();
             });
         }
@@ -162,20 +169,19 @@
                     <div class="form-group">
                         <label for="fechaNac2">Fecha Nacimiento</label>
 
-                    
-                    <input type="text" name="fechaNac2" id="fechaNac2" class="form-control" size="10" value="<% 
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                    Date fecha = ((Usuarios)request.getAttribute("usuperfil")).getFechaNac();
-                    if (fecha == null){
-                        out.println("");
-                    }
-                    else{
-                    String fechaformateada = sdf.format(fecha);
-                    out.println(fechaformateada);
-                    }
-                    %>" />
-                    </div>
-                </fieldset>
+
+                        <input type="text" name="fechaNac2" id="fechaNac2" class="form-control" size="10" value="<%
+                            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                            Date fecha = ((Usuarios) request.getAttribute("usuperfil")).getFechaNac();
+                            if (fecha == null) {
+                                out.println("");
+                            } else {
+                                String fechaformateada = sdf.format(fecha);
+                                out.println(fechaformateada);
+                            }
+                           %>" />
+                </div>
+            </fieldset>
 
 
             <fieldset>
@@ -223,8 +229,8 @@
                                     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Acci&oacute;n
                                         <span class="caret"></span></button>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#" onclick="javascript:modificarEduc(${educ.id},'${educ.usuarioId.nombreUsuario}')">Editar</a></li>
-                                        <li><a href="#" onclick="javascript:eliminarEduc(${educ.id},'${educ.usuarioId.nombreUsuario}')">Borrar</a></li>
+                                        <li><a href="#" onclick="javascript:modificarEduc(${educ.id}, '${educ.usuarioId.nombreUsuario}')">Editar</a></li>
+                                        <li><a href="#" onclick="javascript:eliminarEduc(${educ.id}, '${educ.usuarioId.nombreUsuario}')">Borrar</a></li>
                                     </ul>
                                 </div>
                             </td>
@@ -244,10 +250,25 @@
             Conocimientos y competencias adquiridas
         </div>
         <div class="panel-body">
-
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Conocimiento</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <logic:iterate name="usuperfil" property="interesesCollection" id="cono">
+                        <tr>
+                            <td><bean:write name="cono" property="titulo" /></td>
+                            <td><bean:write name="cono" property="descripcion" /></td>
+                        </tr>
+                    </logic:iterate>
+                </tbody>
+            </table>
         </div>
         <div class="panel-footer">
-            <button type="button" class="btn btn-primary" id="nuevaexpe" name="nuevaexpe" data-toggle="modal" data-target="#dialogocono">Nueva competencia</button>
+            <button type="button" class="btn btn-primary" id="nuevocono" name="nuevocono" data-toggle="modal" data-target="#dialogocono">Añadir</button>
         </div>
     </div>
 </div>
@@ -376,9 +397,15 @@
                             Inserte el tag
                         </div>
                         <div class="panel-body">
-
+                            <div class="form-group">
+                                <label for="titulocono">Titulo:</label>
+                                <input type="text" id="titulocono" name="titulocono" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="desccono">Descripcion</label>
+                                <input type="text" id="descrcono" name="descrcono" class="form-control" />
+                            </div>
                         </div>
-
                     </div>
                 </div>
             </div>

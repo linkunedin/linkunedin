@@ -344,11 +344,10 @@ public class ProfilesManager implements ProfilesManagerIF {
     }
     
     public void addKnowledge(Object modifier, EntradaModificarConoForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException{
-        canModify(modifier, formu.getUsername());
-        
-        
+ 
+        canModify(modifier, formu.getUsername());       
         Usuarios usu = getProfile(formu.getUsername());
-        String user = (String) modifier;
+        String user = ((Usuarios) modifier).getNombreUsuario();
         
         // se trata de una relacion M:N. primero comprobar si existe.
         // si no existe crearla
