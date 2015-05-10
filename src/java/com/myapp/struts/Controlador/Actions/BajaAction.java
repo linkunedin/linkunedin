@@ -10,6 +10,15 @@ package com.myapp.struts.Controlador.Actions;
  * @author david
  */
 import com.myapp.struts.Controlador.Forms.BajaForm;
+import com.myapp.struts.Modelo.clases.AccountManager;
+import com.myapp.struts.Modelo.clases.LoginManager;
+import com.myapp.struts.Modelo.clases.UserSession;
+import com.myapp.struts.Modelo.exeptions.UserAlreadyExistsException;
+import com.myapp.struts.configuration.Configuration;
+import com.myapp.struts.persistencia.controladores.UsuariosJpaController;
+import com.myapp.struts.persistencia.entidades.Usuarios;
+import java.util.List;
+import javax.persistence.Persistence;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
@@ -43,18 +52,22 @@ public class BajaAction extends org.apache.struts.action.Action {
         BajaForm bajaform = (BajaForm) form;
         
         // comprobar si existe usuario
-        // esto es un cambio de prueba
-        // crear usuario si no existe
-        
-        // si ok devolver a la pagina principal
-        if (true)
-            return mapping.findForward(SUCCESS);
-        
-        // si no ok devolver a la misma pagina de alta
-        else
+        AccountManager am = AccountManager.getInstance();
+        //LoginManager lm = LoginManager.getInstance();
+        try{
+            am.baja(bajaform.getNomusuario());
+            
+        }catch(Exception ex){
+            //bajaform.setError("Error : el usuario no se pudo borrar");
             return mapping.findForward(ERROR);
+        }
         
-        // prueba cambio
-        // asdsad asd
+        UsuariosJpaController usuariosJpa = new UsuariosJpaController(Persistence.createEntityManagerFactory(Configuration.getPu()));
+        List<Usuarios> listaUsuarios = usuariosJpa.findUsuariosEntities();
+        request.setAttribute("listaUsuarios",listaUsuarios);
+
+        return mapping.findForward(SUCCESS);
+        
+
     }
 }

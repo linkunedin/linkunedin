@@ -70,6 +70,8 @@ public class AccountManager implements AccountManagerIF{
     @Override
     public void baja(Object usuario) throws UserNotExistsException {
         String user = (String) usuario;
+        System.out.println("AccountManager->baja->user");
+        System.out.println(user);
         List<Usuarios> usuarios = ujc.findUsuarioByNombreUsuario(user);
         if (usuarios.size() == 0)
             throw new UserNotExistsException();

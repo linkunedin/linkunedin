@@ -21,6 +21,7 @@
         <form-bean name="CreateUserForm" type="com.myapp.struts.Controlador.Forms.CreateUserForm"/>
         <form-bean name="LoginForm" type="com.myapp.struts.Controlador.Forms.LoginForm"/>
         <form-bean name="EducacionForm" type="com.myapp.struts.Controlador.Forms.EducacionForm"/>
+        <form-bean name="BajaForm" type="com.myapp.struts.Controlador.Forms.BajaForm"/>
     
     </form-beans>
     
@@ -53,7 +54,9 @@
             <forward name="error" path="/formRegistro.jsp"/>
         </action>
 
-        <action input="/" name="BajaForm" path="/baja" type="com.myapp.struts.Controlador.Actions.BajaAction"/>
+        <action input="/" name="BajaForm" path="/baja" type="com.myapp.struts.Controlador.Actions.BajaAction" validate = "false">
+            <forward name="success" path="/listarUsuarios.jsp"/>
+        </action>
         
         <action input="/" path="/insertarusuarios" type="com.myapp.struts.Controlador.Actions.InsertarUsuarios">
             <forward name="success" path="/listarUsuarios.jsp" />

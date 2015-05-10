@@ -8,18 +8,19 @@ package com.myapp.struts.Controlador.Actions;
 
 import com.myapp.struts.Controlador.Forms.AltaForm;
 import com.myapp.struts.Controlador.Forms.EducacionForm;
-import com.myapp.struts.Controlador.Forms.EntradaModificarConoForm;
 import com.myapp.struts.Controlador.Forms.ExperienciaForm;
 import com.myapp.struts.Modelo.clases.AccountManager;
-import com.myapp.struts.Modelo.clases.LoginManager;
 import com.myapp.struts.Modelo.clases.ProfilesManager;
+import com.myapp.struts.configuration.Configuration;
+import com.myapp.struts.persistencia.controladores.UsuariosJpaController;
 import com.myapp.struts.persistencia.entidades.Usuarios;
+import java.util.List;
+import javax.persistence.Persistence;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-
 /**
  *
  * @author Administrador
@@ -90,6 +91,10 @@ public class InsertarUsuarios extends org.apache.struts.action.Action {
         formu2.setFechafin("01/01/2015");
         formu2.setFechainicio("01/01/2015");
         pm.addEducation(usu, formu2);
+        
+        UsuariosJpaController usuariosJpa = new UsuariosJpaController(Persistence.createEntityManagerFactory(Configuration.getPu()));
+        List<Usuarios> listaUsuarios = usuariosJpa.findUsuariosEntities();
+        request.setAttribute("listaUsuarios",listaUsuarios);
         
         return mapping.findForward(SUCCESS);
     }
