@@ -3,6 +3,8 @@
     Created on : 01-abr-2015, 9:20:53
     Author     : juan
 --%>
+<%@page import="com.myapp.struts.Modelo.clases.UserSession"%>
+<%@page import="com.myapp.struts.persistencia.entidades.Usuarios"%>
 <%@taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -33,7 +35,7 @@
                 <div class="col-lg-12">
 
                     <div class="page-header ">
-                        <h1> Practica TW <small>1.0</small></h1>
+                        <h1> Practica TW <small>2.0</small></h1>
                     </div>
                 </div>
             </div>
@@ -51,11 +53,29 @@
                     
                     <ul class="nav nav-pills nav-stacked">
                         <li class="active"><a href="login.do">Home</a></li>
-                        <li><a href="login.jsp">Login</a></li>
+                        <%
+                           if (request.getSession().getAttribute("objsesion") == null){
+                               out.println("<li><a href=\"login.jsp\">Login</a></li>");
+                         }
+                        %>
+
                         <li><a href="formRegistro.jsp">Alta de usuario</a></li>
-                        <li><a href="vermodificarperfil.do?nomusuario=manolo">Modificar perfil</a></li>
+                        <%
+                           if (request.getSession().getAttribute("objsesion") != null){
+                               
+                               Usuarios us = ((UserSession)request.getSession().getAttribute("objsesion")).getUser();
+                               
+                               out.println("<li><a href=\"vermodificarperfil.do?nomusuario="+us.getNombreUsuario()+"\">Modificar perfil</a></li>");
+                         }
+                        %>
+                        
                         <li><a href="ListarUsuarios.do">Listar usuarios</a></li>
-                        <li><a href="logout.do">Logout</a></li>
+                        <%
+                           if (request.getSession().getAttribute("objsesion") != null){
+                               out.println("<li><a href=\"logout.do\">Logout</a></li>");
+                         }
+                        %>
+                        
                         <li><a href="formBusqueda.jsp">Buscar</a></li>
                     </ul>
                     <ul class="nav nav-pills nav-stacked">
