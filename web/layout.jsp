@@ -17,10 +17,12 @@
 
         <!-- Optional theme -->
         <link rel="stylesheet" href="/linkunedin3/bootstrap/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="/linkunedin3/semanticui/label.min.css">
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="/linkunedin3/bootstrap/js/jquery.min.js"></script>
         <script src="/linkunedin3/bootstrap/js/bootstrap.min.js"></script>
+        
         <script type="text/javascript">
             $(function(){
                 $(".form-group").css("margin", "3px");

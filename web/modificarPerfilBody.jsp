@@ -250,22 +250,9 @@
             Conocimientos y competencias adquiridas
         </div>
         <div class="panel-body">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Conocimiento</th>
-                        <th>Descripción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <logic:iterate name="usuperfil" property="interesesCollection" id="cono">
-                        <tr>
-                            <td><bean:write name="cono" property="titulo" /></td>
-                            <td><bean:write name="cono" property="descripcion" /></td>
-                        </tr>
-                    </logic:iterate>
-                </tbody>
-            </table>
+            <logic:iterate name="usuperfil" property="interesesCollection" id="cono">
+                <a class="ui teal tag label">${cono.titulo}</a>
+            </logic:iterate>
         </div>
         <div class="panel-footer">
             <button type="button" class="btn btn-primary" id="nuevocono" name="nuevocono" data-toggle="modal" data-target="#dialogocono">Añadir</button>

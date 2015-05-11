@@ -56,6 +56,10 @@ public class BajaAction extends org.apache.struts.action.Action {
         //LoginManager lm = LoginManager.getInstance();
         try{
             am.baja(bajaform.getNomusuario());
+            String nomusu = ((UserSession)request.getSession().getAttribute("objsesion")).getUser().getNombreUsuario();
+            if (bajaform.getNomusuario().equals(nomusu)){
+                request.getSession().removeAttribute("objsesion");
+            }
             
         }catch(Exception ex){
             //bajaform.setError("Error : el usuario no se pudo borrar");

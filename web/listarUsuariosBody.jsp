@@ -44,14 +44,15 @@
                         <a href="vermodificarperfil.do?nomusuario=${listUserId.nombreUsuario}">
                             <span class="glyphicon glyphicon-pencil"></span>
                         </a>
+                        
+                        <a href="baja.do?nomusuario=${listUserId.nombreUsuario}">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
                         <%
                            }
                            }
                            
                         %>
-                        <a href="baja.do?nomusuario=${listUserId.nombreUsuario}">
-                            <span class="glyphicon glyphicon-remove"></span>
-                        </a>
                     </td>
 
                 </tr>
