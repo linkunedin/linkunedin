@@ -112,6 +112,10 @@
             <forward name="success" path="/modificarPerfil.jsp"/>
         </action>
         
+        <action input="/" name="EntradaModificarConoForm" path="/borrarCono" scope="request" type="com.myapp.struts.Controlador.Actions.BorrarConoAction" validate="false">
+            <forward name="success" path="/modificarPerfil.jsp"/>
+        </action>
+        
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
     
     </action-mappings>

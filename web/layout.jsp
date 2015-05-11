@@ -17,7 +17,7 @@
 
         <!-- Optional theme -->
         <link rel="stylesheet" href="/linkunedin3/bootstrap/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="/linkunedin3/semanticui/label.min.css">
+        <link rel="stylesheet" href="/linkunedin3/semanticui/label.css">
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="/linkunedin3/bootstrap/js/jquery.min.js"></script>

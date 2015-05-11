@@ -24,6 +24,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -393,12 +394,22 @@ public class ProfilesManager implements ProfilesManagerIF {
         edujc.destroy(Integer.parseInt(formu.getId()));
     }
     
-    public void delKnowledge(Object modifier, EntradaModificarConoForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException, NonexistentEntityException{
+    public void delKnowledge(Object modifier, EntradaModificarConoForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException, NonexistentEntityException, Exception{
         canModify(modifier, formu.getUsername());
         Usuarios usu = getProfile(formu.getUsername());
         //String user = (String) modifier;
-        
-        ijc.destroy(Integer.parseInt(formu.getId()));
+        Intereses interes = null;
+        for (Intereses in : usu.getInteresesCollection()){
+            if (Integer.parseInt(formu.getId()) == in.getId()){
+                interes = in;
+                break;
+            }
+        }
+        if (interes != null)
+            usu.getInteresesCollection().remove(interes);
+        ujc.edit(usu);
+        //lint.addAll(inter);
+        //ijc.destroy(Integer.parseInt(formu.getId()));
     }
     
     // faltarian metodos para modificar

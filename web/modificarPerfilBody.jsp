@@ -251,7 +251,7 @@
         </div>
         <div class="panel-body">
             <logic:iterate name="usuperfil" property="interesesCollection" id="cono">
-                <a class="ui teal tag label">${cono.titulo}</a>
+                <a href="borrarCono.do?id=${cono.id}&username=${usuperfil.nombreUsuario}" class="ui teal big tag label">${cono.titulo}</a>
             </logic:iterate>
         </div>
         <div class="panel-footer">
