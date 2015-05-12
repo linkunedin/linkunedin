@@ -82,6 +82,9 @@ public class ModificarPerfilAction extends org.apache.struts.action.Action {
             request.getSession().setAttribute("objsesion", us);
         }
         
+        usuario = pm.getProfile(empf.getNomusuario());
+        request.setAttribute("usuperfil", usuario);
+        
         return mapping.findForward(SUCCESS);
     }
 }

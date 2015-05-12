@@ -53,6 +53,12 @@
             <forward name="success" path="/modificarPerfil.jsp"/>
             <forward name="error" path="/formRegistro.jsp"/>
         </action>
+        
+        <action input="/" name="EntradaModificarPerfilForm" path="/modificarperfil" scope="request" type="com.myapp.struts.Controlador.Actions.ModificarPerfilAction">
+            <forward name="success" path="/modificarPerfil.jsp"/>
+            <forward name="error" path="/modificarPerfil.jsp"/>
+        </action>
+
 
         <action input="/" name="BajaForm" path="/baja" type="com.myapp.struts.Controlador.Actions.BajaAction" validate = "false">
             <forward name="success" path="/listarUsuarios.jsp"/>
