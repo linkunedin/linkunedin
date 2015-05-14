@@ -35,7 +35,7 @@
             }).done(function (response) {
                 console.log(response);
                 if ($("#expfinicio").val().match(/\d{2}\/\d{2}\/\d{4}/g) && $("#expffin").val().match(/\d{2}\/\d{2}\/\d{4}/g)) {
-                    window.location.reload();
+                    window.location="vermodificarperfil.do?nomusuario=${usuperfil.nombreUsuario}";
                 }
                 else
                     alert("Por favor, introduce una fecha valida!");
@@ -53,7 +53,7 @@
             }).done(function (response, jqXHR) {
                 console.log(response);
                 if ($("#acadfinicio").val().match(/\d{2}\/\d{2}\/\d{4}/g) && $("#acadffin").val().match(/\d{2}\/\d{2}\/\d{4}/g)) {
-                    window.location.reload();
+                    window.location="vermodificarperfil.do?nomusuario=${usuperfil.nombreUsuario}";
                 }
                 else
                     alert("Por favor, introduce una fecha valida!");
@@ -70,8 +70,8 @@
                     }).done(function (response, jqXHR) {   // response es lo que responde el servidor
 
                 console.log(response);
-                window.location.reload();
-                
+                //window.location.reload();
+                window.location="vermodificarperfil.do?nomusuario=${usuperfil.nombreUsuario}";
             });
         });//
 
@@ -98,7 +98,7 @@
                 "id": id,
                 "username": usu
             }).done(function (response) {
-                window.location.reload();
+                window.location="vermodificarperfil.do?nomusuario=${usuperfil.nombreUsuario}";
             });
         }
 
@@ -179,7 +179,7 @@
                                 String fechaformateada = sdf.format(fecha);
                                 out.println(fechaformateada);
                             }
-                           %>" />
+                            %>" placeholder="dd/mm/yyyy" />
                 </div>
             </fieldset>
 
@@ -336,11 +336,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="expfinicio">Fecha inicio:</label>
-                                    <input type="text" class="form-control" name="expfinicio" id="expfinicio"/>
+                                    <input type="text" class="form-control" name="expfinicio" id="expfinicio" placeholder="dd/mm/yyyy" />
                                 </div>
                                 <div class="form-group">
                                     <label for="expffin">Fecha fin:</label>
-                                    <input type="text" class="form-control" name="expffin" id="expffin"/>
+                                    <input type="text" class="form-control" name="expffin" id="expffin" placeholder="dd/mm/yyyy" />
                                 </div>
                                 <br/>
                             </fieldset>
@@ -436,11 +436,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="acadfinicio">Fecha inicio</label>
-                                    <input type="text" class="form-control" id="acadfinicio" name="acadfinicio"/>
+                                    <input type="text" class="form-control" id="acadfinicio" name="acadfinicio" placeholder="dd/mm/yyyy" />
                                 </div>
                                 <div class="form-group">
                                     <label for="acadffin">Fecha fin</label>
-                                    <input type="text" class="form-control" id="acadffin" name="acadffin"/>
+                                    <input type="text" class="form-control" id="acadffin" name="acadffin" placeholder="dd/mm/yyyy" />
                                 </div>
                             </fieldset>
                             <fieldset>
