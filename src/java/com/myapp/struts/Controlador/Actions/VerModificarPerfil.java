@@ -69,6 +69,7 @@ public class VerModificarPerfil extends org.apache.struts.action.Action {
         }
         
          // juan mostramos los parametros del fichero
+        /*
         FormFile fotoFile = formu.getFotoFile();
         String contentType = fotoFile.getContentType();
         String fileName = fotoFile.getFileName();
@@ -103,6 +104,7 @@ public class VerModificarPerfil extends org.apache.struts.action.Action {
             System.out.println("error "+e.getMessage());
             return mapping.findForward(ERROR);
         }
+        */
         ///// fin juan
         
         // comprobar si el nombre de usuario se corresponde con alguno

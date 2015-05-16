@@ -121,7 +121,7 @@
                 </legend>
                 <div class="row">
                     <div class="col-lg-2">
-                        <img class="img-responsive foto-perfil" src="/linkunedin3/files/sin-foto.jpg"> 
+                        <img class="img-responsive foto" src="/linkunedin3/files/sin-foto.jpg"> 
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
@@ -165,12 +165,12 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="nombre">Foto:</label>
-                            <html:file property="fotoFile" styleClass="form-control" value="${usuperfil.fotoFile}"></html:file> 
+                            <html:file property="fotoFile" styleClass="form-control" value="${usuperfil.rutafoto}"></html:file> 
 
                             </div>
                             <div class="form-group">
                                 <label for="pdf">Pdf:</label>
-                            <html:text property="pdf" styleClass="form-control" value="${usuperfil.pdf}"></html:file> 
+                            <html:file property="pdf" styleClass="form-control" value="${usuperfil.pdf}"></html:file> 
                             </div>
                         </div>
                     </div>
