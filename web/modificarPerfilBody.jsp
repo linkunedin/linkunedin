@@ -35,7 +35,7 @@
             }).done(function (response) {
                 console.log(response);
                 if ($("#expfinicio").val().match(/\d{2}\/\d{2}\/\d{4}/g) && $("#expffin").val().match(/\d{2}\/\d{2}\/\d{4}/g)) {
-                    window.location="vermodificarperfil.do?nomusuario=${usuperfil.nombreUsuario}";
+                    window.location = "vermodificarperfil.do?nomusuario=${usuperfil.nombreUsuario}";
                 }
                 else
                     alert("Por favor, introduce una fecha valida!");
@@ -53,7 +53,7 @@
             }).done(function (response, jqXHR) {
                 console.log(response);
                 if ($("#acadfinicio").val().match(/\d{2}\/\d{2}\/\d{4}/g) && $("#acadffin").val().match(/\d{2}\/\d{2}\/\d{4}/g)) {
-                    window.location="vermodificarperfil.do?nomusuario=${usuperfil.nombreUsuario}";
+                    window.location = "vermodificarperfil.do?nomusuario=${usuperfil.nombreUsuario}";
                 }
                 else
                     alert("Por favor, introduce una fecha valida!");
@@ -71,7 +71,7 @@
 
                 console.log(response);
                 //window.location.reload();
-                window.location="vermodificarperfil.do?nomusuario=${usuperfil.nombreUsuario}";
+                window.location = "vermodificarperfil.do?nomusuario=${usuperfil.nombreUsuario}";
             });
         });//
 
@@ -98,7 +98,7 @@
                 "id": id,
                 "username": usu
             }).done(function (response) {
-                window.location="vermodificarperfil.do?nomusuario=${usuperfil.nombreUsuario}";
+                window.location = "vermodificarperfil.do?nomusuario=${usuperfil.nombreUsuario}";
             });
         }
 
@@ -109,7 +109,7 @@
 </script>
 
 <h1>Formulario de modificaci&oacute;n de perfil</h1>
-<html:form action="/modificarperfil" styleClass="form-inline">
+<html:form action="/modificarperfil"  enctype="multipart/form-data">
     <div class="panel panel-primary">
         <div class="panel-heading">
             Datos b&aacute;sicos
@@ -119,68 +119,93 @@
                 <legend>
                     Datos personales
                 </legend>
-                <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <img class="img-responsive foto-perfil" src="/linkunedin3/files/sin-foto.jpg"> 
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="nombre">Nombre:</label>
+                            <html:text property="nombre" styleClass="form-control" value="${usuperfil.nombre}"></html:text>
+                            </div>
+                            <div class="form-group">
+                                <label for="apellidos">Apellidos:</label>
+                            <html:text property="apellidos" styleClass="form-control" value="${usuperfil.apellidos}"></html:text>
+                            </div>   
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                            <html:text property="email" styleClass="form-control" value="${usuperfil.email}"></html:text>
+                            </div>
+                            <div class="form-group">
+                                <label for="location">Direcci&oacute;n</label>
+                            <html:text property="location" styleClass="form-control" value="${usuperfil.location}"></html:text>
+                            </div>
+                        </div>
+                    </div>
 
 
-                    <label for="nombre">Nombre:</label>
-                    <html:text property="nombre" styleClass="form-control" value="${usuperfil.nombre}"></html:text>
-                    </div>
-                    <div class="form-group">
-                        <label for="apellidos">Apellidos:</label>
-                    <html:text property="apellidos" styleClass="form-control" value="${usuperfil.apellidos}"></html:text>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                    <html:text property="email" styleClass="form-control" value="${usuperfil.email}"></html:text>
-                    </div>
-                    <div class="form-group">
-                        <label for="location">Direcci&oacute;n</label>
-                    <html:text property="location" styleClass="form-control" value="${usuperfil.location}"></html:text>
-                    </div>
                 </fieldset>
                 <fieldset>
                     <legend>
                         Datos para la aplicaci&oacute;n
                     </legend>
-                    <div class="form-group">
-                        <label for="nomusuario">Nombre usuario:</label>
-                    <html:text property="nomusuario" readonly="true" styleClass="form-control" value="${usuperfil.nombreUsuario}"></html:text>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="nomusuario">Nombre usuario:</label>
+                            <html:text property="nomusuario" readonly="true" styleClass="form-control" value="${usuperfil.nombreUsuario}"></html:text>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password:</label>
+                            <html:text property="password" styleClass="form-control" value="${usuperfil.password}"></html:text>
+                            </div>    
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="nombre">Foto:</label>
+                            <html:file property="fotoFile" styleClass="form-control" value="${usuperfil.fotoFile}"></html:file> 
+
+                            </div>
+                            <div class="form-group">
+                                <label for="pdf">Pdf:</label>
+                            <html:text property="pdf" styleClass="form-control" value="${usuperfil.pdf}"></html:file> 
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="nombre">Foto:</label>
-                    <html:text property="foto" styleClass="form-control" value="${usuperfil.rutafoto}"></html:text>
-                    </div>
-                    <div class="form-group">
-                        <label for="pdf">Pdf:</label>
-                    <html:text property="pdf" styleClass="form-control" value="${usuperfil.pdf}"></html:text>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="password">Password:</label>
-                    <html:text property="password" styleClass="form-control" value="${usuperfil.password}"></html:text>
-                    </div>
+
+
                 </fieldset>
 
                 <fieldset>
                     <legend>
                         Fecha de nacimiento
                     </legend>
-                    <div class="form-group">
-                        <label for="fechaNac2">Fecha Nacimiento</label>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            
+                            <div class="form-group">
+
+                            <label for="fechaNac2">Fecha Nacimiento</label>
 
 
-                        <input type="text" name="fechaNac2" id="fechaNac2" class="form-control" size="10" value="<%
-                            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                            Date fecha = ((Usuarios) request.getAttribute("usuperfil")).getFechaNac();
-                            if (fecha == null) {
-                                out.println("");
-                            } else {
-                                String fechaformateada = sdf.format(fecha);
-                                out.println(fechaformateada);
-                            }
-                            %>" placeholder="dd/mm/yyyy" />
-                </div>
+                            <input type="text" name="fechaNac2" id="fechaNac2" class="form-control" size="10" value="<%
+                                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                                Date fecha = ((Usuarios) request.getAttribute("usuperfil")).getFechaNac();
+                                if (fecha == null) {
+                                    out.println("");
+                                } else {
+                                    String fechaformateada = sdf.format(fecha);
+                                    out.println(fechaformateada);
+                                }
+                               %>" placeholder="dd/mm/yyyy" />
+                        </div>
+                        </div>
+                    </div>
+                    
             </fieldset>
 
 

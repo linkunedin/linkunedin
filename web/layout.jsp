@@ -23,6 +23,8 @@
         <script src="/linkunedin3/bootstrap/js/jquery.min.js"></script>
         <script src="/linkunedin3/bootstrap/js/bootstrap.min.js"></script>
         
+        <link rel="stylesheet" href="/linkunedin3/css/style.css">
+        
         <script type="text/javascript">
             $(function(){
                 $(".form-group").css("margin", "3px");

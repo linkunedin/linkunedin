@@ -11,6 +11,8 @@ import com.myapp.struts.Modelo.clases.AccountManager;
 import com.myapp.struts.Modelo.clases.ProfilesManager;
 import com.myapp.struts.Modelo.clases.UserSession;
 import com.myapp.struts.persistencia.entidades.Usuarios;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,6 +22,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
+import org.apache.struts.upload.FormFile;
 
 /**
  *
@@ -29,7 +32,7 @@ public class VerModificarPerfil extends org.apache.struts.action.Action {
 
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
-
+    private static final String ERROR = "error";
     /**
      * This is the action called from the Struts framework.
      *
@@ -64,6 +67,43 @@ public class VerModificarPerfil extends org.apache.struts.action.Action {
             this.addErrors(request, amsg);
             return mapping.findForward(SUCCESS);
         }
+        
+         // juan mostramos los parametros del fichero
+        FormFile fotoFile = formu.getFotoFile();
+        String contentType = fotoFile.getContentType();
+        String fileName = fotoFile.getFileName();
+        
+        int fileSize = fotoFile.getFileSize();
+        byte[] fileData = fotoFile.getFileData();
+        System.out.println("Tipo: "  + contentType);
+        System.out.println("Nombre: " + fileName);
+        System.out.println("Tamano: " + fileSize);
+        String data;
+        
+        try{
+            //guarda los datos del fichero
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            InputStream stream = fotoFile.getInputStream();
+
+            // solo si el archivo es de menos de 4MB
+            if (fileSize < (4*1024000)) {
+                byte[] buffer = new byte[8192];
+                int bytesLeidos = 0;
+                while ((bytesLeidos = stream.read(buffer, 0, 8192)) != -1) {
+                    baos.write(buffer, 0, bytesLeidos );
+                }
+                data = new String(baos.toByteArray());
+            }
+            else {
+                data = new String("Fichero de más de 4MB: no pudo almacenarse." +
+                " Tamano del fichero: " + fileSize + " bytes.");
+            }
+        }
+        catch(Exception e){
+            System.out.println("error "+e.getMessage());
+            return mapping.findForward(ERROR);
+        }
+        ///// fin juan
         
         // comprobar si el nombre de usuario se corresponde con alguno
         ProfilesManager pm = ProfilesManager.getInstance();

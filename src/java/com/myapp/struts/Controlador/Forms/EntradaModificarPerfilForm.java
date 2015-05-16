@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
+import org.apache.struts.upload.FormFile;
 
 /**
  *
@@ -24,7 +25,25 @@ public class EntradaModificarPerfilForm extends org.apache.struts.action.ActionF
     private int usuarioId;
     private java.util.Date fechaNac;
     private String fechaNac2;
-
+    
+    private FormFile fotoFile;
+    private FormFile pdfFile;
+    
+    
+    public FormFile getFotoFile(){
+        return fotoFile;
+    }
+    public FormFile getPdfFile(){
+        return pdfFile;
+    }
+    
+    public void setFotoFile(FormFile fotoFile){
+        this.fotoFile = fotoFile;
+    }
+    
+    public void setPdfFile(FormFile pdfFile){
+        this.pdfFile = pdfFile;
+    }
     public java.util.Date getFechaNac() {
         return fechaNac;
     }

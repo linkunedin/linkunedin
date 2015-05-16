@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package com.myapp.struts.Controlador.Actions;
 
@@ -13,6 +8,8 @@ import com.myapp.struts.Modelo.clases.UserSession;
 import com.myapp.struts.Modelo.exeptions.NotEnoughPrivilegesException;
 import com.myapp.struts.Modelo.exeptions.ProfileNotExistsException;
 import com.myapp.struts.persistencia.entidades.Usuarios;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionErrors;
@@ -21,6 +18,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
+import org.apache.struts.upload.FormFile;
 
 /**
  *
@@ -30,7 +28,7 @@ public class ModificarPerfilAction extends org.apache.struts.action.Action {
 
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
-
+     private static final String ERROR = "error";
     /**
      * This is the action called from the Struts framework.
      *
@@ -49,7 +47,7 @@ public class ModificarPerfilAction extends org.apache.struts.action.Action {
         EntradaModificarPerfilForm empf = (EntradaModificarPerfilForm) form;
         ActionErrors ae = new ActionErrors();
         Usuarios usuario;
-        
+       
         try{
            UserSession us = (UserSession)  request.getSession().getAttribute("objsesion");
            usuario = us.getUser();
