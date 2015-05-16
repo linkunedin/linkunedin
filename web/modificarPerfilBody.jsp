@@ -121,28 +121,61 @@
                 </legend>
                 <div class="row">
                     <div class="col-lg-2">
-                        <img class="img-responsive foto" src="/linkunedin3/files/sin-foto.jpg"> 
+                        <img class="img-responsive foto-perfil" src="/linkunedin3/files/sin-foto.jpg"> 
                     </div>
-                    <div class="col-lg-4">
-                        <div class="form-group">
+                    
+                    <div class="col-lg-10">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
                             <label for="nombre">Nombre:</label>
                             <html:text property="nombre" styleClass="form-control" value="${usuperfil.nombre}"></html:text>
                             </div>
-                            <div class="form-group">
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
                                 <label for="apellidos">Apellidos:</label>
                             <html:text property="apellidos" styleClass="form-control" value="${usuperfil.apellidos}"></html:text>
-                            </div>   
+                            </div> 
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+
+                                <label for="fechaNac2">Fecha Nacimiento</label>
+
+
+                                <input type="text" name="fechaNac2" id="fechaNac2" class="form-control" size="10" value="<%
+                                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                                    Date fecha = ((Usuarios) request.getAttribute("usuperfil")).getFechaNac();
+                                    if (fecha == null) {
+                                        out.println("");
+                                    } else {
+                                        String fechaformateada = sdf.format(fecha);
+                                        out.println(fechaformateada);
+                                    }
+                                   %>" placeholder="dd/mm/yyyy" />
+                            </div>
+                            </div>
                         </div>
-                        <div class="col-lg-4">
-                            <div class="form-group">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
                                 <label for="email">Email:</label>
                             <html:text property="email" styleClass="form-control" value="${usuperfil.email}"></html:text>
                             </div>
-                            <div class="form-group">
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
                                 <label for="location">Direcci&oacute;n</label>
                             <html:text property="location" styleClass="form-control" value="${usuperfil.location}"></html:text>
                             </div>
+                            </div>
+                        </div>    
+                            
+                              
+                            
                         </div>
+                        
                     </div>
 
 
@@ -180,33 +213,7 @@
 
                 </fieldset>
 
-                <fieldset>
-                    <legend>
-                        Fecha de nacimiento
-                    </legend>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            
-                            <div class="form-group">
-
-                            <label for="fechaNac2">Fecha Nacimiento</label>
-
-
-                            <input type="text" name="fechaNac2" id="fechaNac2" class="form-control" size="10" value="<%
-                                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                                Date fecha = ((Usuarios) request.getAttribute("usuperfil")).getFechaNac();
-                                if (fecha == null) {
-                                    out.println("");
-                                } else {
-                                    String fechaformateada = sdf.format(fecha);
-                                    out.println(fechaformateada);
-                                }
-                               %>" placeholder="dd/mm/yyyy" />
-                        </div>
-                        </div>
-                    </div>
-                    
-            </fieldset>
+               
 
 
             <fieldset>
@@ -341,7 +348,7 @@
                 <h4 class="modal-title">Añadir nueva experiencia</h4>
             </div>
             <div class="modal-body">
-                <div class="form-inline">
+                <div class="">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             Datos de la experiencia laboral
@@ -351,7 +358,9 @@
                                 <legend>
                                     Datos identificativo
                                 </legend>
-                                <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
                                     <label for="expempresa">Empresa:</label>
                                     <input type="text" class="form-control" name="expempresa" id="expempresa"/>
                                 </div>
@@ -359,14 +368,20 @@
                                     <label for="exppuesto">Puesto:</label>
                                     <input type="text" class="form-control" name="exppuesto" id="exppuesto"/>
                                 </div>
-                                <div class="form-group">
-                                    <label for="expfinicio">Fecha inicio:</label>
-                                    <input type="text" class="form-control" name="expfinicio" id="expfinicio" placeholder="dd/mm/yyyy" />
+                                    </div>
+                                    <div class="col-lg-6">
+                                          <div class="form-group">
+                                            <label for="expfinicio">Fecha inicio:</label>
+                                            <input type="text" class="form-control" name="expfinicio" id="expfinicio" placeholder="dd/mm/yyyy" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="expffin">Fecha fin:</label>
+                                            <input type="text" class="form-control" name="expffin" id="expffin" placeholder="dd/mm/yyyy" />
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="expffin">Fecha fin:</label>
-                                    <input type="text" class="form-control" name="expffin" id="expffin" placeholder="dd/mm/yyyy" />
-                                </div>
+                                
+                              
                                 <br/>
                             </fieldset>
                             <fieldset>
@@ -403,20 +418,28 @@
                 <h4 class="modal-title">Añadir nueva competencia</h4>
             </div>
             <div class="modal-body">
-                <div class="form-inline">
+                <div class="">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             Inserte el tag
                         </div>
                         <div class="panel-body">
-                            <div class="form-group">
+                            <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
                                 <label for="titulocono">Titulo:</label>
                                 <input type="text" id="titulocono" name="titulocono" class="form-control" />
                             </div>
-                            <div class="form-group">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
                                 <label for="desccono">Descripcion</label>
                                 <input type="text" id="descrcono" name="descrcono" class="form-control" />
                             </div>
+                                    </div>
+                                </div>
+                            
+                            
                         </div>
                     </div>
                 </div>
@@ -441,7 +464,7 @@
                 <h4 class="modal-title">Añadir nueva titulacion</h4>
             </div>
             <div class="modal-body">
-                <div class="form-inline">
+                <div class="">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             Datos de la titulacion
@@ -451,7 +474,9 @@
                                 <legend>
                                     Datos de la titulacion
                                 </legend>
-                                <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
                                     <label for="acadtitulo">Titulo:</label>
                                     <input type="text" class="form-control" id="acadtitulo" name="acadtitulo"/>
                                 </div>
@@ -459,7 +484,9 @@
                                     <label for="acadcentro">Centro:</label>
                                     <input type="text" class="form-control" id="acadcentro" name="acadcentro"/>
                                 </div>
-                                <div class="form-group">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        div class="form-group">
                                     <label for="acadfinicio">Fecha inicio</label>
                                     <input type="text" class="form-control" id="acadfinicio" name="acadfinicio" placeholder="dd/mm/yyyy" />
                                 </div>
@@ -467,6 +494,10 @@
                                     <label for="acadffin">Fecha fin</label>
                                     <input type="text" class="form-control" id="acadffin" name="acadffin" placeholder="dd/mm/yyyy" />
                                 </div>
+                                    </div>
+                                </div>
+                                
+                                <
                             </fieldset>
                             <fieldset>
                                 <legend>

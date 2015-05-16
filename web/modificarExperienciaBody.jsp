@@ -62,12 +62,14 @@
     </div>
 
     <div class="panel-body">
-        <html:form styleClass="form-inline" action="/modificarExpe">
+        <html:form  action="/modificarExpe">
             <fieldset>
                 <legend>
                     Datos identificativos
                 </legend>
-                <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
                     <label for="username">Nombre de usuario:</label>
                     <html:text property="username" styleClass="form-control" readonly="true" value="${experiencia.usuarioId.nombreUsuario}"></html:text>
                     </div>
@@ -79,7 +81,9 @@
                         <label for="puesto">Puesto:</label>
                     <html:text property="puesto" styleClass="form-control" value="${experiencia.puesto}"></html:text> 
                     </div>
-                    <div class="form-group">
+                    </div>
+                    <div class="col-lg-6">
+                         <div class="form-group">
                         <label for="fechainicio">Fecha inicio:</label>
                     <html:text property="fechainicio" styleClass="form-control" value="${fechainicio}"></html:text> 
                     </div>
@@ -88,7 +92,11 @@
                     <html:text property="fechafin" styleClass="form-control" value="${fechafin}"></html:text> 
                     <html:hidden property="idexp" value="${experiencia.id}"></html:hidden>
                     </div>
-                    <br/>
+                    </div>
+                </div>
+                
+                   
+                    
                 </fieldset>
                 <fieldset>
                     <legend>

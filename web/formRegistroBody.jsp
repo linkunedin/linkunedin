@@ -3,7 +3,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 
-<div class="row">
+
     <h1></h1>
     <span class="text-danger">
         <html:errors/>
@@ -13,36 +13,45 @@
         <div class="panel-heading">Registro Usuarios</div>
         <div class="panel-body">
 
-            <html:form action="/alta" styleClass="form-inline">
-                <div class="form-group">
-                    <label>Nombre</label>
-                    <html:text property="nombre" styleClass="form-control"/>
+            <html:form action="/alta" >
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <html:text property="nombre" styleClass="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="apellidos">Apellidos</label>
+                            <html:text property="apellidos" styleClass="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <html:text property="email" styleClass="form-control"/>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <html:text property="password" styleClass="form-control"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nombusuario">Nombre Usuario</label>
+                            <html:text property="nomusuario" styleClass="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="foto">Foto</label>
+                            <html:file property="rutafoto" styleClass="form-control"/>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Apellidos</label>
-                    <html:text property="apellidos" styleClass="form-control"/>
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <html:text property="password" styleClass="form-control"/>
-                </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <html:text property="email" styleClass="form-control"/>
-                </div>
-                <div class="form-group">
-                    <label>Nombre Usuario</label>
-                    <html:text property="nomusuario" styleClass="form-control"/>
-                </div>
-                <div class="form-group">
-                    <label>Foto</label>
-                    <html:text property="rutafoto" styleClass="form-control"/>
-                </div>
+
+
                 <br/>
                 <button type="submit" class="btn btn-primary">Registrar</button>
                 <bean:write name="AltaForm" property="error" filter="false"/>
             </html:form>
         </div>
     </div>
-</div>
+
 

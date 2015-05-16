@@ -62,12 +62,14 @@
     </div>
 
     <div class="panel-body">
-        <html:form styleClass="form-inline" action="/modificarEducacion">
+        <html:form  action="/modificarEducacion">
             <fieldset>
                 <legend>
                     Datos identificativos
                 </legend>
-                <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-6">
+                         <div class="form-group">
                     <label for="username">Nombre de usuario:</label>
                     <html:text property="username" styleClass="form-control" readonly="true" value="${educacion.usuarioId.nombreUsuario}"></html:text>
                     </div>
@@ -79,7 +81,9 @@
                         <label for="titulo">Titulacion</label>
                     <html:text property="titulo" styleClass="form-control" value="${educacion.titulacion}"></html:text> 
                     </div>
-                    <div class="form-group">
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
                         <label for="fechainicio">Fecha inicio:</label>
                     <html:text property="fechainicio" styleClass="form-control" value="${fechainicio}"></html:text> 
                     </div>
@@ -88,6 +92,10 @@
                     <html:text property="fechafin" styleClass="form-control" value="${fechafin}"></html:text> 
                     <html:hidden property="id" value="${educacion.id}"></html:hidden>
                     </div>
+                    </div>
+                </div>
+                   
+                    
                     <br/>
                 </fieldset>
                 <fieldset>
