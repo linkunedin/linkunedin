@@ -58,3 +58,18 @@ fieldset{
 .foto-perfil{
     margin-top: 10px;
 }
+.page-header{
+    background-image: url(/linkunedin3/files/header.png);
+    height: 145px;
+    margin-top: 0;
+}
+.slogan {
+      color: white;
+  /* background-color: #18212f; */
+  width: 241px;
+  /* height: 20px; */
+  padding: 20px;
+  /* opacity: 56; */
+  margin: 10px;
+  /* border: 1px solid white; */
+}

@@ -39,7 +39,11 @@
                 <div class="col-lg-12">
 
                     <div class="page-header ">
-                        <h1> Practica TW <small>2.0</small></h1>
+                        
+                        <div class="slogan">
+                            <h1> Linkunedin </h1>
+                            <p>Professional Social Network</p>
+                        </div>
                     </div>
                 </div>
             </div>
