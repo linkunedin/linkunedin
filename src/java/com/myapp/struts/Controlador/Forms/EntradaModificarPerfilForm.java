@@ -38,10 +38,12 @@ public class EntradaModificarPerfilForm extends org.apache.struts.action.ActionF
     }
     
     public void setFotoFile(FormFile fotoFile){
+        this.foto = fotoFile.getFileName();
         this.fotoFile = fotoFile;
     }
     
     public void setPdfFile(FormFile pdfFile){
+        this.pdf = pdfFile.getFileName();
         this.pdfFile = pdfFile;
     }
     public java.util.Date getFechaNac() {
