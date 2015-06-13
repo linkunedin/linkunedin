@@ -49,6 +49,7 @@ public class InsertarUsuarios extends org.apache.struts.action.Action {
         altaform.setNomusuario("david");
         altaform.setPassword("david");
         altaform.setAdmin("1");
+        altaform.setRutafoto("/linkunedin3/files/sin-foto.jpg");
         
         
         AccountManager am = AccountManager.getInstance();
@@ -58,6 +59,7 @@ public class InsertarUsuarios extends org.apache.struts.action.Action {
         altaform.setNomusuario("juan");
         altaform.setPassword("juan");
         altaform.setAdmin("0");
+        altaform.setRutafoto("/linkunedin3/files/sin-foto.jpg");
         //AccountManager am = AccountManager.getInstance();
         am.alta(altaform);
         altaform = new AltaForm();
@@ -65,6 +67,7 @@ public class InsertarUsuarios extends org.apache.struts.action.Action {
         altaform.setNomusuario("javi");
         altaform.setPassword("javi");
         altaform.setAdmin("0");
+        altaform.setRutafoto("/linkunedin3/files/sin-foto.jpg");
         //AccountManager am = AccountManager.getInstance();
         am.alta(altaform);
         /*EntradaModificarConoForm cform = new EntradaModificarConoForm();

@@ -86,6 +86,10 @@
             <forward name="success" path="/listarUsuarios.jsp"/>
         </action>
         
+        <action input="/" name="EntradaModificarPerfilForm" path="/VerPerfil" scope="session" type="com.myapp.struts.Controlador.Actions.VerPerfilAction">
+            <forward name="success" path="/verPerfil.jsp"/>
+        </action>
+        
         <action input="/" name="BusquedaForm" path="/buscar" scope="session" type="com.myapp.struts.Controlador.Actions.BuscarAction" validate="true">
             <forward name="success" path="/listarUsuarios.jsp"/>
             <forward name="error" path="/formBusqueda.jsp"/>

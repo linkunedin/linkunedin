@@ -29,7 +29,9 @@
                     <td><bean:write name="listUserId" property="admin"/></td>
                     <td><bean:write name="listUserId" property="email"/></td>
                     <td>
-                        
+                        <a href="VerPerfil.do?nomusuario=${listUserId.nombreUsuario}">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                        </a>
                         <%
                            if (request.getSession().getAttribute("objsesion") != null){
                                

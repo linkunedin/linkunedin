@@ -121,7 +121,7 @@
                 </legend>
                 <div class="row">
                     <div class="col-lg-2">
-                        <img class="img-responsive foto-perfil" src="/linkunedin3/files/sin-foto.jpg"> 
+                        <img class="img-responsive foto-perfil" src="${usuperfil.rutafoto}"> 
                     </div>
                     
                     <div class="col-lg-10">
@@ -488,7 +488,7 @@
                                 </div>
                                     </div>
                                     <div class="col-lg-6">
-                                        div class="form-group">
+                                 <div class="form-group">
                                     <label for="acadfinicio">Fecha inicio</label>
                                     <input type="text" class="form-control" id="acadfinicio" name="acadfinicio" placeholder="dd/mm/yyyy" />
                                 </div>
@@ -499,7 +499,7 @@
                                     </div>
                                 </div>
                                 
-                                <
+                                
                             </fieldset>
                             <fieldset>
                                 <legend>
