@@ -18,7 +18,15 @@ import org.apache.struts.action.ActionMessage;
  */
 public class AltaForm extends org.apache.struts.action.ActionForm {
     
-    private String nombre, apellidos, nomusuario, password, email, rutafoto, perfil, error, admin;
+    private String nombre, apellidos, nomusuario, password, email, rutafoto, perfil, error, admin, pdf;
+
+    public String getPdf() {
+        return pdf;
+    }
+
+    public void setPdf(String pdf) {
+        this.pdf = pdf;
+    }
 
     /**
      *

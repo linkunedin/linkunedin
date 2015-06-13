@@ -196,14 +196,16 @@
                             </div>    
                         </div>
                         <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="nombre">Foto:</label>
-                            <html:file property="fotoFile" styleClass="form-control" value="${usuperfil.rutafoto}"></html:file> 
-
+                            <div class="form-group has-feedback">
+                                <label for="foto">Foto:</label>
+                                <input type="text" name="foto" id="foto" class="form-control" value="${usuperfil.rutafoto}" placeholder="http://xxx.xx.">
+                            
+                            <span class="glyphicon glyphicon-picture form-control-feedback"></span>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group has-feedback">
                                 <label for="pdf">Pdf:</label>
-                            <html:file property="pdf" styleClass="form-control" value="${usuperfil.pdf}"></html:file> 
+                            <input type="text" name="pdf" id="pdf" class="form-control" value="${usuperfil.pdf}" placeholder="http://xxx.xx."> 
+                            <span class="glyphicon glyphicon-file form-control-feedback"></span>
                             </div>
                         </div>
                     </div>

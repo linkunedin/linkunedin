@@ -42,6 +42,7 @@ public class AltaAction extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         AltaForm altaform = (AltaForm) form; 
+
         UserSession us;
         // comprobar si existe usuario
         AccountManager am = AccountManager.getInstance();

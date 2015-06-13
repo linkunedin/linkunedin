@@ -26,11 +26,11 @@ public class EntradaModificarPerfilForm extends org.apache.struts.action.ActionF
     private java.util.Date fechaNac;
     private String fechaNac2;
     
-    private FormFile fotoFile;
-    private FormFile pdfFile;
+    //private FormFile fotoFile;
+    //private FormFile pdfFile;
     
     
-    public FormFile getFotoFile(){
+    /*public FormFile getFotoFile(){
         return fotoFile;
     }
     public FormFile getPdfFile(){
@@ -45,7 +45,8 @@ public class EntradaModificarPerfilForm extends org.apache.struts.action.ActionF
     public void setPdfFile(FormFile pdfFile){
         this.pdf = pdfFile.getFileName();
         this.pdfFile = pdfFile;
-    }
+    }*/
+    
     public java.util.Date getFechaNac() {
         return fechaNac;
     }

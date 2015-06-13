@@ -33,7 +33,7 @@
         </div>
     </html:form>
     <% } else { %>
-    <h1> mierda pa tu boca que ya estas logeado </h1>
+    <h1> Ya tienes abierta una sesión. </h1>
     <% }%> 
 </div>
 

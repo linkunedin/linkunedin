@@ -59,9 +59,14 @@ public class AccountManager implements AccountManagerIF{
         usu.setEmail(form.getEmail());
         usu.setPassword(form.getPassword());
         usu.setRutafoto(form.getRutafoto());
+        usu.setPdf(form.getPdf());
         usu.setNombreUsuario(form.getNomusuario());
         usu.setPerfil("");
-        usu.setAdmin(Short.parseShort(form.getAdmin()));
+        try{
+            usu.setAdmin(Short.parseShort(form.getAdmin()));
+        }catch(Exception e){
+            usu.setAdmin((short)0);
+        }
         
         ujc.create(usu);
         
