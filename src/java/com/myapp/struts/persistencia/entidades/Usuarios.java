@@ -246,18 +246,34 @@ public class Usuarios implements Serializable {
         this.perfil = perfil;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getLocation() {
         return location;
     }
 
+    /**
+     *
+     * @param location
+     */
     public void setLocation(String location) {
         this.location = location;
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getFechaNac() {
         return fechaNac;
     }
 
+    /**
+     *
+     * @param fechaNac
+     */
     public void setFechaNac(Date fechaNac) {
         this.fechaNac = fechaNac;
     }
@@ -351,18 +367,34 @@ public class Usuarios implements Serializable {
         return true;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getRutafoto() {
         return rutafoto;
     }
 
+    /**
+     *
+     * @param rutafoto
+     */
     public void setRutafoto(String rutafoto) {
         this.rutafoto = rutafoto;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPdf() {
         return pdf;
     }
 
+    /**
+     *
+     * @param pdf
+     */
     public void setPdf(String pdf) {
         this.pdf = pdf;
     }

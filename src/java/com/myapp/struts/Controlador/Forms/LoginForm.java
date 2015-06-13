@@ -51,10 +51,18 @@ public class LoginForm extends org.apache.struts.action.ActionForm {
         this.password = password;
     }
     
+    /**
+     *
+     * @return
+     */
     public String getError(){
         return error;
     }
 
+    /**
+     *
+     * @param error
+     */
     public void setError(String error){
         this.error = error;
     }

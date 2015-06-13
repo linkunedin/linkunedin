@@ -20,6 +20,10 @@ public interface UserSessionIF {
      */
     public void setUser(Usuarios user);
     
+    /**
+     *
+     * @return
+     */
     public Usuarios getUser();
     
     /**

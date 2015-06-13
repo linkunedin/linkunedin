@@ -118,6 +118,11 @@ public class AccountManager implements AccountManagerIF{
         }
     }
     
+    /**
+     *
+     * @param user
+     * @throws UserNotExistsException
+     */
     public void setAdmin(String user) throws UserNotExistsException{
         List<Usuarios> lista = ujc.findUsuarioByNombreUsuario(user);
         if (lista.size() == 0)   // no existe

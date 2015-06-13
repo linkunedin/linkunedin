@@ -15,14 +15,23 @@ import com.myapp.struts.Modelo.clases.FunctionManager;
 public class FunctionManagerTest {
     private FunctionManager fm;
     
+    /**
+     *
+     */
     public FunctionManagerTest(){
         fm = FunctionManager.getInstance();
     }
     
+    /**
+     *
+     */
     public void testActivar(){
         
     }
     
+    /**
+     *
+     */
     public void testDesactivar(){
         
     }

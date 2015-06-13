@@ -21,10 +21,16 @@ public class AccountManagerTest {
 
     private AccountManager am;
 
+    /**
+     *
+     */
     public AccountManagerTest() {
         am = AccountManager.getInstance();
     }
 
+    /**
+     *
+     */
     public void testAltaBaja() {
         AltaForm form = new AltaForm();
         form.setNombre("javi");
@@ -74,6 +80,9 @@ public class AccountManagerTest {
 
     }
 
+    /**
+     *
+     */
     public void testModificar() {
         AltaForm form = new AltaForm();
         form.setNombre("javi");

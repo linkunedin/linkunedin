@@ -20,10 +20,18 @@ public class ExperienciaForm extends org.apache.struts.action.ActionForm {
     
     private String empresa, puesto, /*actividades, */descripcion, fechainicio, fechafin, username, idexp;
 
+    /**
+     *
+     * @return
+     */
     public String getIdexp() {
         return idexp;
     }
 
+    /**
+     *
+     * @param idexp
+     */
     public void setIdexp(String idexp) {
         this.idexp = idexp;
     }
@@ -108,10 +116,18 @@ public class ExperienciaForm extends org.apache.struts.action.ActionForm {
         this.fechafin = fechafin;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getUsername() {
         return username;
     }
 
+    /**
+     *
+     * @param username
+     */
     public void setUsername(String username) {
         this.username = username;
     }

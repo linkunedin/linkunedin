@@ -24,10 +24,18 @@ public class BusquedaForm extends org.apache.struts.action.ActionForm {
     private java.util.Date fechaNac;
     private String fechaNac2;
 
+    /**
+     *
+     * @return
+     */
     public String getFechaNac2() {
         return fechaNac2;
     }
 
+    /**
+     *
+     * @param fechaNac2
+     */
     public void setFechaNac2(String fechaNac2) {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         java.util.Date fnac;
@@ -42,43 +50,82 @@ public class BusquedaForm extends org.apache.struts.action.ActionForm {
         this.fechaNac = fnac;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getTitulacion() {
         return titulacion;
     }
 
+    /**
+     *
+     * @param titulacion
+     */
     public void setTitulacion(String titulacion) {
         this.titulacion = titulacion;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getExperiencia() {
         return experiencia;
     }
 
+    /**
+     *
+     * @param experiencia
+     */
     public void setExperiencia(String experiencia) {
         this.experiencia = experiencia;
     }
 
-
+    /**
+     *
+     * @return
+     */
     public String getConocimientos() {
         return conocimientos;
     }
 
+    /**
+     *
+     * @param conocimientos
+     */
     public void setConocimientos(String conocimientos) {
         this.conocimientos = conocimientos;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getLocation() {
         return location;
     }
 
+    /**
+     *
+     * @param location
+     */
     public void setLocation(String location) {
         this.location = location;
     }
 
+    /**
+     *
+     * @return
+     */
     public  java.util.Date getFechaNac() {
         return fechaNac;
     }
 
+    /**
+     *
+     * @param fechaNac
+     */
     public void setFechaNac(Date fechaNac) {
         this.fechaNac = fechaNac;
     }

@@ -231,6 +231,11 @@ public class InteresesJpaController implements Serializable {
         return em.createNamedQuery(namequery, Usuarios.class);
     }
     
+    /**
+     *
+     * @param titulo
+     * @return
+     */
     public List<Intereses> fingInteresesByTitulo(String titulo){
         Query q = query("Intereses.findByTitulo");
         q.setParameter("titulo", titulo);

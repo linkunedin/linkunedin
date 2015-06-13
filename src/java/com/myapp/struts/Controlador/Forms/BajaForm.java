@@ -17,10 +17,18 @@ import org.apache.struts.action.ActionMessage;
 public class BajaForm extends org.apache.struts.action.ActionForm {
     private String nombre, apellidos, nomusuario, password, email, rutafoto,error;
 
+    /**
+     *
+     * @return
+     */
     public String getError() {
         return error;
     }
 
+    /**
+     *
+     * @param error
+     */
     public void setError(String error) {
         this.error = error;
     }

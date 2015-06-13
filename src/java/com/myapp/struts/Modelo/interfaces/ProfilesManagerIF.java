@@ -32,6 +32,7 @@ public interface ProfilesManagerIF {
      * @param modifier
      * @param profile
      * @throws ProfileNotExistsException
+     * @throws com.myapp.struts.Modelo.exeptions.NotEnoughPrivilegesException
      */
     public void modifyProfile(Object modifier, Object profile) throws ProfileNotExistsException, NotEnoughPrivilegesException ;
 
@@ -53,7 +54,7 @@ public interface ProfilesManagerIF {
 
     /**
      *
-     * @param criteria
+     * @param formu
      * @return
      */
     public List<Usuarios> getProfiles(BusquedaForm formu);

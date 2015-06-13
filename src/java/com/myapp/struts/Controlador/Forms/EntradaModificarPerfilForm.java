@@ -46,20 +46,37 @@ public class EntradaModificarPerfilForm extends org.apache.struts.action.ActionF
         this.pdf = pdfFile.getFileName();
         this.pdfFile = pdfFile;
     }*/
+
+    /**
+     *
+     * @return
+     */
+    
     
     public java.util.Date getFechaNac() {
         return fechaNac;
     }
 
+    /**
+     *
+     * @param fechaNac
+     */
     public void setFechaNac(java.util.Date fechaNac) {
         this.fechaNac = fechaNac;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getFechaNac2() {
         return fechaNac2;
     }
 
-   
+    /**
+     *
+     * @param fechaNac2
+     */
     public void setFechaNac2(String fechaNac2) {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         java.util.Date fnac;
@@ -95,100 +112,189 @@ public class EntradaModificarPerfilForm extends org.apache.struts.action.ActionF
         return errors;
     }
 
- 
+    /**
+     *
+     * @return
+     */
     public int getUsuarioId() {
         return usuarioId;
     }
 
+    /**
+     *
+     * @param usuarioId
+     */
     public void setUsuarioId(int usuarioId) {
         this.usuarioId = usuarioId;
     }
 
-    
+    /**
+     *
+     * @return
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     *
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getError() {
         return error;
     }
 
+    /**
+     *
+     * @param error
+     */
     public void setError(String error) {
         this.error = error;
     }
 
-
-
+    /**
+     *
+     * @param ano
+     * @param mes
+     * @param dia
+     */
     public void setFechaNac(String ano, String mes, String dia) {
         // de esta forma este metodo seria inutil
         
     }
     
-    
+    /**
+     *
+     * @return
+     */
     public String getLocation() {
         return location;
     }
 
+    /**
+     *
+     * @param location
+     */
     public void setLocation(String location) {
         this.location = location;
     }
     
+    /**
+     *
+     * @return
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     *
+     * @param nombre
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getApellidos() {
         return apellidos;
     }
 
+    /**
+     *
+     * @param apellidos
+     */
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNomusuario() {
         return nomusuario;
     }
 
+    /**
+     *
+     * @param nomusuario
+     */
     public void setNomusuario(String nomusuario) {
         this.nomusuario = nomusuario;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     *
+     * @param email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getFoto() {
         return foto;
     }
 
+    /**
+     *
+     * @param foto
+     */
     public void setFoto(String foto) {
         this.foto = foto;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPerfil() {
         return perfil;
     }
 
+    /**
+     *
+     * @param perfil
+     */
     public void setPerfil(String perfil) {
         this.perfil = perfil;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPdf() {
         return pdf;
     }
 
+    /**
+     *
+     * @param pdf
+     */
     public void setPdf(String pdf) {
         this.pdf = pdf;
     }

@@ -44,6 +44,10 @@ public class UserSession implements UserSessionIF{
         
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Usuarios getUser() {
         return this.user;

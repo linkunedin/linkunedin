@@ -385,31 +385,56 @@ public class UsuariosJpaController implements Serializable {
         return q.getResultList();
     }
     
+    /**
+     *
+     * @param user
+     * @return
+     */
     public List<Usuarios> findUsuarioByNombreUsuario(String user){
         Query q = query("Usuarios.findByNombreUsuario");
         q.setParameter("nombreUsuario", user);
         return q.getResultList();
     }
     
+    /**
+     *
+     * @param loc
+     * @return
+     */
     public List<Usuarios> findUsuarioByLocation(String loc){
         Query q = query("Usuarios.findByLocation");
         q.setParameter("location", loc);
         return q.getResultList();
     }
     
+    /**
+     *
+     * @param fecha
+     * @return
+     */
     public List<Usuarios> findUsuarioByFechaNac(java.sql.Date fecha){
         Query q = query("Usuarios.findByFechaNac");
         q.setParameter("fechaNac", fecha);
         return q.getResultList();
     }
     
+    /**
+     *
+     * @param interes
+     * @return
+     */
     public List<Usuarios> findUsuarioByConocimientos(String interes){
         Query q = query("Usuarios.findByInteres");
         q.setParameter("interes", interes);
         return q.getResultList();
     }    
     
-        public List<Usuarios> findUsuarioByExperiencia(String interes){
+    /**
+     *
+     * @param interes
+     * @return
+     */
+    public List<Usuarios> findUsuarioByExperiencia(String interes){
         Query q = query("Usuarios.findByInteres");
         q.setParameter("interes", interes);
         return q.getResultList();

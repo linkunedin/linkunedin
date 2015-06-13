@@ -83,6 +83,7 @@ public class ProfilesManager implements ProfilesManagerIF {
      * @param modifier  este parametro hay que pillarlo de la sesion (Usuarios)
      * @param profile EntradaModificarPerfilForm
      * @throws ProfileNotExistsException
+     * @throws com.myapp.struts.Modelo.exeptions.NotEnoughPrivilegesException
      */
     @Override
     public void modifyProfile(Object modifier, Object profile) throws ProfileNotExistsException, NotEnoughPrivilegesException {
@@ -192,7 +193,7 @@ public class ProfilesManager implements ProfilesManagerIF {
     /**
      *  aqui deberia haber un form en la entrada. igual el formulario de la busqueda 
      * de perfiles
-     * @param criteria
+     * @param formu
      * @return
      */
     @Override
@@ -272,6 +273,14 @@ public class ProfilesManager implements ProfilesManagerIF {
         return true;
     }
     
+    /**
+     *
+     * @param modifier
+     * @param formu
+     * @throws ProfileNotExistsException
+     * @throws NotEnoughPrivilegesException
+     * @throws ParseException
+     */
     public void addExperience(Object modifier, ExperienciaForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException, ParseException{
         canModify(modifier, formu.getUsername());
         
@@ -311,6 +320,14 @@ public class ProfilesManager implements ProfilesManagerIF {
         //System.out.println("creada experiencia :" /*+ getProfile(usu.getNombreUsuario()).toString()*/ + exp.toString());
     }
     
+    /**
+     *
+     * @param modifier
+     * @param formu
+     * @throws ProfileNotExistsException
+     * @throws NotEnoughPrivilegesException
+     * @throws ParseException
+     */
     public void addEducation(Object modifier, EducacionForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException, ParseException{
         canModify(modifier, formu.getUsername());
         
@@ -344,6 +361,13 @@ public class ProfilesManager implements ProfilesManagerIF {
         
     }
     
+    /**
+     *
+     * @param modifier
+     * @param formu
+     * @throws ProfileNotExistsException
+     * @throws NotEnoughPrivilegesException
+     */
     public void addKnowledge(Object modifier, EntradaModificarConoForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException{
  
         canModify(modifier, formu.getUsername());       
@@ -377,6 +401,14 @@ public class ProfilesManager implements ProfilesManagerIF {
         }    
     }
     
+    /**
+     *
+     * @param modifier
+     * @param formu
+     * @throws ProfileNotExistsException
+     * @throws NotEnoughPrivilegesException
+     * @throws NonexistentEntityException
+     */
     public void delExperience(Object modifier, ExperienciaForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException, NonexistentEntityException{
         canModify(modifier, formu.getUsername());
         Usuarios usu = getProfile(formu.getUsername());
@@ -386,6 +418,14 @@ public class ProfilesManager implements ProfilesManagerIF {
         
     }
     
+    /**
+     *
+     * @param modifier
+     * @param formu
+     * @throws ProfileNotExistsException
+     * @throws NotEnoughPrivilegesException
+     * @throws NonexistentEntityException
+     */
     public void delEducation(Object modifier, EducacionForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException, NonexistentEntityException{
         canModify(modifier, formu.getUsername());
         Usuarios usu = getProfile(formu.getUsername());
@@ -394,6 +434,15 @@ public class ProfilesManager implements ProfilesManagerIF {
         edujc.destroy(Integer.parseInt(formu.getId()));
     }
     
+    /**
+     *
+     * @param modifier
+     * @param formu
+     * @throws ProfileNotExistsException
+     * @throws NotEnoughPrivilegesException
+     * @throws NonexistentEntityException
+     * @throws Exception
+     */
     public void delKnowledge(Object modifier, EntradaModificarConoForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException, NonexistentEntityException, Exception{
         canModify(modifier, formu.getUsername());
         Usuarios usu = getProfile(formu.getUsername());
@@ -414,7 +463,13 @@ public class ProfilesManager implements ProfilesManagerIF {
     
     // faltarian metodos para modificar
     
-    
+    /**
+     *
+     * @param modifier
+     * @param formu
+     * @throws ProfileNotExistsException
+     * @throws NotEnoughPrivilegesException
+     */
     public void modifyExperience(Object modifier, ExperienciaForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException{
        
         
@@ -439,6 +494,13 @@ public class ProfilesManager implements ProfilesManagerIF {
         }
     }
     
+    /**
+     *
+     * @param modifier
+     * @param formu
+     * @throws ProfileNotExistsException
+     * @throws NotEnoughPrivilegesException
+     */
     public void modifyEducation(Object modifier, EducacionForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException{
          
         
@@ -467,6 +529,14 @@ public class ProfilesManager implements ProfilesManagerIF {
         }
     }
     
+    /**
+     *
+     * @param modifier
+     * @param formu
+     * @throws ProfileNotExistsException
+     * @throws NotEnoughPrivilegesException
+     * @throws NonexistentEntityException
+     */
     public void modifyKnowledge(Object modifier, EntradaModificarConoForm formu) throws ProfileNotExistsException, NotEnoughPrivilegesException, NonexistentEntityException{
         canModify(modifier, formu.getUsername());
         
@@ -495,11 +565,21 @@ public class ProfilesManager implements ProfilesManagerIF {
         }
     }
     
+    /**
+     *
+     * @param id
+     * @return
+     */
     public Experiencias getExperience(int id){
         return this.ejc.findExperiencias(id);
     }
     
-        public Educacion getEducacion(int id){
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public Educacion getEducacion(int id){
         return this.edujc.findEducacion(id);
     }
     

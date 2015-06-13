@@ -15,14 +15,23 @@ import com.myapp.struts.Modelo.clases.ProfilesManager;
 public class ProfilesManagerTest {
     private ProfilesManager pm;
     
+    /**
+     *
+     */
     public ProfilesManagerTest(){
         pm = pm.getInstance();
     }
     
+    /**
+     *
+     */
     public void testCreateProfile(){
         
     }
     
+    /**
+     *
+     */
     public void testDeleteProfile(){
         
     }

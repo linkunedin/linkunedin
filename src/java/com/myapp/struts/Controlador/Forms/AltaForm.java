@@ -20,10 +20,18 @@ public class AltaForm extends org.apache.struts.action.ActionForm {
     
     private String nombre, apellidos, nomusuario, password, email, rutafoto, perfil, error, admin, pdf;
 
+    /**
+     *
+     * @return
+     */
     public String getPdf() {
         return pdf;
     }
 
+    /**
+     *
+     * @param pdf
+     */
     public void setPdf(String pdf) {
         this.pdf = pdf;
     }
@@ -124,26 +132,50 @@ public class AltaForm extends org.apache.struts.action.ActionForm {
         this.rutafoto = rutafoto;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPerfil() {
         return perfil;
     }
 
+    /**
+     *
+     * @param perfil
+     */
     public void setPerfil(String perfil) {
         this.perfil = perfil;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getError() {
         return error;
     }
 
+    /**
+     *
+     * @param error
+     */
     public void setError(String error) {
         this.error = error;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getAdmin() {
         return admin;
     }
 
+    /**
+     *
+     * @param admin
+     */
     public void setAdmin(String admin) {
         this.admin = admin;
     }

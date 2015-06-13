@@ -20,10 +20,18 @@ public class EducacionForm extends org.apache.struts.action.ActionForm {
     
     private String centro, titulo, /*act,*/ descripcion, fechafin, fechainicio, username, id;
 
+    /**
+     *
+     * @return
+     */
     public String getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(String id) {
         this.id = id;
     }
@@ -108,10 +116,18 @@ public class EducacionForm extends org.apache.struts.action.ActionForm {
         this.fechainicio = fechainicio;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getUsername() {
         return username;
     }
 
+    /**
+     *
+     * @param username
+     */
     public void setUsername(String username) {
         this.username = username;
     }
