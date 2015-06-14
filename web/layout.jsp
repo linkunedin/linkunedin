@@ -91,6 +91,16 @@
                         <li><a href="insertarusuarios.do">Insertar usuarios</a></li>
                         
                     </ul>
+                      <ul class="nav nav-pills nav-stacked">
+                        
+                        <li><a href="/linkunedin3/files/documentacion/Linkunedin.pdf">Memoria de la práctica</a></li>
+                        
+                    </ul>
+                    <ul class="nav nav-pills nav-stacked">
+                        
+                        <li><a href="/linkunedin3/files/documentacion/Manual de usuario.pdf">Manual de usuario</a></li>
+                        
+                    </ul>
                    
                    
                 </div>
