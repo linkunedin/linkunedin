@@ -62,6 +62,7 @@ fieldset{
     border: 1px solid #ccc;
     padding: 5px;
     min-height: 117px;
+    max-height: 117px;
 }
 .page-header{
     background-image: url(/linkunedin3/files/header.png);
