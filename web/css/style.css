@@ -3,7 +3,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : 29-mar-2015, 12:51:14
     Author     : juan
 */
@@ -57,6 +57,11 @@ fieldset{
 }
 .foto-perfil{
     margin-top: 10px;
+
+    /* border: 1px; */
+    border: 1px solid #ccc;
+    padding: 5px;
+    min-height: 117px;
 }
 .page-header{
     background-image: url(/linkunedin3/files/header.png);
@@ -64,12 +69,12 @@ fieldset{
     margin-top: 0;
 }
 .slogan {
-      color: white;
-  /* background-color: #18212f; */
-  width: 241px;
-  /* height: 20px; */
-  padding: 20px;
-  /* opacity: 56; */
-  margin: 10px;
-  /* border: 1px solid white; */
+    color: white;
+    /* background-color: #18212f; */
+    width: 241px;
+    /* height: 20px; */
+    padding: 20px;
+    /* opacity: 56; */
+    margin: 10px;
+    /* border: 1px solid white; */
 }

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.myapp.struts.Controlador.Actions;
 
 import com.myapp.struts.Controlador.Forms.AltaForm;
@@ -21,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+
 /**
  *
  * @author Administrador
@@ -44,14 +44,13 @@ public class InsertarUsuarios extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        AltaForm altaform = new AltaForm(); 
+        AltaForm altaform = new AltaForm();
         altaform.setNombre("david");
         altaform.setNomusuario("david");
         altaform.setPassword("david");
         altaform.setAdmin("1");
         altaform.setRutafoto("/linkunedin3/files/sin-foto.jpg");
-        
-        
+
         AccountManager am = AccountManager.getInstance();
         am.alta(altaform);
         altaform = new AltaForm();
@@ -59,7 +58,7 @@ public class InsertarUsuarios extends org.apache.struts.action.Action {
         altaform.setNomusuario("juan");
         altaform.setPassword("juan");
         altaform.setAdmin("0");
-        altaform.setRutafoto("/linkunedin3/files/sin-foto.jpg");
+        altaform.setRutafoto("/linkunedin3/files/juan-camba.jpg");
         //AccountManager am = AccountManager.getInstance();
         am.alta(altaform);
         altaform = new AltaForm();
@@ -71,12 +70,12 @@ public class InsertarUsuarios extends org.apache.struts.action.Action {
         //AccountManager am = AccountManager.getInstance();
         am.alta(altaform);
         /*EntradaModificarConoForm cform = new EntradaModificarConoForm();
-        cform.setUsername("juan");
-        cform.setTitulo("java");
-        */
+         cform.setUsername("juan");
+         cform.setTitulo("java");
+         */
         ProfilesManager pm = ProfilesManager.getInstance();
         ExperienciaForm formu = new ExperienciaForm();
-        
+
         formu.setPuesto("ñapas");
         formu.setEmpresa("Teleperforanos");
         formu.setUsername("david");
@@ -85,7 +84,7 @@ public class InsertarUsuarios extends org.apache.struts.action.Action {
         formu.setDescripcion("ñapas");
         Usuarios usu = pm.getProfile("david");
         pm.addExperience(usu, formu);
-        
+
         EducacionForm formu2 = new EducacionForm();
         formu2.setCentro("asdasd");
         formu2.setDescripcion("sadasd");
@@ -94,11 +93,11 @@ public class InsertarUsuarios extends org.apache.struts.action.Action {
         formu2.setFechafin("01/01/2015");
         formu2.setFechainicio("01/01/2015");
         pm.addEducation(usu, formu2);
-        
+
         UsuariosJpaController usuariosJpa = new UsuariosJpaController(Persistence.createEntityManagerFactory(Configuration.getPu()));
         List<Usuarios> listaUsuarios = usuariosJpa.findUsuariosEntities();
-        request.setAttribute("listaUsuarios",listaUsuarios);
-        
+        request.setAttribute("listaUsuarios", listaUsuarios);
+
         return mapping.findForward(SUCCESS);
     }
 }
